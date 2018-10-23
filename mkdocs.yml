@@ -1,0 +1,12 @@
+site_name: Sentenza's notes
+site_author: sentenza
+repo_url: https://github.com/sentenza/docs
+nav:
+    - Home: index.md
+    # - About: about.md
+    # - Scala: scala.md
+    # - Functional Programming: fp.md
+theme: 
+  name: readthedocs
+  hljs_languages:
+    - scala
