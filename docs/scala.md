@@ -69,7 +69,7 @@ Intuitively, this makes sense: a list of non-empty sets is a special case of a l
 We call types for which this relationship holds **covariant** because their subtyping relationship varies with the type parameter. Thus `Lists` in scala are **covariant**.
 
 Does covariance make sense for all types, not just for List? No. For instance, in Scala, **arrays are not covariant**.
-So when does it make sense to subtype one type with another? The answer is the **Liskov Substitution Principle**: _If `A <: B`, then everything one can to do with a value of
+So when does it make sense to subtype one type with another? The answer is the [Liskov Substitution Principle][liskov]: _If `A <: B`, then everything one can to do with a value of
 type B one should also be able to do with a value of type A._
 
 Say C[T] is a parameterized type, and A, B are types such that:
@@ -92,9 +92,9 @@ So, given that `Any` > `AnyRef` > `IntSet` > `Empty` and `NonEmpty`, if
 type A = IntSet => NonEmpty
 type B = NonEmpty => IntSet
 ```
-According to the Liskov Principle => `A <: B`, since B can return an Empty or NonEmpty, but A can return only NonEmpty.
+According to the [Liskov Principle][liskov] => `A <: B`, since B can return an Empty or NonEmpty, but A can return only NonEmpty.
 
-For a function, if `A2 <: A1` and `B1 <: B2`, then `A1 => B1 <: A2 => B2`. The consequence is that functions must be **contravariant in their argument types and covariant in their result types**, e.g.
+For a function, if `A2 <: A1` and `B1 <: B2`, then `A1 => B1 <: A2 => B2`. The consequence is that functions must be **contravariant in their argument types and covariant in their result types**.
 
 This example shows that functions are _contravariant_ in argument types and _covariant_ in return types.
 
@@ -126,3 +126,5 @@ object morecovariance extends App {
 
 Find out more about variance in [Covariance And Contravariance in Scala](http://blog.kamkor.me/Covariance-And-Contravariance-In-Scala/)
 
+
+[liskov]: https://stackoverflow.com/a/584732/1977778
