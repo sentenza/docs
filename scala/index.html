@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="sentenza">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Scala - Sentenza's notes</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Scala";
+    var mkdocs_page_input_path = "scala.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Sentenza's notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Scala</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#evaluation-rules">Evaluation rules</a></li>
+    
+
+    <li class="toctree-l2"><a href="#general-object-hierarchy">General object hierarchy:</a></li>
+    
+
+    <li class="toctree-l2"><a href="#type-parameters">Type Parameters</a></li>
+    
+
+    <li class="toctree-l2"><a href="#variance">Variance</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../links/">Links</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Sentenza's notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Scala</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/sentenza/docs/edit/master/docs/scala.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="evaluation-rules">Evaluation rules</h2>
+<ul>
+<li><code>def</code> defines a method</li>
+<li><code>val</code> defines a fixed value, it is immmutable and eagerly initialized</li>
+<li><code>var</code> defines a variable reference, it is mutable and it should be avoided</li>
+<li><code>lazy</code> only initialised when required and as late as possible (deferred evaluation), default is strict and is not recomputed like by-name parameters</li>
+</ul>
+<pre><code class="scala">    def myFunction = 2         // evaluated when called
+    val myImmutableValue = 2   // evaluated immediately
+    lazy val iMLazy = 2        // evaluated once when needed
+
+    def sort(x: List[Double])       // call by value
+    def square(x: =&gt; List[Double])  // call by name
+    // ds is a sequence of Double, containing a varying number of arguments
+    def varargsFunction(ds: Double*) = ???
+</code></pre>
+
+<ul>
+<li><strong>Call by-value</strong>: evaluates the function arguments before calling the function</li>
+<li><strong>Call by-name</strong>: evaluates the function first, and then evaluates the arguments if need be (each time the parameter is referenced inside the function)</li>
+</ul>
+<h2 id="general-object-hierarchy">General object hierarchy:</h2>
+<p><img alt="scala-hierarchy" src="../assets/img/scala-hierarchy.png" /></p>
+<p><strong>NOTE:</strong> All members of packages <code>scala</code> and <code>java.lang</code> as well as all members of the object <code>scala.Predef</code> are automatically imported.</p>
+<ul>
+<li><code>scala.Nothing</code> is a trait that is the bottom subtype of every subtype of <code>scala.Any</code><ul>
+<li><code>scala.Any</code> base type of all types. It has methods <code>hashCode</code> and <code>toString</code> that can be overridden</li>
+</ul>
+</li>
+<li><code>scala.AnyVal</code> is the base type of all primitive types: <code>Double</code>, <code>Float</code>, etc.</li>
+<li><code>scala.AnyRef</code> base type of all reference types. (alias of <code>java.lang.Object</code>, supertype of <code>java.lang.String</code>, <code>scala.List</code>, any user-defined class)</li>
+<li><code>scala.Null</code> is a subtype of any <code>scala.AnyRef</code>, and <code>scala.Nothing</code> is a subtype of any other type without any instance.<ul>
+<li><code>Null</code> is a trait and is the bottom type similiar to <code>Nothing</code> but only for <code>AnyRef</code> not <code>AnyVal</code></li>
+<li><code>null</code> is the only instance of type <code>Null</code></li>
+</ul>
+</li>
+<li><code>Nil</code> is an empty list that is defined as a <code>List[Nothing]</code></li>
+<li><code>None</code> is an empty option that is defined as a <code>Option[Nothing]</code></li>
+<li><code>Unit</code> is a subtype of <code>AnyVal</code>, it's only value is <code>()</code> and it is not represented by any object in the underlying runtime system. A method with return type <code>Unit</code> is analogous to a Java method which is declared <code>void</code></li>
+</ul>
+<h2 id="type-parameters">Type Parameters</h2>
+<p>Conceptually similar to C++ templates or Java generics. These can apply to classes, traits or functions.</p>
+<pre><code class="scala">    class TypedClass[F](arg1: F) { ??? }  
+    new TypedClass[Int](1)  
+    new TypedClass(1)   // the type is being inferred, i.e. determined based on the value arguments  
+</code></pre>
+
+<p>Conventionally the type parameters are expressed using uppercase letters (e.g. <em>A, B, T, F</em>).</p>
+<p>It is possible to restrict the type being used, e.g.</p>
+<pre><code class="scala">    def func[T &lt;: TopLevel](arg: T): T = { ... } // T must derive from TopLevel or be TopLevel
+    def func[T &gt;: Level1](arg: T): T = { ... }   // T must be a supertype of Level1
+    def func[T &gt;: Level1 &lt;: Top Level](arg: T): T = { ... }
+</code></pre>
+
+<h2 id="variance">Variance</h2>
+<ul>
+<li>Given <code>A &lt;: B</code></li>
+<li>If <code>C[A] &lt;: C[B]</code>, <code>C</code> is <strong>covariant</strong></li>
+<li>If <code>C[A] &gt;: C[B]</code>, <code>C</code> is <strong>contravariant</strong></li>
+</ul>
+<p>Otherwise C is <strong>nonvariant</strong></p>
+<pre><code class="scala">    class C[+A] { ... } // C is covariant
+    class C[-A] { ... } // C is contravariant
+    class C[A]  { ... } // C is nonvariant
+</code></pre>
+
+<p>For a function, if <code>A2 &lt;: A1</code> and <code>B1 &lt;: B2</code>, then <code>A1 =&gt; B1 &lt;: A2 =&gt; B2</code>.</p>
+<p>Functions must be <strong>contravariant in their argument types and covariant in their result types</strong>, e.g.</p>
+<pre><code class="scala">    trait Function1[-T, +U] {
+      def apply(x: T): U
+    } // Variance check is OK because T is contravariant and U is covariant
+
+    class Array[+T] {
+      def update(x: T)
+    } // variance checks fails
+</code></pre>
+
+<p>Find out more about variance in <a href="http://blog.kamkor.me/Covariance-And-Contravariance-In-Scala/">Covariance And Contravariance in Scala</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../links/" class="btn btn-neutral float-right" title="Links">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/sentenza/docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../links/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
