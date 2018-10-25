@@ -3,7 +3,7 @@ site_author: sentenza
 repo_url: https://github.com/sentenza/docs
 nav:
     - Home: index.md
-    # - Scala: scala.md
+    - Scala: scala.md
     - Links: links.md
 theme: 
   name: readthedocs
