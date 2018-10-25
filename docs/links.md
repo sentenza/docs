@@ -13,6 +13,7 @@
 
 * [Why Functional Programming Matters](https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf) (J. Hughes
 The University, Glasgow, 1990)
+* [Monoids: Theme and Variations](https://repository.upenn.edu/cgi/viewcontent.cgi?article=1773&context=cis_papers) (B. Yorgey, 2012)
 * [The Essence of the Iterator Pattern](https://www.cs.ox.ac.uk/jeremy.gibbons/publications/iterator.pdf) (J. Gibbons and B. Oliveira, Oxford University Computing Laboratory)
 * [Applicative programming with effects](http://www.staff.city.ac.uk/~ross/papers/Applicative.pdf) (C. McBride, University of Nottingham - R. Paterson, City University, London)
 * [Stack Safety for Free](http://functorial.com/stack-safety-for-free/index.pdf) (Phil Freeman, 2015)
