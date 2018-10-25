@@ -161,34 +161,69 @@
     new TypedClass(1)   // the type is being inferred, i.e. determined based on the value arguments  
 </code></pre>
 
-<p>Conventionally the type parameters are expressed using uppercase letters (e.g. <em>A, B, T, F</em>).</p>
-<p>It is possible to restrict the type being used, e.g.</p>
+<p>Conventionally, the type parameters are expressed using uppercase letters (e.g. <em>A, B, T, F</em>). It's also possible to restrict the type being used, e.g.</p>
 <pre><code class="scala">    def func[T &lt;: TopLevel](arg: T): T = { ... } // T must derive from TopLevel or be TopLevel
     def func[T &gt;: Level1](arg: T): T = { ... }   // T must be a supertype of Level1
     def func[T &gt;: Level1 &lt;: Top Level](arg: T): T = { ... }
 </code></pre>
 
 <h2 id="variance">Variance</h2>
+<p><strong>Upper Bounds:</strong>
+<code>[S &lt;: T]</code> means: S is a subtype of T. Let's suppose that T is actually an <code>Iterable</code>, then S could one of <code>Seq</code>, <code>List</code> or <code>Iterable</code>.</p>
+<p><strong>Lower Bounds:</strong>
+<code>[S &gt;: T]</code> means: S is a supertype of T, or T is a subtype of S. So, if T is a <code>List</code>, S could be one of <code>List</code>, <code>Seq</code>, <code>Iterable</code>, or <code>AnyRef</code>.</p>
+<p><strong>Mixed Bounds:</strong>
+<code>[S &gt;: T2 &lt;: T1]</code> means: s is any type on interval between T1 and T2. In this case we have basically a mix of the two cases above.</p>
+<p>Let's consider <code>NonEmpty &lt;: IntSet</code>, then can we infer that <code>List[NonEmpty] &lt;: List[IntSet]</code>?
+Intuitively, this makes sense: a list of non-empty sets is a special case of a list of arbitrary sets.
+We call types for which this relationship holds <strong>covariant</strong> because their subtyping relationship varies with the type parameter. Thus <code>Lists</code> in scala are <strong>covariant</strong>.</p>
+<p>Does covariance make sense for all types, not just for List? No. For instance, in Scala, <strong>arrays are not covariant</strong>.
+So when does it make sense to subtype one type with another? The answer is the <strong>Liskov Substitution Principle</strong>: <em>If <code>A &lt;: B</code>, then everything one can to do with a value of
+type B one should also be able to do with a value of type A.</em></p>
+<p>Say C[T] is a parameterized type, and A, B are types such that:</p>
 <ul>
-<li>Given <code>A &lt;: B</code></li>
+<li>Given <code>A &lt;: B</code> (A is a subtype of B)</li>
 <li>If <code>C[A] &lt;: C[B]</code>, <code>C</code> is <strong>covariant</strong></li>
 <li>If <code>C[A] &gt;: C[B]</code>, <code>C</code> is <strong>contravariant</strong></li>
+<li>Neither <code>C[A]</code> or <code>C[B]</code> is a subtype of the other, then C is <strong>invariant</strong> (or <em>"nonvariant"</em>). </li>
 </ul>
-<p>Otherwise C is <strong>nonvariant</strong></p>
+<p>Scala lets you declare the variance of a type by annotating the type parameter:</p>
 <pre><code class="scala">    class C[+A] { ... } // C is covariant
     class C[-A] { ... } // C is contravariant
-    class C[A]  { ... } // C is nonvariant
+    class C[A]  { ... } // C is invariant
 </code></pre>
 
-<p>For a function, if <code>A2 &lt;: A1</code> and <code>B1 &lt;: B2</code>, then <code>A1 =&gt; B1 &lt;: A2 =&gt; B2</code>.</p>
-<p>Functions must be <strong>contravariant in their argument types and covariant in their result types</strong>, e.g.</p>
-<pre><code class="scala">    trait Function1[-T, +U] {
-      def apply(x: T): U
-    } // Variance check is OK because T is contravariant and U is covariant
+<p>So, given that <code>Any</code> &gt; <code>AnyRef</code> &gt; <code>IntSet</code> &gt; <code>Empty</code> and <code>NonEmpty</code>, if </p>
+<pre><code class="scala">type A = IntSet =&gt; NonEmpty
+type B = NonEmpty =&gt; IntSet
+</code></pre>
 
-    class Array[+T] {
-      def update(x: T)
-    } // variance checks fails
+<p>According to the Liskov Principle =&gt; <code>A &lt;: B</code>, since B can return an Empty or NonEmpty, but A can return only NonEmpty.</p>
+<p>For a function, if <code>A2 &lt;: A1</code> and <code>B1 &lt;: B2</code>, then <code>A1 =&gt; B1 &lt;: A2 =&gt; B2</code>. The consequence is that functions must be <strong>contravariant in their argument types and covariant in their result types</strong>, e.g.</p>
+<p>This example shows that functions are <em>contravariant</em> in argument types and <em>covariant</em> in return types.</p>
+<pre><code class="scala">package io.github.sentenza.cars
+
+class Car {}
+class SportsCar extends Car {}
+class Ferrari extends SportsCar {}
+
+object morecovariance extends App {
+
+    // Test 1: Works as expected
+
+    def test1( arg: SportsCar =&gt; SportsCar ) = {
+        new SportsCar
+    }
+
+    def foo1(arg: Car): Ferrari = { new Ferrari }
+    def foo2(arg: SportsCar): Car = { new Ferrari }
+    def foo3(arg: Ferrari): Ferrari = { new Ferrari }
+
+    test1(foo1) // compiles
+    test1(foo2) // Fails due to wrong return type. 
+    test1(foo3) // Fails due to wrong parameter type
+
+}
 </code></pre>
 
 <p>Find out more about variance in <a href="http://blog.kamkor.me/Covariance-And-Contravariance-In-Scala/">Covariance And Contravariance in Scala</a></p>
