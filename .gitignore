@@ -17,4 +17,4 @@
 Thumbs.db
 
 # mkdocs specific
-./site
+site/*
