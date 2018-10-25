@@ -178,7 +178,7 @@
 Intuitively, this makes sense: a list of non-empty sets is a special case of a list of arbitrary sets.
 We call types for which this relationship holds <strong>covariant</strong> because their subtyping relationship varies with the type parameter. Thus <code>Lists</code> in scala are <strong>covariant</strong>.</p>
 <p>Does covariance make sense for all types, not just for List? No. For instance, in Scala, <strong>arrays are not covariant</strong>.
-So when does it make sense to subtype one type with another? The answer is the <strong>Liskov Substitution Principle</strong>: <em>If <code>A &lt;: B</code>, then everything one can to do with a value of
+So when does it make sense to subtype one type with another? The answer is the <a href="https://stackoverflow.com/a/584732/1977778">Liskov Substitution Principle</a>: <em>If <code>A &lt;: B</code>, then everything one can to do with a value of
 type B one should also be able to do with a value of type A.</em></p>
 <p>Say C[T] is a parameterized type, and A, B are types such that:</p>
 <ul>
@@ -198,8 +198,8 @@ type B one should also be able to do with a value of type A.</em></p>
 type B = NonEmpty =&gt; IntSet
 </code></pre>
 
-<p>According to the Liskov Principle =&gt; <code>A &lt;: B</code>, since B can return an Empty or NonEmpty, but A can return only NonEmpty.</p>
-<p>For a function, if <code>A2 &lt;: A1</code> and <code>B1 &lt;: B2</code>, then <code>A1 =&gt; B1 &lt;: A2 =&gt; B2</code>. The consequence is that functions must be <strong>contravariant in their argument types and covariant in their result types</strong>, e.g.</p>
+<p>According to the <a href="https://stackoverflow.com/a/584732/1977778">Liskov Principle</a> =&gt; <code>A &lt;: B</code>, since B can return an Empty or NonEmpty, but A can return only NonEmpty.</p>
+<p>For a function, if <code>A2 &lt;: A1</code> and <code>B1 &lt;: B2</code>, then <code>A1 =&gt; B1 &lt;: A2 =&gt; B2</code>. The consequence is that functions must be <strong>contravariant in their argument types and covariant in their result types</strong>.</p>
 <p>This example shows that functions are <em>contravariant</em> in argument types and <em>covariant</em> in return types.</p>
 <pre><code class="scala">package io.github.sentenza.cars
 
