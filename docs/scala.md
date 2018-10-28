@@ -245,6 +245,43 @@ the trait `scala.math.Ordered[T]`.
     msort(fruits)   // the compiler figures out the right ordering  
 ```
 
+## map() and flatMap()
+
+To be added
+
+## Monoid
+
+The Monoid is essentially the first purely *algebraic* data structures. The term *monoid* is taken from the **Category Theory**, and it means a category with one object. This kind of algebraic data structures are the corner stone of the technique that gives us the ability to write **polymorphic functions**. A Monoid is made of:
+
+* A type `T`
+* A binary operation, which is associative, that takes two values of type `T` and combines them into one
+* A value `zero: T` which is an *identity* for the associative operation
+
+
+```scala
+/**
+  * It is defined by some type A, an associative binary operation that takes 
+  */
+trait Monoid[T] {
+  // associativity
+  // op(op(x, y), z) == op(x, op(y, z))
+  def op(x: T, y: T): T
+
+  // identity
+  // op(x, zero) == op(zero, x) == x
+  def zero: T
+}
+
+// example
+val stringMonoid = new Monoid[String] {
+  override def op(x: String, y: String): String = x + y
+  override def zero: String = ""
+}
+```
+
+
+## fold: foldRight() and foldLeft()
+
 
 
 [liskov]: https://stackoverflow.com/a/584732/1977778
