@@ -19,6 +19,85 @@
 * **Call by-value**: evaluates the function arguments before calling the function
 * **Call by-name**: evaluates the function first, and then evaluates the arguments if need be (each time the parameter is referenced inside the function)
 
+# Objects and Code organization
+
+> *Scala has no globally visible methods: every method must be contained in an object or a class. However, using methods named `apply` inside global objects, you can support usage patterns that look like invocations of global methods.*
+
+From [*Programming in Scala - Second edition (by M. Odersky, L. Spoon, B. Venners)*][progscala]
+
+As you can see above, I started talking about Objects in terms of the functions they contain. It's very important to stress on this aspect, because Classes and Objects should be seen under a different light using Scala, especially if you come from an imperative OOP language, like Java or C++. They are just a way to organise your functions and at some point, using traits, objects (companion objects) and case classes (data constructors) you will eventually be able to build up your coding architecture based on types and composition of functions.
+
+**Factory Object**
+
+This example is taken from [Programming in Scala][progscala]
+
+```scala
+abstract class Element {
+    def contents: Array[String]
+    def height: Int = contents.length
+    def width: Int = if (height == 0) 0 else contents(0).length
+}
+
+class ArrayElements(val contents: Array[String]) extends Element 
+
+// Invoking superclass constructor while extending the class itself
+class LineElement(s: String) extends ArrayElement(Array(s)) {
+    override def width = s.length // Int is inferred
+    override def width = 1
+}
+
+class UniformElement(
+    ch: Char,
+    override val width: Int,
+    override val heigth: Int
+) extends Element {
+    private val line = ch.toString * width
+    def contents = Array.fill(height)(line)
+}
+```
+
+Now, what we can do is defining a *Factory Object* which contains methods that construct other objects, without exposing each class implementation. Basically, we can hide each class inside a Singleton Object, which will represent just a tag for the overloaded methods that will give us the ability to instantiate each subclass dinamically, and using polymorphism at the same time. Note that **OOP is not a paradigm, but it's just a way to define our code structure in a logic manner** that is similar to playing with LEGOs. OOP can be seen like an **orthogonal dimension** compared to functional, declarative or imperative paradigms.
+
+```scala
+// We start defining a Singleton Object
+object Element {
+    // we can now hide classes as private fields of this object
+    private class ArrayElements(
+        val contents: Array[String]
+    ) extends Element
+
+    private class LineElement(s: String) extends Element {
+        val contents = Array(s)
+        override def width = s.length
+        override def width = 1
+    }
+
+    private class UniformElement(
+        ch: Char,
+        override val width: Int,
+        override val heigth: Int
+    ) extends Element {
+        private val line = ch.toString * width
+        def contents = Array.fill(height)(line)
+    } 
+
+    // FACTORY
+    def elem(contents: Array[String]): Element =
+        new ArrayElement(contents)
+
+    def elem(chr: Char, width: Int, heigth: Int): Element = 
+        new UniformElement(chr, width, height)
+
+    def elem(line: String): Elem =
+        new LineElement(line)
+}
+```
+
+Objects creation are centralized and the details now are hidden. This will eventually give an easy way to understand how to use these elements, and at the same time this small change will give the developer the **Open/Closed Principle** for free (*“software entities … should be open for extension, but closed for modification”*) because less detail is exposed, providing the developer more opportunities to **change the implementation of the library without breaking client code**. At the same time a class will have a single responsibility, and only one potential change in the software’s specification should be able to affect the specification of the class (**Single Responsibility Principle**). Writing `SOLID` code pays off at the end. 
+
+**Object and Factory method**
+
+
 ## General object hierarchy:
 
 ![scala-hierarchy](assets/img/scala-hierarchy.png)
@@ -249,6 +328,21 @@ the trait `scala.math.Ordered[T]`.
 
 To be added
 
+# Category Theory
+
+## Algrebraic Data Type
+## Typeclass
+
+> *[...] Type class is a class (group) of types, which satisfy some contract defined in a trait with addition that such functionality (trait and implementation) can be added without any changes to the original code. One could say that the same could be achieved by extending a simple trait, but with type classes it is not necessary to predict such a need beforehand.*
+>
+> *There is no special syntax in Scala to express a type class, but the same functionality can be achieved using constructs that already exist in the language. **That’s what makes it a little difficult for newcomers to spot a type class in code. A typical implementation of a type class uses some syntactic sugar as well, which also doesn’t make it clear right away what we are dealing with**.*
+
+https://blog.scalac.io/2017/04/19/typeclasses-in-scala.html
+
+**Type constructor and Variance**
+
+pag. 392 of the White Scala Manual
+
 ## Monoid
 
 The Monoid is essentially the first purely *algebraic* data structures. The term *monoid* is taken from the **Category Theory**, and it means a category with one object. This kind of algebraic data structures are the corner stone of the technique that gives us the ability to write **polymorphic functions**. A Monoid is made of:
@@ -285,3 +379,4 @@ val stringMonoid = new Monoid[String] {
 
 
 [liskov]: https://stackoverflow.com/a/584732/1977778
+[progscala]: https://www.artima.com/shop/programming_in_scala
