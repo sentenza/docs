@@ -62,13 +62,17 @@
     <li class="toctree-l2"><a href="#evaluation-rules">Evaluation rules</a></li>
     
 
-    <li class="toctree-l2"><a href="#general-object-hierarchy">General object hierarchy:</a></li>
+    <li class="toctree-l2"><a href="#objects-and-code-organization">Objects and Code organization</a></li>
     
-
-    <li class="toctree-l2"><a href="#type-parameters">Type Parameters</a></li>
-    
-
-    <li class="toctree-l2"><a href="#variance">Variance</a></li>
+        <ul>
+        
+            <li><a class="toctree-l3" href="#general-object-hierarchy">General object hierarchy:</a></li>
+        
+            <li><a class="toctree-l3" href="#type-parameters">Type Parameters</a></li>
+        
+            <li><a class="toctree-l3" href="#variance">Variance</a></li>
+        
+        </ul>
     
 
     <li class="toctree-l2"><a href="#collections">Collections</a></li>
@@ -78,6 +82,23 @@
             <li><a class="toctree-l3" href="#pairs-similar-for-larger-tuples">Pairs (similar for larger Tuples)</a></li>
         
             <li><a class="toctree-l3" href="#ordering">Ordering</a></li>
+        
+            <li><a class="toctree-l3" href="#map-and-flatmap">map() and flatMap()</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#category-theory">Category Theory</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#algrebraic-data-type">Algrebraic Data Type</a></li>
+        
+            <li><a class="toctree-l3" href="#typeclass">Typeclass</a></li>
+        
+            <li><a class="toctree-l3" href="#monoid">Monoid</a></li>
+        
+            <li><a class="toctree-l3" href="#fold-foldright-and-foldleft">fold: foldRight() and foldLeft()</a></li>
         
         </ul>
     
@@ -146,6 +167,75 @@
 <li><strong>Call by-value</strong>: evaluates the function arguments before calling the function</li>
 <li><strong>Call by-name</strong>: evaluates the function first, and then evaluates the arguments if need be (each time the parameter is referenced inside the function)</li>
 </ul>
+<h1 id="objects-and-code-organization">Objects and Code organization</h1>
+<blockquote>
+<p><em>Scala has no globally visible methods: every method must be contained in an object or a class. However, using methods named <code>apply</code> inside global objects, you can support usage patterns that look like invocations of global methods.</em></p>
+</blockquote>
+<p>From <a href="https://www.artima.com/shop/programming_in_scala"><em>Programming in Scala - Second edition (by M. Odersky, L. Spoon, B. Venners)</em></a></p>
+<p>As you can see above, I started talking about Objects in terms of the functions they contain. It's very important to stress on this aspect, because Classes and Objects should be seen under a different light using Scala, especially if you come from an imperative OOP language, like Java or C++. They are just a way to organise your functions and at some point, using traits, objects (companion objects) and case classes (data constructors) you will eventually be able to build up your coding architecture based on types and composition of functions.</p>
+<p><strong>Factory Object</strong></p>
+<p>This example is taken from <a href="https://www.artima.com/shop/programming_in_scala">Programming in Scala</a></p>
+<pre><code class="scala">abstract class Element {
+    def contents: Array[String]
+    def height: Int = contents.length
+    def width: Int = if (height == 0) 0 else contents(0).length
+}
+
+class ArrayElements(val contents: Array[String]) extends Element 
+
+// Invoking superclass constructor while extending the class itself
+class LineElement(s: String) extends ArrayElement(Array(s)) {
+    override def width = s.length // Int is inferred
+    override def width = 1
+}
+
+class UniformElement(
+    ch: Char,
+    override val width: Int,
+    override val heigth: Int
+) extends Element {
+    private val line = ch.toString * width
+    def contents = Array.fill(height)(line)
+}
+</code></pre>
+
+<p>Now, what we can do is defining a <em>Factory Object</em> which contains methods that construct other objects, without exposing each class implementation. Basically, we can hide each class inside a Singleton Object, which will represent just a tag for the overloaded methods that will give us the ability to instantiate each subclass dinamically, and using polymorphism at the same time. Note that <strong>OOP is not a paradigm, but it's just a way to define our code structure in a logic manner</strong> that is similar to playing with LEGOs. OOP can be seen like an <strong>orthogonal dimension</strong> compared to functional, declarative or imperative paradigms.</p>
+<pre><code class="scala">// We start defining a Singleton Object
+object Element {
+    // we can now hide classes as private fields of this object
+    private class ArrayElements(
+        val contents: Array[String]
+    ) extends Element
+
+    private class LineElement(s: String) extends Element {
+        val contents = Array(s)
+        override def width = s.length
+        override def width = 1
+    }
+
+    private class UniformElement(
+        ch: Char,
+        override val width: Int,
+        override val heigth: Int
+    ) extends Element {
+        private val line = ch.toString * width
+        def contents = Array.fill(height)(line)
+    } 
+
+    // FACTORY
+    def elem(contents: Array[String]): Element =
+        new ArrayElement(contents)
+
+    def elem(chr: Char, width: Int, heigth: Int): Element = 
+        new UniformElement(chr, width, height)
+
+    def elem(line: String): Elem =
+        new LineElement(line)
+}
+</code></pre>
+
+<p>Objects creation are centralized and the details now are hidden. This will eventually give an easy way to understand how to use these elements, and at the same time this small change will give the developer the <strong>Open/Closed Principle</strong> for free (<em>“software entities … should be open for extension, but closed for modification”</em>) because less detail is exposed, providing the developer more opportunities to <strong>change the implementation of the library without breaking client code</strong>. At the same time a class will have a single responsibility, and only one potential change in the software’s specification should be able to affect the specification of the class (<strong>Single Responsibility Principle</strong>). Writing <code>SOLID</code> code pays off at the end. </p>
+<p><strong>Object and Factory method</strong></p>
 <h2 id="general-object-hierarchy">General object hierarchy:</h2>
 <p><img alt="scala-hierarchy" src="../assets/img/scala-hierarchy.png" /></p>
 <p><strong>NOTE:</strong> All members of packages <code>scala</code> and <code>java.lang</code> as well as all members of the object <code>scala.Predef</code> are automatically imported.</p>
@@ -348,6 +438,47 @@ the trait <code>scala.math.Ordered[T]</code>.</p>
     msort(fruits)(Ordering.String)  
     msort(fruits)   // the compiler figures out the right ordering  
 </code></pre>
+
+<h2 id="map-and-flatmap">map() and flatMap()</h2>
+<p>To be added</p>
+<h1 id="category-theory">Category Theory</h1>
+<h2 id="algrebraic-data-type">Algrebraic Data Type</h2>
+<h2 id="typeclass">Typeclass</h2>
+<blockquote>
+<p><em>[...] Type class is a class (group) of types, which satisfy some contract defined in a trait with addition that such functionality (trait and implementation) can be added without any changes to the original code. One could say that the same could be achieved by extending a simple trait, but with type classes it is not necessary to predict such a need beforehand.</em></p>
+<p><em>There is no special syntax in Scala to express a type class, but the same functionality can be achieved using constructs that already exist in the language. <strong>That’s what makes it a little difficult for newcomers to spot a type class in code. A typical implementation of a type class uses some syntactic sugar as well, which also doesn’t make it clear right away what we are dealing with</strong>.</em></p>
+</blockquote>
+<p>https://blog.scalac.io/2017/04/19/typeclasses-in-scala.html</p>
+<p><strong>Type constructor and Variance</strong></p>
+<p>pag. 392 of the White Scala Manual</p>
+<h2 id="monoid">Monoid</h2>
+<p>The Monoid is essentially the first purely <em>algebraic</em> data structures. The term <em>monoid</em> is taken from the <strong>Category Theory</strong>, and it means a category with one object. This kind of algebraic data structures are the corner stone of the technique that gives us the ability to write <strong>polymorphic functions</strong>. A Monoid is made of:</p>
+<ul>
+<li>A type <code>T</code></li>
+<li>A binary operation, which is associative, that takes two values of type <code>T</code> and combines them into one</li>
+<li>A value <code>zero: T</code> which is an <em>identity</em> for the associative operation</li>
+</ul>
+<pre><code class="scala">/**
+  * It is defined by some type A, an associative binary operation that takes 
+  */
+trait Monoid[T] {
+  // associativity
+  // op(op(x, y), z) == op(x, op(y, z))
+  def op(x: T, y: T): T
+
+  // identity
+  // op(x, zero) == op(zero, x) == x
+  def zero: T
+}
+
+// example
+val stringMonoid = new Monoid[String] {
+  override def op(x: String, y: String): String = x + y
+  override def zero: String = &quot;&quot;
+}
+</code></pre>
+
+<h2 id="fold-foldright-and-foldleft">fold: foldRight() and foldLeft()</h2>
               
             </div>
           </div>
