@@ -1,4 +1,6 @@
-# Functional Programming (FP)
+# Links and external resources
+
+## Functional Programming
 
 * [Category Theory for Programmers](https://github.com/hmemcpy/milewski-ctfp-pdf)
 * [Functional Programming For The Rest of Us](http://www.defmacro.org/2006/06/19/fp.html)
@@ -9,7 +11,7 @@
 * [Functional Programming Basics](https://pragprog.com/magazines/2013-01/functional-programming-basics) *by Robert C. Martin (Uncle Bob)*
 * [The Downfall of Imperative Programming](https://www.fpcomplete.com/blog/2012/04/the-downfall-of-imperative-programming)
 
-## FP Papers
+### FP Papers
 
 * [Why Functional Programming Matters](https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf) (J. Hughes
 The University, Glasgow, 1990)
@@ -21,9 +23,9 @@ The University, Glasgow, 1990)
 * [Type Classes as Objects and Implicits](http://ropas.snu.ac.kr/~bruno/papers/TypeClasses.pdf) (B. Oliveira, A. Moors,
 **M. Odersky**)
 
-# Scala
+## Scala
 
-**Books**
+### Books
 
 * [Programming in Scala](https://www.artima.com/shop/programming_in_scala) (2016) by Martin Odersky, Lex Spoon, and Bill Venners
 * [Functional Programming, Simplified](https://amzn.to/2OCFROS) (2017) by Alvin Alexander (*companion of the Red Book*)
@@ -32,7 +34,7 @@ The University, Glasgow, 1990)
 * [Scala with Cats](https://underscore.io/books/scala-with-cats)
 * [The Type Astronaut's Guide to Shapeless](https://underscore.io/books/shapeless-guide)
 
-**Readings**
+### Readings
 
 * [Scala's Types of Types](https://ktoso.github.io/scala-types-of-types)
 * [Typeclasses in scala - Illustrated with cats](https://impurepics.com/posts/2018-06-17-typeclasses-in-scala.html)
@@ -46,7 +48,7 @@ The University, Glasgow, 1990)
 * [Free monads - what? and why?](https://softwaremill.com/free-monads)
 * [Free Monad examples](https://github.com/kenbot/free)
 
-**Cats and Shapeless**
+#### Cats and Shapeless
 
 * [Scala Cats library for dummies](https://medium.com/@abu_nadhr/scala-cats-library-for-dummies-part-1-8ec47af7a144)
 * [Cats Infographic](https://github.com/tpolecat/cats-infographic)
