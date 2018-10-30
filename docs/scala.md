@@ -1,3 +1,5 @@
+# Scala
+
 ## Evaluation rules
 
 * `def` defines a method
@@ -6,133 +8,37 @@
 * `lazy` only initialised when required and as late as possible (deferred evaluation), default is strict and is not recomputed like by-name parameters
 
 ```scala
-    def myFunction = 2         // evaluated when called
-    val myImmutableValue = 2   // evaluated immediately
-    lazy val iMLazy = 2        // evaluated once when needed
-    
-    def sort(x: List[Double])       // call by value
-    def sort(x: => List[Double])    // call by name
-    // ds is a sequence of Double, containing a varying number of arguments
-    def varargsFunction(ds: Double*) = ???
+def myFunction = 2         // evaluated when called
+val myImmutableValue = 2   // evaluated immediately
+lazy val iMLazy = 2        // evaluated once when needed
+
+def sort(x: List[Double])       // call by value
+def sort(x: => List[Double])    // call by name
+// ds is a sequence of Double, containing a varying number of arguments
+def varargsFunction(ds: Double*) = ???
 ```
 
 * **Call by-value**: evaluates the function arguments before calling the function
 * **Call by-name**: evaluates the function first, and then evaluates the arguments if need be (each time the parameter is referenced inside the function)
-
-# Objects and Code organization
-
-> *Scala has no globally visible methods: every method must be contained in an object or a class. However, using methods named `apply` inside global objects, you can support usage patterns that look like invocations of global methods.*
-
-From [*Programming in Scala - Second edition (by M. Odersky, L. Spoon, B. Venners)*][progscala]
-
-As you can see above, I started talking about Objects in terms of the functions they contain. It's very important to stress on this aspect, because Classes and Objects should be seen under a different light using Scala, especially if you come from an imperative OOP language, like Java or C++. They are just a way to organise your functions and at some point, using traits, objects (companion objects) and case classes (data constructors) you will eventually be able to build up your coding architecture based on types and composition of functions.
-
-**Factory Object**
-
-This example is taken from [Programming in Scala][progscala]
-
-```scala
-abstract class Element {
-    def contents: Array[String]
-    def height: Int = contents.length
-    def width: Int = if (height == 0) 0 else contents(0).length
-}
-
-class ArrayElements(val contents: Array[String]) extends Element 
-
-// Invoking superclass constructor while extending the class itself
-class LineElement(s: String) extends ArrayElement(Array(s)) {
-    override def width = s.length // Int is inferred
-    override def width = 1
-}
-
-class UniformElement(
-    ch: Char,
-    override val width: Int,
-    override val heigth: Int
-) extends Element {
-    private val line = ch.toString * width
-    def contents = Array.fill(height)(line)
-}
-```
-
-Now, what we can do is defining a *Factory Object* which contains methods that construct other objects, without exposing each class implementation. Basically, we can hide each class inside a Singleton Object, which will represent just a tag for the overloaded methods that will give us the ability to instantiate each subclass dinamically, and using polymorphism at the same time. Note that **OOP is not a paradigm, but it's just a way to define our code structure in a logic manner** that is similar to playing with LEGOs. OOP can be seen like an **orthogonal dimension** compared to functional, declarative or imperative paradigms.
-
-```scala
-// We start defining a Singleton Object
-object Element {
-    // we can now hide classes as private fields of this object
-    private class ArrayElements(
-        val contents: Array[String]
-    ) extends Element
-
-    private class LineElement(s: String) extends Element {
-        val contents = Array(s)
-        override def width = s.length
-        override def width = 1
-    }
-
-    private class UniformElement(
-        ch: Char,
-        override val width: Int,
-        override val heigth: Int
-    ) extends Element {
-        private val line = ch.toString * width
-        def contents = Array.fill(height)(line)
-    } 
-
-    // FACTORY
-    def elem(contents: Array[String]): Element =
-        new ArrayElement(contents)
-
-    def elem(chr: Char, width: Int, heigth: Int): Element = 
-        new UniformElement(chr, width, height)
-
-    def elem(line: String): Elem =
-        new LineElement(line)
-}
-```
-
-Objects creation are centralized and the details now are hidden. This will eventually give an easy way to understand how to use these elements, and at the same time this small change will give the developer the **Open/Closed Principle** for free (*“software entities … should be open for extension, but closed for modification”*) because less detail is exposed, providing the developer more opportunities to **change the implementation of the library without breaking client code**. At the same time a class will have a single responsibility, and only one potential change in the software’s specification should be able to affect the specification of the class (**Single Responsibility Principle**). Writing `SOLID` code pays off at the end. 
-
-**Object and Factory method**
-
-
-## General object hierarchy:
-
-![scala-hierarchy](assets/img/scala-hierarchy.png)
-
-**NOTE:** All members of packages `scala` and `java.lang` as well as all members of the object `scala.Predef` are automatically imported.
-
-* `scala.Nothing` is a trait that is the bottom subtype of every subtype of `scala.Any`
-    * `scala.Any` base type of all types. It has methods `hashCode` and `toString` that can be overridden
-* `scala.AnyVal` is the base type of all primitive types: `Double`, `Float`, etc.
-* `scala.AnyRef` base type of all reference types. (alias of `java.lang.Object`, supertype of `java.lang.String`, `scala.List`, any user-defined class)
-* `scala.Null` is a subtype of any `scala.AnyRef`, and `scala.Nothing` is a subtype of any other type without any instance.
-    * `Null` is a trait and is the bottom type similiar to `Nothing` but only for `AnyRef` not `AnyVal`
-    * `null` is the only instance of type `Null`
-* `Nil` is an empty list that is defined as a `List[Nothing]`
-* `None` is an empty option that is defined as a `Option[Nothing]`
-* `Unit` is a subtype of `AnyVal`, it's only value is `()` and it is not represented by any object in the underlying runtime system. A method with return type `Unit` is analogous to a Java method which is declared `void`
 
 ## Type Parameters
 
 Conceptually similar to C++ templates or Java generics. These can apply to classes, traits or functions.
 
 ```scala
-    class TypedClass[F](arg1: F) { ??? }  
-    new TypedClass[Int](1)  
-    new TypedClass(1)   // the type is being inferred, i.e. determined based on the value arguments  
+class TypedClass[F](arg1: F) { ??? }  
+new TypedClass[Int](1)  
+new TypedClass(1)   // the type is being inferred, i.e. determined based on the value arguments  
 ```
 Conventionally, the type parameters are expressed using uppercase letters (e.g. *A, B, T, F*). It's also possible to restrict the type being used, e.g.
 
 ```scala
-    def func[T <: TopLevel](arg: T): T = { ... } // T must derive from TopLevel or be TopLevel
-    def func[T >: Level1](arg: T): T = { ... }   // T must be a supertype of Level1
-    def func[T >: Level1 <: Top Level](arg: T): T = { ... }
+def func[T <: TopLevel](arg: T): T = { ... } // T must derive from TopLevel or be TopLevel
+def func[T >: Level1](arg: T): T = { ... }   // T must be a supertype of Level1
+def func[T >: Level1 <: Top Level](arg: T): T = { ... }
 ```
 
-## Variance
+### Variance
 
 **Upper Bounds:**
 `[S <: T]` means: S is a subtype of T. Let's suppose that T is actually an `Iterable`, then S could one of `Seq`, `List` or `Iterable`.
@@ -148,10 +54,18 @@ Intuitively, this makes sense: a list of non-empty sets is a special case of a l
 We call types for which this relationship holds **covariant** because their subtyping relationship varies with the type parameter. Thus `Lists` in scala are **covariant**.
 
 Does covariance make sense for all types, not just for List? No. For instance, in Scala, **arrays are not covariant**.
-So when does it make sense to subtype one type with another? The answer is the [Liskov Substitution Principle][liskov]: _If `A <: B`, then everything one can to do with a value of
-type B one should also be able to do with a value of type A._
 
-Say C[T] is a parameterized type, and A, B are types such that:
+!!! question "When does it make sense to subtype one type with another?"
+    _If `A <: B`, then everything one can to do with a value of
+    type B one should also be able to do with a value of type A._
+
+    [Liskov Substitution Principle][liskov]
+
+    ![lsp](assets/img/lsp.jpg)
+    <br>
+    https://twitter.com/javi/status/1004821965868109824
+
+Say `C[T]` is a parameterized type, and A, B are types such that:
 
 * Given `A <: B` (A is a subtype of B)
 * If `C[A] <: C[B]`, `C` is **covariant**
@@ -161,9 +75,9 @@ Say C[T] is a parameterized type, and A, B are types such that:
 Scala lets you declare the variance of a type by annotating the type parameter:
 
 ```scala
-    class C[+A] { ... } // C is covariant
-    class C[-A] { ... } // C is contravariant
-    class C[A]  { ... } // C is invariant
+class C[+A] { ... } // C is covariant
+class C[-A] { ... } // C is contravariant
+class C[A]  { ... } // C is invariant
 ```
 
 So, given that `Any` > `AnyRef` > `IntSet` > `Empty` and `NonEmpty`, if 
@@ -205,18 +119,153 @@ object morecovariance extends App {
 
 Find out more about variance in [Covariance And Contravariance in Scala](http://blog.kamkor.me/Covariance-And-Contravariance-In-Scala/)
 
-# Collections
+## Objects and Code organization
+
+!!! quote
+    *Scala has no globally visible methods: every method must be contained in an object or a class. However, using methods named `apply` inside global objects, you can support usage patterns that look like invocations of global methods.*
+    
+    From [*Programming in Scala - Second edition (by M. Odersky, L. Spoon, B. Venners)*][progscala]
+
+As you can read above, I introduced **Objects in terms of the functions they contain**. It's very important to stress on this aspect, because Classes and Objects should be seen under a different light using Scala, especially if you come from an imperative OOP language, like Java or C++. They are just a way to organise your functions and at some point, using traits, objects (companion objects) and case classes (data constructors) you will eventually be able to build up your coding architecture based on types and composition of functions.
+
+### General object hierarchy
+
+![scala-hierarchy](assets/img/scala-hierarchy.png)
+
+!!! note 
+    All members of packages `scala` and `java.lang` as well as all members of the object `scala.Predef` are automatically imported.
+
+* `scala.Nothing` is a trait that is the bottom subtype of every subtype of `scala.Any`
+    * `scala.Any` base type of all types. It has methods `hashCode` and `toString` that can be overridden
+* `scala.AnyVal` is the base type of all primitive types: `Double`, `Float`, etc.
+* `scala.AnyRef` base type of all reference types. (alias of `java.lang.Object`, supertype of `java.lang.String`, `scala.List`, any user-defined class)
+* `scala.Null` is a subtype of any `scala.AnyRef`, and `scala.Nothing` is a subtype of any other type without any instance.
+    * `Null` is a trait and is the bottom type similiar to `Nothing` but only for `AnyRef` not `AnyVal`
+    * `null` is the only instance of type `Null`
+* `Nil` is an empty list that is defined as a `List[Nothing]`
+* `None` is an empty option that is defined as a `Option[Nothing]`
+* `Unit` is a subtype of `AnyVal`, it's only value is `()` and it is not represented by any object in the underlying runtime system. A method with return type `Unit` is analogous to a Java method which is declared `void`
+
+
+### Factory Object
+
+The following example has been taken from [Programming in Scala][progscala]:
+
+```scala
+abstract class Element {
+    def contents: Array[String]
+    def height: Int = contents.length
+    def width: Int = if (height == 0) 0 else contents(0).length
+}
+
+class ArrayElements(val contents: Array[String]) extends Element 
+
+// Invoking superclass constructor while extending the class itself
+class LineElement(s: String) extends ArrayElement(Array(s)) {
+    override def width = s.length // Int is inferred
+    override def width = 1
+}
+
+class UniformElement(
+    ch: Char,
+    override val width: Int,
+    override val heigth: Int
+) extends Element {
+    private val line = ch.toString * width
+    def contents = Array.fill(height)(line)
+}
+```
+
+Now, what we can do is defining a *Factory Object* which contains methods that construct other objects, without exposing each class implementation. Basically, we can hide each class inside a Singleton Object, which will represent just a tag for the overloaded methods that will give us the ability to instantiate each subclass dinamically, and using polymorphism at the same time.
+
+!!! important
+    Note that **OOP is not a paradigm, but it's just a way to define our code structure in a logic manner** that is similar to playing with LEGOs. OOP can be seen like an **orthogonal dimension** compared to functional, declarative or imperative paradigms.
+
+```scala
+// We start defining a Singleton Object
+object Element {
+    // we can now hide classes as private fields of this object
+    private class ArrayElements(
+        val contents: Array[String]
+    ) extends Element
+
+    private class LineElement(s: String) extends Element {
+        val contents = Array(s)
+        override def width = s.length
+        override def width = 1
+    }
+
+    private class UniformElement(
+        ch: Char,
+        override val width: Int,
+        override val heigth: Int
+    ) extends Element {
+        private val line = ch.toString * width
+        def contents = Array.fill(height)(line)
+    } 
+
+    // FACTORY
+    def elem(contents: Array[String]): Element =
+        new ArrayElement(contents)
+
+    def elem(chr: Char, width: Int, heigth: Int): Element = 
+        new UniformElement(chr, width, height)
+
+    def elem(line: String): Elem =
+        new LineElement(line)
+}
+```
+
+Objects creation are centralized and the details now are hidden. 
+
+!!! tip "Open/Closed Principle"
+    This will eventually give an easy way to understand how to use these elements, and at the same time this small change will give the developer the **Open/Closed Principle** for free because less detail is exposed.
+    
+    > *“Software entities … should be open for extension, but closed for modification.”*
+
+    This provides more opportunities to **change the implementation of the library without breaking client code**. At the same time a class will have a single responsibility, and only one potential change in the software’s specification should be able to affect the specification of the class (**Single Responsibility Principle**). So, writing `SOLID` code pays off at the end. 
+
+### Factory method
+
+In Java you can create a private constructor by making it `private`. In Scala one can achieve the same behaviour prepending the `private` modifier to the default constructor. 
+
+```scala
+class Point private(coordX: Float, coordY: Float) {
+    val x = coordX
+    val y = coordY
+
+    /** Public auxiliary constructor
+      * Setting the point at the origin of the Cartesian axes
+      * calling the default private constructor using the 
+      */ 
+    def this() = this(0.0, 0.0)
+
+    def getPoint = (x, y)
+}
+```
+
+You cannot instantiate a new point using the default constructor:
+
+```scala
+val errorPoint = new Point(45.9, 21.08) // ERROR
+val correctPoint = new Point() // (0.0, 0.0)
+```
+
+!!!danger
+    TO BE FINISHED
+
+## Collections
 
 Scala defines several collection classes:
 
-**Base Classes**
+#### Base Classes
 
 - [`Iterable`](http://www.scala-lang.org/api/current/index.html#scala.collection.Iterable) (collections you can iterate on)
 - [`Seq`](http://www.scala-lang.org/api/current/index.html#scala.collection.Seq) (ordered sequences)
 - [`Set`](http://www.scala-lang.org/api/current/index.html#scala.collection.Set)
 - [`Map`](http://www.scala-lang.org/api/current/index.html#scala.collection.Map) (lookup data structure)
 
-**Immutable Collections**
+#### Immutable Collections
 
 - [`List`](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List) (linked list, provides fast sequential access)
 - [`Stream`](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.Stream) (same as List, except that the tail is evaluated only on demand)
@@ -226,14 +275,16 @@ Scala defines several collection classes:
 - [`Map`](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.Map) (collection that maps keys to values)
 - [`Set`](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.Set) (collection without duplicate elements)
 
-**Mutable Collections**
+#### Mutable Collections
 
 - [`Array`](http://www.scala-lang.org/api/current/index.html#scala.Array) (Scala arrays are native JVM arrays at runtime, therefore they are very performant)
 - Scala also has mutable maps and sets; **these should only be used if there are performance issues with immutable types**
 
-Examples
+#### Collections snippet
 
-```scala
+!!! snippet
+
+    ```scala
     val r: Range = 1 until 5 // 1, 2, 3, 4
     val s: Range = 1 to 5    // 1, 2, 3, 4, 5
     1 to 10 by 3  // 1, 4, 7, 10
@@ -258,12 +309,12 @@ Examples
     xs takeWhile p    // the longest prefix consisting of elements that satisfy p
     xs dropWhile p    // the remainder of the list after any leading element satisfying p have been removed
     xs span p         // same as (xs takeWhile p, xs dropWhile p)
-    
+
     List(x1, ..., xn) reduceLeft op    // (...(x1 op x2) op x3) op ...) op xn
     List(x1, ..., xn).foldLeft(z)(op)  // (...( z op x1) op x2) op ...) op xn
     List(x1, ..., xn) reduceRight op   // x1 op (... (x{n-1} op xn) ...)
     List(x1, ..., xn).foldRight(z)(op) // x1 op (... (    xn op  z) ...)
-    
+
     xs exists p    // true if there is at least one element for which predicate p is true
     xs forall p    // true if p(x) is true for all elements
     xs zip ys      // returns a list of pairs which groups elements with same index together
@@ -294,12 +345,13 @@ Examples
     val xs = Stream.cons(1, Stream.cons(2, Stream.cons(3, Stream.empty))) // same as above
     (1 to 1000).toStream // => Stream(1, ?)
     x #:: xs // Same as Stream.cons(x, xs)
-             // In the Stream's cons operator, the second parameter (the tail)
-             // is defined as a "call by name" parameter.
-             // Note that x::xs always produces a List
-```
+                // In the Stream's cons operator, the second parameter (the tail)
+                // is defined as a "call by name" parameter.
+                // Note that x::xs always produces a List
+    ```
 
-### Pairs (similar for larger Tuples)
+
+#### Pairs (similar for larger Tuples)
 
 ```scala
     val pair = ("answer", 42)   // type: (String, Int)
@@ -311,39 +363,51 @@ Examples
     pair._2 // 42  
 ```
 
-## Ordering
+#### Ordering
 
 There is already a class in the standard library that represents orderings: `scala.math.Ordering[T]` which contains
 comparison functions such as `lt()` and `gt()` for standard types. Types with a single natural ordering should inherit from 
 the trait `scala.math.Ordered[T]`.
 ```scala
-    import math.Ordering  
+import math.Ordering  
 
-    def msort[T](xs: List[T])(implicit ord: Ordering) = { ...}  
-    msort(fruits)(Ordering.String)  
-    msort(fruits)   // the compiler figures out the right ordering  
+def msort[T](xs: List[T])(implicit ord: Ordering) = { ...}  
+msort(fruits)(Ordering.String)  
+msort(fruits)   // the compiler figures out the right ordering  
 ```
 
-## map() and flatMap()
+### map() and flatMap()
 
-To be added
+!!!abstract
+    To be added
 
-# Category Theory
+## Category Theory
 
-## Algrebraic Data Type
-## Typeclass
+!!!abstract
+    To be added
+### Algrebraic Data Type
 
-> *[...] Type class is a class (group) of types, which satisfy some contract defined in a trait with addition that such functionality (trait and implementation) can be added without any changes to the original code. One could say that the same could be achieved by extending a simple trait, but with type classes it is not necessary to predict such a need beforehand.*
->
-> *There is no special syntax in Scala to express a type class, but the same functionality can be achieved using constructs that already exist in the language. **That’s what makes it a little difficult for newcomers to spot a type class in code. A typical implementation of a type class uses some syntactic sugar as well, which also doesn’t make it clear right away what we are dealing with**.*
+!!!abstract
+    To be added
 
-https://blog.scalac.io/2017/04/19/typeclasses-in-scala.html
+### Typeclass
+
+!!!quote
+    *[...] Type class is a class (group) of types, which satisfy some contract defined in a trait with addition that such functionality (trait and implementation) can be added without any changes to the original code. One could say that the same could be achieved by extending a simple trait, but with type classes it is not necessary to predict such a need beforehand.*
+    
+    *There is no special syntax in Scala to express a type class, but the same functionality can be achieved using constructs that already exist in the language. **That’s what makes it a little difficult for newcomers to spot a type class in code. A typical implementation of a type class uses some syntactic sugar as well, which also doesn’t make it clear right away what we are dealing with**.*
+
+    https://blog.scalac.io/2017/04/19/typeclasses-in-scala.html
 
 **Type constructor and Variance**
 
+
+!!!abstract
+    To be added
+
 pag. 392 of the White Scala Manual
 
-## Monoid
+### Monoid
 
 The Monoid is essentially the first purely *algebraic* data structures. The term *monoid* is taken from the **Category Theory**, and it means a category with one object. This kind of algebraic data structures are the corner stone of the technique that gives us the ability to write **polymorphic functions**. A Monoid is made of:
 
@@ -374,8 +438,11 @@ val stringMonoid = new Monoid[String] {
 ```
 
 
-## fold: foldRight() and foldLeft()
+### fold: foldRight() and foldLeft()
 
+
+!!!abstract
+    To be added
 
 
 [liskov]: https://stackoverflow.com/a/584732/1977778
