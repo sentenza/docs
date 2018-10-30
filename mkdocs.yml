@@ -1,11 +1,46 @@
 site_name: Sentenza's notes
 site_author: sentenza
+site_url: 'http://torre.me.uk/docs'
+repo_name: 'sentenza/docs'
 repo_url: https://github.com/sentenza/docs
 nav:
     - Home: index.md
     - Scala: scala.md
     - Links: links.md
 theme: 
-  name: readthedocs
-  hljs_languages:
-    - scala
+  name: 'material'
+  palette:
+    primary: 'deep purple'
+    accent: 'deep purple'
+  font:
+    text: 'Ubuntu'
+    code: 'Fira Mono'
+  logo:
+    icon: 'cloud'
+  # feature:
+  #   tabs: true 
+markdown_extensions:
+  - admonition
+  - codehilite:
+      linenums: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+extra:
+  disqus: 'alfredotorre'
+  social:
+    - type: 'github'
+      link: 'https://github.com/sentenza'
