@@ -40,6 +40,14 @@ def func[T >: Level1 <: Top Level](arg: T): T = { ... }
 
 ### Variance
 
+!!! quote
+
+    Variance being a tricky business, **users usually get it wrong**, and they come away thinking that wildcard and generics
+    are overly complicated. With definition-side variance, you express your intent to the compiler, and the compiler will
+    double check that the methods you want available will indeed be available.
+
+    \- [Programming in Scala][progscala]
+
 **Upper Bounds:**
 `[S <: T]` means: S is a subtype of T. Let's suppose that T is actually an `Iterable`, then S could one of `Seq`, `List` or `Iterable`.
 
@@ -56,8 +64,9 @@ We call types for which this relationship holds **covariant** because their subt
 Does covariance make sense for all types, not just for List? No. For instance, in Scala, **arrays are not covariant**.
 
 !!! question "When does it make sense to subtype one type with another?"
-    _If `A <: B`, then everything one can to do with a value of
-    type B one should also be able to do with a value of type A._
+
+    > It is safe to assume that a type `T` is a subtype of a type `U` (`T <: U`) if you can substitute a
+    value of type `T` wherever a value of type U is required. This is called the _Liskov Substitution Principle_.
 
     [Liskov Substitution Principle][liskov]
 
@@ -89,6 +98,14 @@ According to the [Liskov Principle][liskov] => `A <: B`, since B can return an E
 
 For a function, if `A2 <: A1` and `B1 <: B2`, then `A1 => B1 <: A2 => B2`. The consequence is that functions must be **contravariant in their argument types and covariant in their result types**.
 
+```scala
+/** The Scala Function1 S => T */
+trait Function1[-S, +T] {
+    // S is contravariant, while T is covariant
+    def apply(x: S): T
+}
+```
+
 This example shows that functions are _contravariant_ in argument types and _covariant_ in return types.
 
 ```scala
@@ -118,6 +135,14 @@ object morecovariance extends App {
 ```
 
 Find out more about variance in [Covariance And Contravariance in Scala](http://blog.kamkor.me/Covariance-And-Contravariance-In-Scala/)
+
+**Type constructor and Variance**
+
+
+!!!abstract
+    To be added
+
+pag. 392 of the White Scala Manual
 
 ## Objects and Code organization
 
@@ -398,14 +423,6 @@ msort(fruits)   // the compiler figures out the right ordering
     *There is no special syntax in Scala to express a type class, but the same functionality can be achieved using constructs that already exist in the language. **That’s what makes it a little difficult for newcomers to spot a type class in code. A typical implementation of a type class uses some syntactic sugar as well, which also doesn’t make it clear right away what we are dealing with**.*
 
     https://blog.scalac.io/2017/04/19/typeclasses-in-scala.html
-
-**Type constructor and Variance**
-
-
-!!!abstract
-    To be added
-
-pag. 392 of the White Scala Manual
 
 ### Monoid
 
