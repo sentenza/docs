@@ -51,7 +51,7 @@
       
         
         
-        <meta name="theme-color" content="#7e57c2">
+        <meta name="theme-color" content="#757575">
       
     
     
@@ -71,7 +71,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+    <body dir="ltr" data-md-color-primary="grey" data-md-color-accent="deep-purple">
   
     <svg class="md-svg">
       <defs>
@@ -113,7 +113,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="http://torre.me.uk/docs" title="Sentenza's notes" class="md-header-nav__button md-logo">
           
-            <i class="md-icon">cloud</i>
+            <i class="md-icon">library_books</i>
           
         </a>
       </div>
@@ -209,7 +209,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://torre.me.uk/docs" title="Sentenza's notes" class="md-nav__button md-logo">
       
-        <i class="md-icon">cloud</i>
+        <i class="md-icon">library_books</i>
       
     </a>
     Sentenza's notes
@@ -1046,10 +1046,18 @@ According to the <a href="https://stackoverflow.com/a/584732/1977778">Liskov Pri
 </pre></div>
 </td></tr></table>
 
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>TO BE FINISHED</p>
-</div>
+<p>A possible solution to define a new <code class="codehilite">Point</code> is given by the usage of a <em>companion object</em> and a <strong>factory method</strong> that will give us a convenient way to define a new object, without actually call the <code class="codehilite">new</code> operator. To do so one can add the <code class="codehilite">apply()</code> method to the newly created object, which will have the same acess rights to the <code class="codehilite">Point</code> class if placed in the same file.</p>
+<p>Therefore, the <code class="codehilite">apply()</code> method will be able to use the private construction of the <code class="codehilite">Point</code> class and then it will become a <strong>factory method</strong>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="o">[</span><span class="kt">T</span> <span class="k">&lt;:</span> <span class="kt">Double</span><span class="o">]</span> <span class="nc">private</span><span class="o">(</span><span class="n">coordX</span><span class="k">:</span> <span class="kt">T</span><span class="o">,</span> <span class="n">coordY</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+<span class="k">object</span> <span class="nc">Point</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">T</span> <span class="k">&lt;:</span> <span class="kt">Double</span><span class="o">](</span><span class="n">x</span><span class="k">:</span> <span class="kt">T</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
 <h2 id="collections">Collections</h2>
 <p>Scala defines several collection classes:</p>
 <h4 id="base-classes">Base Classes</h4>
