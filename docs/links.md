@@ -28,8 +28,9 @@ The University, Glasgow, 1990)
 ### Books
 
 * [Programming in Scala](https://www.artima.com/shop/programming_in_scala) (2016) by Martin Odersky, Lex Spoon, and Bill Venners
-* [Functional Programming, Simplified](https://amzn.to/2OCFROS) (2017) by Alvin Alexander (*companion of the Red Book*)
 * [Functional Programming in Scala](https://www.manning.com/books/functional-programming-in-scala) (2014) by Paul Chiusano and Runar Bjarnason (*The **Red Book***)
+- [A companion booklet to "Functional Programming in Scala"](http://blog.higher-order.com/assets/fpiscompanion.pdf) (PDF) by Rúnar Óli Bjarnason
+* [Functional Programming, Simplified](https://amzn.to/2OCFROS) (2017) by Alvin Alexander
 * [Functional Programming for Mortals with Scalaz](https://leanpub.com/fpmortals) (2018) by Sam Halliday 
 * [Scala with Cats](https://underscore.io/books/scala-with-cats)
 * [The Type Astronaut's Guide to Shapeless](https://underscore.io/books/shapeless-guide)

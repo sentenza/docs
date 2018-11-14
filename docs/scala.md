@@ -276,8 +276,18 @@ val errorPoint = new Point(45.9, 21.08) // ERROR
 val correctPoint = new Point() // (0.0, 0.0)
 ```
 
-!!!danger
-    TO BE FINISHED
+A possible solution to define a new `Point` is given by the usage of a *companion object* and a **factory method** that will give us a convenient way to define a new object, without actually call the `new` operator. To do so one can add the `apply()` method to the newly created object, which will have the same acess rights to the `Point` class if placed in the same file.
+
+Therefore, the `apply()` method will be able to use the private construction of the `Point` class and then it will become a **factory method**:
+
+```scala
+class Point[T <: Double] private(coordX: T, coordY: T) { ... }
+object Point {
+    def apply[T <: Double](x: T, y: T) = new Point[T](x, y)
+}
+```
+
+
 
 ## Collections
 
