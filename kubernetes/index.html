@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="http://torre.me.uk/docs/links/">
+        <link rel="canonical" href="http://torre.me.uk/docs/kubernetes/">
       
       
         <meta name="author" content="sentenza">
@@ -40,7 +40,7 @@
     
     
       
-        <title>Links - Sentenza's notes</title>
+        <title>Kubernetes - Sentenza's notes</title>
       
     
     
@@ -102,7 +102,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#links-and-external-resources" tabindex="1" class="md-skip">
+      <a href="#terminology" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -126,7 +126,7 @@
             <div class="md-flex__cell md-flex__cell--stretch">
                 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title"><span
                         class="md-header-nav__topic">Sentenza's notes</span><span
-                        class="md-header-nav__topic">Links</span></div>
+                        class="md-header-nav__topic">Kubernetes</span></div>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><label
                     class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
@@ -250,18 +250,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -269,38 +257,41 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Links
+        Kubernetes
       </label>
     
-    <a href="./" title="Links" class="md-nav__link md-nav__link--active">
-      Links
+    <a href="./" title="Kubernetes" class="md-nav__link md-nav__link--active">
+      Kubernetes
     </a>
     
       
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#functional-programming" title="Functional Programming" class="md-nav__link">
-    Functional Programming
+  <a href="#terminology" title="Terminology" class="md-nav__link">
+    Terminology
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#fp-papers" title="FP Papers" class="md-nav__link">
-    FP Papers
+  <a href="#what-is-a-pod" title="What is a pod??" class="md-nav__link">
+    What is a pod??
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-plugins" title="Kubernetes "plugins"" class="md-nav__link">
+    Kubernetes "plugins"
   </a>
   
 </li>
@@ -311,49 +302,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scala" title="Scala" class="md-nav__link">
-    Scala
+  <a href="#how-to-manage-the-google-kubernetes-engine" title="How to manage the Google Kubernetes Engine" class="md-nav__link">
+    How to manage the Google Kubernetes Engine
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#books" title="Books" class="md-nav__link">
-    Books
+  <a href="#setting-a-static-ip-and-a-custom-domain-for-the-application" title="Setting a static IP and a custom domain for the application" class="md-nav__link">
+    Setting a static IP and a custom domain for the application
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#readings" title="Readings" class="md-nav__link">
-    Readings
+  <a href="#update-the-image-used-for-the-current-kubernetes-pod" title="Update the image used for the current Kubernetes POD" class="md-nav__link">
+    Update the image used for the current Kubernetes POD
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#cats-and-shapeless" title="Cats and Shapeless" class="md-nav__link">
-    Cats and Shapeless
+  <a href="#delete-a-kubernetes-service" title="Delete a Kubernetes service" class="md-nav__link">
+    Delete a Kubernetes service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-and-dbs-on-gke" title="Storage and DBs on GKE" class="md-nav__link">
+    Storage and DBs on GKE
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#haskell-and-ocaml" title="Haskell and OCaml" class="md-nav__link">
-    Haskell and OCaml
-  </a>
   
 </li>
       
@@ -374,6 +359,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../links/" title="Links" class="md-nav__link">
+      Links
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -388,23 +385,28 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#functional-programming" title="Functional Programming" class="md-nav__link">
-    Functional Programming
+  <a href="#terminology" title="Terminology" class="md-nav__link">
+    Terminology
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#fp-papers" title="FP Papers" class="md-nav__link">
-    FP Papers
+  <a href="#what-is-a-pod" title="What is a pod??" class="md-nav__link">
+    What is a pod??
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-plugins" title="Kubernetes "plugins"" class="md-nav__link">
+    Kubernetes "plugins"
   </a>
   
 </li>
@@ -415,49 +417,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scala" title="Scala" class="md-nav__link">
-    Scala
+  <a href="#how-to-manage-the-google-kubernetes-engine" title="How to manage the Google Kubernetes Engine" class="md-nav__link">
+    How to manage the Google Kubernetes Engine
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#books" title="Books" class="md-nav__link">
-    Books
+  <a href="#setting-a-static-ip-and-a-custom-domain-for-the-application" title="Setting a static IP and a custom domain for the application" class="md-nav__link">
+    Setting a static IP and a custom domain for the application
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#readings" title="Readings" class="md-nav__link">
-    Readings
+  <a href="#update-the-image-used-for-the-current-kubernetes-pod" title="Update the image used for the current Kubernetes POD" class="md-nav__link">
+    Update the image used for the current Kubernetes POD
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#cats-and-shapeless" title="Cats and Shapeless" class="md-nav__link">
-    Cats and Shapeless
+  <a href="#delete-a-kubernetes-service" title="Delete a Kubernetes service" class="md-nav__link">
+    Delete a Kubernetes service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-and-dbs-on-gke" title="Storage and DBs on GKE" class="md-nav__link">
+    Storage and DBs on GKE
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#haskell-and-ocaml" title="Haskell and OCaml" class="md-nav__link">
-    Haskell and OCaml
-  </a>
   
 </li>
       
@@ -483,72 +479,79 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/sentenza/docs/edit/master/docs/links.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/sentenza/docs/edit/master/docs/kubernetes.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="links-and-external-resources">Links and external resources</h1>
-<h2 id="functional-programming">Functional Programming</h2>
+                  <h1>Kubernetes</h1>
+                
+                <blockquote>
+<p>So Kubernetes is pronounced /koo-ber-nay'-tace/ and <a href="https://www.biblestudytools.com/lexicons/greek/nas/kubernetes.html">means "sailing master"</a></p>
+</blockquote>
+<p>Via <a href="https://twitter.com/francesc/status/487412202932936704">@francesc</a></p>
+<h2 id="terminology">Terminology</h2>
 <ul>
-<li><a href="https://github.com/hmemcpy/milewski-ctfp-pdf">Category Theory for Programmers</a></li>
-<li><a href="http://www.defmacro.org/2006/06/19/fp.html">Functional Programming For The Rest of Us</a></li>
-<li><a href="http://yosefk.com/blog/parallelism-and-concurrency-need-different-tools.html">Parallelism and concurrency need different tools</a></li>
-<li><a href="https://merrigrove.blogspot.com/2011/12/another-introduction-to-algebraic-data.html">What the Heck are Algebraic Data Types?</a> <em>by Daniel Eklund</em></li>
-<li><a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">Functors, Applicatives, And Monads In Pictures</a></li>
-<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">A practical introduction to functional programming</a></li>
-<li><a href="https://pragprog.com/magazines/2013-01/functional-programming-basics">Functional Programming Basics</a> <em>by Robert C. Martin (Uncle Bob)</em></li>
-<li><a href="https://www.fpcomplete.com/blog/2012/04/the-downfall-of-imperative-programming">The Downfall of Imperative Programming</a></li>
+<li><strong>Node</strong>: A single virtual or physical machine in a Kubernetes cluster.</li>
+<li><strong>Cluster:</strong> A group of nodes firewalled from the internet, that are the primary compute resources managed by Kubernetes.</li>
+<li><strong>Edge router:</strong> A router that enforces the firewall policy for your cluster. This could be a gateway managed by a cloud provider or a physical piece of hardware.</li>
+<li><strong>Cluster network:</strong> A set of links, logical or physical, that facilitate communication within a cluster according to the <a href="https://kubernetes.io/docs/concepts/cluster-administration/networking/">Kubernetes networking model</a>. Examples of a Cluster network include Overlays such as flannel or SDNs such as OVS.</li>
+<li><strong>Service:</strong> A Kubernetes Service that identifies a set of pods using label selectors. Unless mentioned otherwise, Services are assumed to have virtual IPs only routable within the cluster network.</li>
 </ul>
-<h3 id="fp-papers">FP Papers</h3>
+<h3 id="what-is-a-pod">What is a pod??</h3>
+<p>A <strong>pod is a group of one or more containers</strong> (such as Docker containers), with shared storage/network, and a specification for how to run the containers. A pod’s contents are always co-located and co-scheduled, and run in a shared context.</p>
+<p>Containers within a pod share an IP address and port space, and can find each other via localhost. They can also communicate with each other using standard inter-process communications like SystemV semaphores or POSIX shared memory. Containers in different pods have distinct IP addresses and can not communicate by IPC without special configuration. These containers usually communicate with each other via Pod IP addresses.</p>
+<p>In terms of Docker constructs, <strong>a pod is modelled as a group of Docker containers with shared namespaces and shared volumes</strong>.</p>
+<h3 id="kubernetes-plugins">Kubernetes "plugins"</h3>
 <ul>
-<li><a href="https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf">Why Functional Programming Matters</a> (J. Hughes
-The University, Glasgow, 1990)</li>
-<li><a href="https://repository.upenn.edu/cgi/viewcontent.cgi?article=1773&amp;context=cis_papers">Monoids: Theme and Variations</a> (B. Yorgey, 2012)</li>
-<li><a href="https://www.cs.ox.ac.uk/jeremy.gibbons/publications/iterator.pdf">The Essence of the Iterator Pattern</a> (J. Gibbons and B. Oliveira, Oxford University Computing Laboratory)</li>
-<li><a href="http://www.staff.city.ac.uk/~ross/papers/Applicative.pdf">Applicative programming with effects</a> (C. McBride, University of Nottingham - R. Paterson, City University, London)</li>
-<li><a href="http://functorial.com/stack-safety-for-free/index.pdf">Stack Safety for Free</a> (Phil Freeman, 2015)</li>
-<li><a href="http://blog.higher-order.com/assets/trampolines.pdf">Stackless Scala With Free Monads</a> (Rúnar Óli Bjarnason)</li>
-<li><a href="http://ropas.snu.ac.kr/~bruno/papers/TypeClasses.pdf">Type Classes as Objects and Implicits</a> (B. Oliveira, A. Moors,
-<strong>M. Odersky</strong>)</li>
+<li><a href="https://docs.helm.sh/">Helm Tiller</a>: Helm is a package manager for Kubernetes and is required to install all the other applications. It is installed in its own pod inside the cluster which can run the <code class="codehilite">helm</code> CLI in a safe environment.</li>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a>: Ingress can provide load balancing, SSL termination, and name-based virtual hosting. It acts as a web proxy for your applications and is useful if you want to use <a href="../../../topics/autodevops/index.md">Auto DevOps</a> or deploy your own web apps.</li>
+<li><a href="https://prometheus.io/docs/introduction/overview/">Prometheus</a>: Prometheus is an open-source monitoring and alerting system useful to supervise your deployed applications.</li>
 </ul>
-<h2 id="scala">Scala</h2>
-<h3 id="books">Books</h3>
+<h2 id="how-to-manage-the-google-kubernetes-engine">How to manage the Google Kubernetes Engine</h2>
+<p>The first step is to check the defined clusters [using the Google Cloud Platform console][gcp-console]. The most common target is, at first, to build and push a containarised application, which means that we start creating a new docker image in our machine, then after checking it locally, we push the image to a <em>docker container registry</em>. </p>
+<p>Using GCP all these operations can be done by using a mix of <code class="codehilite">docker</code>, <code class="codehilite">gcloud</code> and <code class="codehilite">kubectl</code> commands. First things first, we must create one or more images using the instructions provided <a href="Docker">here</a>. After that, one can follow the instructions of <a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app">this gcloud tutorial</a>.</p>
+<h3 id="setting-a-static-ip-and-a-custom-domain-for-the-application">Setting a static IP and a custom domain for the application</h3>
+<p>In our case we can <a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/configuring-domain-name-static-ip#step_2a_using_a_service">assign a static IP address</a> for the service created one step above. The best way to achieve this, IMHO, is the web interface and precisely <a href="https://console.cloud.google.com/networking/addresses/add?project=together-rx">here</a>. </p>
+<h3 id="update-the-image-used-for-the-current-kubernetes-pod">Update the image used for the current Kubernetes POD</h3>
+<ol>
+<li>
+<p>Build a new snapshot optimized for production
+<code class="codehilite">ng build --prod</code></p>
+</li>
+<li>
+<p>Create a new image and tag it with a new version</p>
+</li>
+<li>
+<p>Test the new image locally</p>
+</li>
+<li>
+<p>Push the newly created image to the container registry</p>
+</li>
+</ol>
+<p>To update the deployed container we can use the set command:
+<code class="codehilite">kubectl set image deployment/together-rx ...</code></p>
+<p><strong>Problem:</strong> A frequent question that comes up on Slack and Stack Overflow is how to trigger an update to a Deployment/RS/RC when the image tag hasn't changed but the underlying image has.</p>
+<p>Consider:</p>
+<ol>
+<li>There is an existing Deployment with image <code class="codehilite"><span class="n">foo</span><span class="o">:</span><span class="n">latest</span></code></li>
+<li>User builds a new image <code class="codehilite"><span class="n">foo</span><span class="o">:</span><span class="n">latest</span></code></li>
+<li>User pushes <code class="codehilite"><span class="n">foo</span><span class="o">:</span><span class="n">latest</span></code> to their registry</li>
+<li>User wants to do something here to tell the Deployment to pull the new image and do a rolling-update of existing pods</li>
+</ol>
+<p><strong>Possible solution for our current scenario:</strong> you are using <code class="codehilite">&#39;latest&#39;</code> for testing (this is the "no sed" use case), in this case, downtime is fine, and indeed the right approach is likely to <em>completely blow away your stack</em> and redeploy from scratch to get a clean run (=&gt; <code class="codehilite">kubectl set &lt;...&gt;</code>).</p>
+<p>Keep reading <a href="https://github.com/kubernetes/kubernetes/issues/33664#issuecomment-258349316">here</a>.</p>
+<h3 id="delete-a-kubernetes-service">Delete a Kubernetes service</h3>
+<p>To stop and delete a Kubernetes instance/service corresponding to the image we created and then exposed we should instruct Kubernetes to tell the Load Balancer to delete the provisioned service with a simple command like that:</p>
+<p><code class="codehilite">kubectl delete service container-1</code></p>
+<p><strong>NOTE:</strong> The load balancer is deleted asynchronously in the background when you run <code class="codehilite">kubectl delete</code>. Wait until the load balancer is deleted by watching the output of the following command:</p>
+<p><code class="codehilite">gcloud compute forwarding-rules list</code></p>
+<h3 id="storage-and-dbs-on-gke">Storage and DBs on GKE</h3>
 <ul>
-<li><a href="https://www.artima.com/shop/programming_in_scala">Programming in Scala</a> (2016) by Martin Odersky, Lex Spoon, and Bill Venners</li>
-<li><a href="https://www.manning.com/books/functional-programming-in-scala">Functional Programming in Scala</a> (2014) by Paul Chiusano and Runar Bjarnason (*The <strong>Red Book*</strong>)</li>
-<li><a href="http://blog.higher-order.com/assets/fpiscompanion.pdf">A companion booklet to "Functional Programming in Scala"</a> (PDF) by Rúnar Óli Bjarnason</li>
-<li><a href="https://amzn.to/2OCFROS">Functional Programming, Simplified</a> (2017) by Alvin Alexander</li>
-<li><a href="https://leanpub.com/fpmortals">Functional Programming for Mortals with Scalaz</a> (2018) by Sam Halliday </li>
-<li><a href="https://underscore.io/books/scala-with-cats">Scala with Cats</a></li>
-<li><a href="https://underscore.io/books/shapeless-guide">The Type Astronaut's Guide to Shapeless</a></li>
-</ul>
-<h3 id="readings">Readings</h3>
-<ul>
-<li><a href="https://ktoso.github.io/scala-types-of-types">Scala's Types of Types</a></li>
-<li><a href="https://impurepics.com/posts/2018-06-17-typeclasses-in-scala.html">Typeclasses in scala - Illustrated with cats</a></li>
-<li><a href="https://alvinalexander.com/scala/fp-book/algebraic-data-types-adts-in-scala">Algebraic Data Types in Scala</a> <em>by Alvin Alexander</em></li>
-<li><a href="https://underscore.io/blog/posts/2015/06/04/more-on-sealed.html">More on Sealed Traits in Scala</a></li>
-<li><a href="http://blog.bruchez.name/2015/11/generalized-type-constraints-in-scala.html">Generalized type constraints in Scala (without a PhD)</a></li>
-<li><a href="https://darrenjw.wordpress.com/2016/04/15/first-steps-with-monads-in-scala/">First steps with monads in Scala</a></li>
-<li><a href="https://medium.com/@sinisalouc/demystifying-the-monad-in-scala-cc716bb6f534">Demystifying the Monad in Scala</a></li>
-<li><a href="http://www.marcoyuen.com/articles/2016/09/08/stackless-scala-1-the-problem.html">Stackless Scala</a></li>
-<li><a href="https://typelevel.org/blog/2018/04/13/rethinking-monaderror.html">Rethinking MonadError</a></li>
-<li><a href="https://softwaremill.com/free-monads">Free monads - what? and why?</a></li>
-<li><a href="https://github.com/kenbot/free">Free Monad examples</a></li>
-</ul>
-<h4 id="cats-and-shapeless">Cats and Shapeless</h4>
-<ul>
-<li><a href="https://medium.com/@abu_nadhr/scala-cats-library-for-dummies-part-1-8ec47af7a144">Scala Cats library for dummies</a></li>
-<li><a href="https://github.com/tpolecat/cats-infographic">Cats Infographic</a></li>
-<li><a href="https://blog.scalac.io/2016/06/02/overview-of-free-monad-in-cats.html">Overview of free monad in Cats</a></li>
-<li><a href="https://typelevel.org/blog/2017/05/02/io-monad-for-cats.html">An IO monad for Cats</a></li>
-<li><a href="https://www.signifytechnology.com/blog/2018/07/scalafp-firsthand-with-scala-cats-monads-number-1-by-harmeet-singh">ScalaFP: Firsthand With Scala-Cats</a></li>
-<li><a href="http://fommil.com/scalax15/">Shapeless for Mortals</a> (2015) by Sam Halliday (Talk)</li>
-</ul>
-<h2 id="haskell-and-ocaml">Haskell and OCaml</h2>
-<ul>
-<li><a href="http://learnyouahaskell.com/chapters">Learn You a Haskell for Great Good!</a></li>
-<li><a href="http://prajitr.github.io/quick-haskell-syntax">A Quick Tour of Haskell Syntax</a></li>
-<li><a href="https://ocaml.org/learn/taste.html">OCaml taste</a></li>
+<li>
+<p><a href="https://codelabs.developers.google.com/codelabs/cloud-postgresql-gke-memegen/#0">High Availability PostgreSQL and Kubernetes with Google Cloud</a></p>
+</li>
+<li>
+<p><a href="https://forvo.com/search/Kubernetes/">How to pronounce Kubernetes</a></p>
+</li>
 </ul>
                 
                   
@@ -562,9 +565,9 @@ The University, Glasgow, 1990)</li>
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = "http://torre.me.uk/docs/links/";
+      this.page.url = "http://torre.me.uk/docs/kubernetes/";
       this.page.identifier =
-        "/links/";
+        "/kubernetes/";
     };
     (function() {
       var d = document, s = d.createElement("script");
@@ -586,7 +589,7 @@ The University, Glasgow, 1990)</li>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../kubernetes/" title="Kubernetes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../scala/" title="Scala" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -595,11 +598,25 @@ The University, Glasgow, 1990)</li>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Kubernetes
+                Scala
               </span>
             </div>
           </a>
         
+        
+          <a href="../links/" title="Links" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Links
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
