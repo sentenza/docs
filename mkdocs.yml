@@ -6,9 +6,11 @@ repo_url: https://github.com/sentenza/docs
 nav:
     - Home: index.md
     - Scala: scala.md
+    - Kubernetes: kubernetes.md
     - Links: links.md
 theme: 
   name: 'material'
+  custom_dir: 'material-theme'
   palette:
     primary: 'grey'
     accent: 'deep purple'
