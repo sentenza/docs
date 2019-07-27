@@ -470,6 +470,10 @@ val stringMonoid = new Monoid[String] {
 
 !!!abstract
     To be added
+    
+# SBT
+
+- [Defining dependencies and Settins in /project](https://kubuszok.com/2018/relearn-your-sbt/#project)
 
 
 [liskov]: https://stackoverflow.com/a/584732/1977778
