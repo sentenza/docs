@@ -470,6 +470,10 @@ val stringMonoid = new Monoid[String] {
 
 !!!abstract
     To be added
+    
+# SBT
+
+- [Defining dependencies and Settins in /project](https://kubuszok.com/2018/relearn-your-sbt/#project)
 
 ### Functor
 A Functor is just a type constructor for which `map` can be implemented:
