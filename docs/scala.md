@@ -471,6 +471,78 @@ val stringMonoid = new Monoid[String] {
 !!!abstract
     To be added
 
+### Functor
+A Functor is just a type constructor for which `map` can be implemented:
+
+```scala
+trait Functor[F[_]] {
+    def map[T, R](fa: F[T])(f: T => R): F[R]
+}
+```
+
+### Monad
+
+Monads are like _wrappers_ that provide us with two fundamental operations:
+
+- **identity** (that we refer as _unit_ in Scala - or _pure_)
+- **bind** (**flatMap** in Scala)
+
+!!! tip "Monads in Category Theory"
+    In Category Theory, a Monad is a [Functor](#functor) equipped with a pair of _"natural transformations"_ satisfying the laws of associativity and identity.
+
+And then a question arises spontaneously: how should I describe a Monad in Scala?
+
+
+
+```scala
+trait M[T] {
+  def flatMap[T](f: T => M[R]): M[R]
+}
+  
+def unit[T](x: T): M[T]
+```
+
+As you might have supposed `unit[MyType](x)` performs the wrapping into a `Monad[MyType]`. It's pretty clear that we defined the method `unit()` outside the trait body because we don’t want to invoke it upon the existing monadic object.
+
+!!! important "Monad laws"
+    If we have some basic value `x`, a monad instance `m` (holding some value) and functions `f` and `g` of type `Int → M[Int]`, we can write the laws as follows:
+
+    - **left-identity law**:
+    ```scala
+    unit(x).flatMap(f) == f(x)
+    ```
+    - **right-identity law**:
+    ```scala
+        m.flatMap(unit) == m
+    ```
+    - **associativity law**:
+    ```scala
+    m.flatMap(f).flatMap(g) == m.flatMap(x ⇒ f(x).flatMap(g))
+    ```
+
+!!! note "On flatMap"
+    ![flatMap that shit](assets/img/flatmap_that_shit.jpg)
+
+    ```
+            map with T => M[R]                  flatten
+    M[T]  ------------------------->  M[M[R]]  -----------> M[R]
+    ```
+
+!!! question "**Why do we need monads?**"
+    4. Functions should (to be simpler) return only **one thing**. 
+        - **Solution:** let's create a new type of data to be returned, a "**boxing type**" that encloses maybe a real or be simply nothing. Hence, we can have `g: (x: Real, y: Real) => Option[Real]`. OK, but…
+    5. What happens now to `f(g(x,y))`? `f` is not ready to consume an `Option[Real]`. And, we don't want to change every function we could connect with `g` to consume an `Option[Real]`.
+        - **Solution:** let's **have a special function to "connect"/"compose"/"link" functions**. That way, we can, behind the scenes, adapt the output of one function to feed the following one. 
+        - In our case:  `g.flatMap(f)` (connect/compose `g` to `f`). We want `flatMap` to get `g`'s output, inspect it and, in case it is `None` just don't call `f` and return `None`; or on the contrary, extract the boxed `Real` and feed `f` with it.
+    6. Many other problems arise which can be solved using this same pattern: 1. Use a "box" to codify/store different meanings/values, and have functions like `g` that return those "boxed values".
+    7. Have composers/linkers `g flatMap f` to help connecting `g`'s output to `f`'s input, so we don't have to change `f` at all.
+    7. Remarkable problems that can be solved using this technique are: 
+        - having a global state that every function in the sequence of functions ("the program") can share: solution `StateMonad`.
+        - We don't like "impure functions": functions that yield *different* output for *same* input. Therefore, let's mark those functions, making them to return a tagged/boxed value: `IO` monad.
+
+    https://stackoverflow.com/a/28135478/1977778
+
+[About Monads](https://medium.com/free-code-camp/demystifying-the-monad-in-scala-cc716bb6f534)
 
 [liskov]: https://stackoverflow.com/a/584732/1977778
 [progscala]: https://www.artima.com/shop/programming_in_scala
