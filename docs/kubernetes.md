@@ -21,7 +21,7 @@ In terms of Docker constructs, **a pod is modelled as a group of Docker containe
 ### Kubernetes "plugins"
 
 - [Helm Tiller](https://docs.helm.sh/): Helm is a package manager for Kubernetes and is required to install all the other applications. It is installed in its own pod inside the cluster which can run the `helm` CLI in a safe environment.
-- [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/): Ingress can provide load balancing, SSL termination, and name-based virtual hosting. It acts as a web proxy for your applications and is useful if you want to use [Auto DevOps](../../../topics/autodevops/index.md) or deploy your own web apps.
+- [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/): Ingress can provide load balancing, SSL termination, and name-based virtual hosting. It acts as a web proxy for your applications and is useful if you want to use _Auto DevOps_ or deploy your own web apps.
 - [Prometheus](https://prometheus.io/docs/introduction/overview/): Prometheus is an open-source monitoring and alerting system useful to supervise your deployed applications.
 
 ## How to manage the Google Kubernetes Engine
