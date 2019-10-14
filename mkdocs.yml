@@ -5,6 +5,7 @@ repo_name: 'sentenza/docs'
 repo_url: https://github.com/sentenza/docs
 nav:
     - Home: index.md
+    - Category Theory: category_theory.md
     - Scala: scala.md
     - Kubernetes: kubernetes.md
     - Links: links.md
