@@ -1,0 +1,648 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="http://torre.me.uk/docs/category_theory/">
+      
+      
+        <meta name="author" content="sentenza">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.6">
+    
+    
+      
+        <title>Category Theory - Sentenza's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#757575">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Fira+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="grey" data-md-color-accent="deep-purple">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#category-theory" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+    <nav class="md-header-nav md-grid">
+        <div class="md-flex">
+
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <a href="https://torre.me.uk" title="Go back to the homepage" class="md-header-nav__button md-logo">
+                    <i class="md-icon">home</i>
+                </a>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <a href="http://torre.me.uk/docs" title="Sentenza's notes"
+                    class="md-header-nav__button md-logo"><i
+                        class="md-icon">library_books</i></a>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--menu md-header-nav__button"
+                    for="__drawer"></label></div>
+            <div class="md-flex__cell md-flex__cell--stretch">
+                <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title"><span
+                        class="md-header-nav__topic">Sentenza's notes</span><span
+                        class="md-header-nav__topic">Category Theory</span></div>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><label
+                    class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div><div
+                class="md-flex__cell md-flex__cell--shrink">
+                <div class="md-header-nav__source">
+
+
+  
+
+
+  <a href="https://github.com/sentenza/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      sentenza/docs
+    </div>
+  </a>
+</div>
+            </div></div>
+    </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://torre.me.uk/docs" title="Sentenza's notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">library_books</i>
+      
+    </a>
+    Sentenza's notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/sentenza/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      sentenza/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Category Theory
+      </label>
+    
+    <a href="./" title="Category Theory" class="md-nav__link md-nav__link--active">
+      Category Theory
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#monoid" title="Monoid" class="md-nav__link">
+    Monoid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functor" title="Functor" class="md-nav__link">
+    Functor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monad" title="Monad" class="md-nav__link">
+    Monad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" title="Links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../scala/" title="Scala" class="md-nav__link">
+      Scala
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../links/" title="Links" class="md-nav__link">
+      Links
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#monoid" title="Monoid" class="md-nav__link">
+    Monoid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functor" title="Functor" class="md-nav__link">
+    Functor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monad" title="Monad" class="md-nav__link">
+    Monad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" title="Links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/sentenza/docs/edit/master/docs/category_theory.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="category-theory">Category Theory</h1>
+<p><img alt="Category diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Commutative_diagram_for_morphism.svg/200px-Commutative_diagram_for_morphism.svg.png" /></p>
+<p>A <a href="http://en.wikipedia.org/wiki/Category_(mathematics)">category</a> is a purely algebraic structure consisting of "objects" and "arrows" between them, much like a directed graph with nodes and edges between them. A category will have objects like <code class="codehilite">X</code>, <code class="codehilite">Y</code>, <code class="codehilite">Z</code>,etc. and arrows between objects. Importantly, arrows <strong>compose</strong>. Given an arrow <em>f</em> from <code class="codehilite">X</code> to <code class="codehilite">Y</code>, and another arrow <em>g</em> from <code class="codehilite">Y</code> to <code class="codehilite">Z</code>, their composition is an arrow from <code class="codehilite">X</code> to <code class="codehilite">Z</code>. There is also an identity arrow from every object to itself.</p>
+<h3 id="monoid">Monoid</h3>
+<p><strong>In <a href="http://en.wikipedia.org/wiki/Category_theory">category theory</a>, a <a href="http://en.wikipedia.org/wiki/Monoid_(category_theory)">monoid</a> is a <a href="http://en.wikipedia.org/wiki/Category_(mathematics)">category</a> with one object.</strong></p>
+<p>The Monoid is essentially the first purely <em>algebraic</em> data structure. This kind of algebraic data structures are the corner stone of the technique that gives us a ability to write <strong>polymorphic functions</strong>. A Monoid is made of:</p>
+<ul>
+<li>A type <code class="codehilite">T</code> </li>
+<li>A binary operation, which is associative, that takes two values of type <code class="codehilite">T</code> and combines them into one</li>
+<li>A value <code class="codehilite"><span class="n">zero</span><span class="o">:</span> <span class="n">T</span></code> which is an <em>identity</em> for the associative operation</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">trait</span> <span class="nc">Monoid</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="o">{</span>
+  <span class="c1">// associativity</span>
+  <span class="c1">// op(op(x, y), z) == op(x, op(y, z))</span>
+  <span class="k">def</span> <span class="n">op</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">T</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">T</span>
+
+  <span class="c1">// identity</span>
+  <span class="c1">// op(x, zero) == op(zero, x) == x</span>
+  <span class="k">def</span> <span class="n">zero</span><span class="k">:</span> <span class="kt">T</span>
+<span class="o">}</span>
+
+<span class="c1">// example</span>
+<span class="k">val</span> <span class="n">stringMonoid</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Monoid</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="n">op</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="n">zero</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="functor">Functor</h3>
+<p>A Functor is just a type constructor for which <code class="codehilite">map</code> can be implemented:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">trait</span> <span class="nc">Functor</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">map</span><span class="o">[</span><span class="kt">T</span>, <span class="kt">R</span><span class="o">](</span><span class="n">fa</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">T</span><span class="o">])(</span><span class="n">f</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=&gt;</span> <span class="n">R</span><span class="o">)</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">R</span><span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="monad">Monad</h3>
+<p>Monads are like <em>wrappers</em> that provide us with two fundamental operations:</p>
+<ul>
+<li><strong>identity</strong> (that we refer as <em>unit</em> in Scala - or <em>pure</em>)</li>
+<li><strong>bind</strong> (<strong>flatMap</strong> in Scala)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Monads in Category Theory</p>
+<p>In Category Theory, a Monad is a <a href="#functor">Functor</a> equipped with a pair of <em>"natural transformations"</em> satisfying the laws of associativity and identity.</p>
+</div>
+<p>And then a question arises spontaneously: how should I describe a Monad in Scala?</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">trait</span> <span class="nc">M</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">flatMap</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">f</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=&gt;</span> <span class="n">M</span><span class="o">[</span><span class="kt">R</span><span class="o">])</span><span class="k">:</span> <span class="kt">M</span><span class="o">[</span><span class="kt">R</span><span class="o">]</span>
+<span class="o">}</span>
+
+<span class="k">def</span> <span class="n">unit</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">x</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">M</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span>
+</pre></div>
+</td></tr></table>
+
+<p>As you might have supposed <code class="codehilite">unit[MyType](x)</code> performs the wrapping into a <code class="codehilite">Monad[MyType]</code> . It's pretty clear that we defined the method <code class="codehilite">unit()</code> outside the trait body because we don’t want to invoke it upon the existing monadic object.</p>
+<div class="admonition important">
+<p class="admonition-title">Monad laws</p>
+<p>If we have some basic value <code class="codehilite">x</code> , a monad instance <code class="codehilite">m</code> (holding some value) and functions <code class="codehilite">f</code> and <code class="codehilite">g</code> of type 
+<code class="codehilite">Int → M[Int]</code> , we can write the laws as follows:</p>
+<ul>
+<li><strong>left-identity law</strong>: <code class="codehilite">unit(x).flatMap(f) == f(x)</code></li>
+<li><strong>right-identity law</strong>: <code class="codehilite">m.flatMap(unit) == m</code></li>
+<li><strong>associativity law</strong>: <code class="codehilite">m.flatMap(f).flatMap(g) == m.flatMap(x ⇒ f(x).flatMap(g))</code></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">On flatMap</p>
+<p><img alt="flatMap that shit" src="../assets/img/flatmap_that_shit.jpg" />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>        map with T =&gt; M[R]                  flatten
+M[T]  -------------------------&gt;  M[M[R]]  -----------&gt; M[R]
+</pre></div>
+</td></tr></table></p>
+</div>
+<div class="admonition question">
+<p class="admonition-title"><strong>Why do we need monads?</strong></p>
+<ol>
+<li>Functions should (to be simpler) return only <strong>one thing</strong>. <ul>
+<li><strong>Solution:</strong> let's create a new type of data to be returned, a "<strong>boxing type</strong>" that encloses maybe a real or be simply nothing. Hence, we can have <code class="codehilite">g: (x: Real, y: Real) =&gt; Option[Real]</code> . OK, but…</li>
+</ul>
+</li>
+<li>What happens now to <code class="codehilite">f(g(x,y))</code> ? <code class="codehilite">f</code> is not ready to consume an <code class="codehilite">Option[Real]</code> . And, we don't want to change every function we could connect with <code class="codehilite">g</code> to consume an <code class="codehilite">Option[Real]</code> .<ul>
+<li><strong>Solution:</strong> let's <strong>have a special function to "connect"/"compose"/"link" functions</strong>. That way, we can, behind the scenes, adapt the output of one function to feed the following one. </li>
+<li>In our case: <code class="codehilite">g.flatMap(f)</code> (connect/compose <code class="codehilite">g</code> to <code class="codehilite">f</code> ). We want <code class="codehilite">flatMap</code> to get <code class="codehilite">g</code> 's output, inspect it and, in case it is <code class="codehilite">None</code> just don't call <code class="codehilite">f</code> and return <code class="codehilite">None</code> ; or on the contrary, extract the boxed <code class="codehilite">Real</code> and feed <code class="codehilite">f</code> with it.</li>
+</ul>
+</li>
+<li>Many other problems arise which can be solved using this same pattern: 1. Use a "box" to codify/store different meanings/values, and have functions like <code class="codehilite">g</code> that return those "boxed values".</li>
+<li>Have composers/linkers <code class="codehilite">g flatMap f</code> to help connecting <code class="codehilite">g</code> 's output to <code class="codehilite">f</code> 's input, so we don't have to change <code class="codehilite">f</code> at all.</li>
+<li>Remarkable problems that can be solved using this technique are: <ul>
+<li>having a global state that every function in the sequence of functions ("the program") can share: solution <code class="codehilite">StateMonad</code> .</li>
+<li>We don't like "impure functions": functions that yield <em>different</em> output for <em>same</em> input. Therefore, let's mark those functions, making them to return a tagged/boxed value: <code class="codehilite">IO</code> monad.</li>
+</ul>
+</li>
+</ol>
+<p><a href="https://stackoverflow.com/a/28135478/1977778">https://stackoverflow.com/a/28135478/1977778</a></p>
+</div>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://medium.com/free-code-camp/demystifying-the-monad-in-scala-cc716bb6f534">Demystifying the monad in Scala</a></li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+  <h2 id="__comments">Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://torre.me.uk/docs/category_theory/";
+      this.page.identifier =
+        "/category_theory/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//alfredotorre.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../scala/" title="Scala" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Scala
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/sentenza" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.5e60981f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

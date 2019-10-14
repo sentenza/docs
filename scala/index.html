@@ -238,6 +238,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../category_theory/" title="Category Theory" class="md-nav__link">
+      Category Theory
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -378,49 +390,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#map-and-flatmap" title="map() and flatMap()" class="md-nav__link">
-    map() and flatMap()
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#category-theory" title="Category Theory" class="md-nav__link">
-    Category Theory
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#algrebraic-data-type" title="Algrebraic Data Type" class="md-nav__link">
-    Algrebraic Data Type
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#typeclass" title="Typeclass" class="md-nav__link">
     Typeclass
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monoid" title="Monoid" class="md-nav__link">
-    Monoid
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fold-foldright-and-foldleft" title="fold: foldRight() and foldLeft()" class="md-nav__link">
-    fold: foldRight() and foldLeft()
   </a>
   
 </li>
@@ -603,49 +574,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#map-and-flatmap" title="map() and flatMap()" class="md-nav__link">
-    map() and flatMap()
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#category-theory" title="Category Theory" class="md-nav__link">
-    Category Theory
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#algrebraic-data-type" title="Algrebraic Data Type" class="md-nav__link">
-    Algrebraic Data Type
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#typeclass" title="Typeclass" class="md-nav__link">
     Typeclass
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monoid" title="Monoid" class="md-nav__link">
-    Monoid
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fold-foldright-and-foldleft" title="fold: foldRight() and foldLeft()" class="md-nav__link">
-    fold: foldRight() and foldLeft()
   </a>
   
 </li>
@@ -856,6 +786,9 @@ According to the <a href="https://stackoverflow.com/a/584732/1977778">Liskov Pri
 <p>From <a href="https://www.artima.com/shop/programming_in_scala"><em>Programming in Scala - Second edition (by M. Odersky, L. Spoon, B. Venners)</em></a></p>
 </div>
 <p>As you can read above, I introduced <strong>Objects in terms of the functions they contain</strong>. It's very important to stress on this aspect, because Classes and Objects should be seen under a different light using Scala, especially if you come from an imperative OOP language, like Java or C++. They are just a way to organise your functions and at some point, using traits, objects (companion objects) and case classes (data constructors) you will eventually be able to build up your coding architecture based on types and composition of functions.</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/53990873/1977778">About <em>Case Class</em></a></li>
+</ul>
 <h3 id="general-object-hierarchy">General object hierarchy</h3>
 <p><img alt="scala-hierarchy" src="../assets/img/scala-hierarchy.png" /></p>
 <div class="admonition note">
@@ -1241,21 +1174,6 @@ the trait <code class="codehilite">scala.math.Ordered[T]</code>.
 <span class="n">msort</span><span class="o">(</span><span class="n">fruits</span><span class="o">)</span>   <span class="c1">// the compiler figures out the right ordering  </span>
 </pre></div>
 </td></tr></table></p>
-<h3 id="map-and-flatmap">map() and flatMap()</h3>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>To be added</p>
-</div>
-<h2 id="category-theory">Category Theory</h2>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>To be added</p>
-</div>
-<h3 id="algrebraic-data-type">Algrebraic Data Type</h3>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>To be added</p>
-</div>
 <h3 id="typeclass">Typeclass</h3>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
@@ -1263,145 +1181,10 @@ the trait <code class="codehilite">scala.math.Ordered[T]</code>.
 <p><em>There is no special syntax in Scala to express a type class, but the same functionality can be achieved using constructs that already exist in the language. <strong>That’s what makes it a little difficult for newcomers to spot a type class in code. A typical implementation of a type class uses some syntactic sugar as well, which also doesn’t make it clear right away what we are dealing with</strong>.</em></p>
 <p><a href="https://blog.scalac.io/2017/04/19/typeclasses-in-scala.html">https://blog.scalac.io/2017/04/19/typeclasses-in-scala.html</a></p>
 </div>
-<h3 id="monoid">Monoid</h3>
-<p>The Monoid is essentially the first purely <em>algebraic</em> data structures. The term <em>monoid</em> is taken from the <strong>Category Theory</strong>, and it means a category with one object. This kind of algebraic data structures are the corner stone of the technique that gives us the ability to write <strong>polymorphic functions</strong>. A Monoid is made of:</p>
-<ul>
-<li>A type <code class="codehilite">T</code></li>
-<li>A binary operation, which is associative, that takes two values of type <code class="codehilite">T</code> and combines them into one</li>
-<li>A value <code class="codehilite"><span class="n">zero</span><span class="o">:</span> <span class="n">T</span></code> which is an <em>identity</em> for the associative operation</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/**</span>
-<span class="cm">  * It is defined by some type A, an associative binary operation that takes </span>
-<span class="cm">  */</span>
-<span class="k">trait</span> <span class="nc">Monoid</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="o">{</span>
-  <span class="c1">// associativity</span>
-  <span class="c1">// op(op(x, y), z) == op(x, op(y, z))</span>
-  <span class="k">def</span> <span class="n">op</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">T</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">T</span>
-
-  <span class="c1">// identity</span>
-  <span class="c1">// op(x, zero) == op(zero, x) == x</span>
-  <span class="k">def</span> <span class="n">zero</span><span class="k">:</span> <span class="kt">T</span>
-<span class="o">}</span>
-
-<span class="c1">// example</span>
-<span class="k">val</span> <span class="n">stringMonoid</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Monoid</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">override</span> <span class="k">def</span> <span class="n">op</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-  <span class="k">override</span> <span class="k">def</span> <span class="n">zero</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-<span class="o">}</span>
-</pre></div>
-</td></tr></table>
-
-<h3 id="fold-foldright-and-foldleft">fold: foldRight() and foldLeft()</h3>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>To be added</p>
-</div>
 <h1 id="sbt">SBT</h1>
 <ul>
 <li><a href="https://kubuszok.com/2018/relearn-your-sbt/#project">Defining dependencies and Settins in /project</a></li>
 </ul>
-<h3 id="functor">Functor</h3>
-<p>A Functor is just a type constructor for which <code class="codehilite">map</code> can be implemented:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">trait</span> <span class="nc">Functor</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="o">{</span>
-    <span class="k">def</span> <span class="n">map</span><span class="o">[</span><span class="kt">T</span>, <span class="kt">R</span><span class="o">](</span><span class="n">fa</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">T</span><span class="o">])(</span><span class="n">f</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=&gt;</span> <span class="n">R</span><span class="o">)</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">R</span><span class="o">]</span>
-<span class="o">}</span>
-</pre></div>
-</td></tr></table>
-
-<h3 id="monad">Monad</h3>
-<p>Monads are like <em>wrappers</em> that provide us with two fundamental operations:</p>
-<ul>
-<li><strong>identity</strong> (that we refer as <em>unit</em> in Scala - or <em>pure</em>)</li>
-<li><strong>bind</strong> (<strong>flatMap</strong> in Scala)</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Monads in Category Theory</p>
-<p>In Category Theory, a Monad is a <a href="#functor">Functor</a> equipped with a pair of <em>"natural transformations"</em> satisfying the laws of associativity and identity.</p>
-</div>
-<p>And then a question arises spontaneously: how should I describe a Monad in Scala?</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">trait</span> <span class="nc">M</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">flatMap</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">f</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=&gt;</span> <span class="n">M</span><span class="o">[</span><span class="kt">R</span><span class="o">])</span><span class="k">:</span> <span class="kt">M</span><span class="o">[</span><span class="kt">R</span><span class="o">]</span>
-<span class="o">}</span>
-
-<span class="k">def</span> <span class="n">unit</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">x</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">M</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span>
-</pre></div>
-</td></tr></table>
-
-<p>As you might have supposed <code class="codehilite">unit[MyType](x)</code> performs the wrapping into a <code class="codehilite">Monad[MyType]</code>. It's pretty clear that we defined the method <code class="codehilite">unit()</code> outside the trait body because we don’t want to invoke it upon the existing monadic object.</p>
-<div class="admonition important">
-<p class="admonition-title">Monad laws</p>
-<p>If we have some basic value <code class="codehilite">x</code>, a monad instance <code class="codehilite">m</code> (holding some value) and functions <code class="codehilite">f</code> and <code class="codehilite">g</code> of type <code class="codehilite">Int → M[Int]</code>, we can write the laws as follows:</p>
-<ul>
-<li><strong>left-identity law</strong>:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">unit</span><span class="o">(</span><span class="n">x</span><span class="o">).</span><span class="n">flatMap</span><span class="o">(</span><span class="n">f</span><span class="o">)</span> <span class="o">==</span> <span class="n">f</span><span class="o">(</span><span class="n">x</span><span class="o">)</span>
-</pre></div>
-</td></tr></table></li>
-<li><strong>right-identity law</strong>:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="n">m</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="n">unit</span><span class="o">)</span> <span class="o">==</span> <span class="n">m</span>
-</pre></div>
-</td></tr></table></li>
-<li><strong>associativity law</strong>:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="n">f</span><span class="o">).</span><span class="n">flatMap</span><span class="o">(</span><span class="n">g</span><span class="o">)</span> <span class="o">==</span> <span class="n">m</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="n">x</span> <span class="k">⇒</span> <span class="n">f</span><span class="o">(</span><span class="n">x</span><span class="o">).</span><span class="n">flatMap</span><span class="o">(</span><span class="n">g</span><span class="o">))</span>
-</pre></div>
-</td></tr></table></li>
-</ul>
-</div>
-<div class="admonition note">
-<p class="admonition-title">On flatMap</p>
-<p><img alt="flatMap that shit" src="../assets/img/flatmap_that_shit.jpg" /></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>        map with T =&gt; M[R]                  flatten
-M[T]  -------------------------&gt;  M[M[R]]  -----------&gt; M[R]
-</pre></div>
-</td></tr></table>
-
-</div>
-<div class="admonition question">
-<p class="admonition-title"><strong>Why do we need monads?</strong></p>
-<ol>
-<li>Functions should (to be simpler) return only <strong>one thing</strong>. <ul>
-<li><strong>Solution:</strong> let's create a new type of data to be returned, a "<strong>boxing type</strong>" that encloses maybe a real or be simply nothing. Hence, we can have <code class="codehilite">g: (x: Real, y: Real) =&gt; Option[Real]</code>. OK, but…</li>
-</ul>
-</li>
-<li>What happens now to <code class="codehilite">f(g(x,y))</code>? <code class="codehilite">f</code> is not ready to consume an <code class="codehilite">Option[Real]</code>. And, we don't want to change every function we could connect with <code class="codehilite">g</code> to consume an <code class="codehilite">Option[Real]</code>.<ul>
-<li><strong>Solution:</strong> let's <strong>have a special function to "connect"/"compose"/"link" functions</strong>. That way, we can, behind the scenes, adapt the output of one function to feed the following one. </li>
-<li>In our case:  <code class="codehilite">g.flatMap(f)</code> (connect/compose <code class="codehilite">g</code> to <code class="codehilite">f</code>). We want <code class="codehilite">flatMap</code> to get <code class="codehilite">g</code>'s output, inspect it and, in case it is <code class="codehilite">None</code> just don't call <code class="codehilite">f</code> and return <code class="codehilite">None</code>; or on the contrary, extract the boxed <code class="codehilite">Real</code> and feed <code class="codehilite">f</code> with it.</li>
-</ul>
-</li>
-<li>Many other problems arise which can be solved using this same pattern: 1. Use a "box" to codify/store different meanings/values, and have functions like <code class="codehilite">g</code> that return those "boxed values".</li>
-<li>Have composers/linkers <code class="codehilite">g flatMap f</code> to help connecting <code class="codehilite">g</code>'s output to <code class="codehilite">f</code>'s input, so we don't have to change <code class="codehilite">f</code> at all.</li>
-<li>Remarkable problems that can be solved using this technique are: <ul>
-<li>having a global state that every function in the sequence of functions ("the program") can share: solution <code class="codehilite">StateMonad</code>.</li>
-<li>We don't like "impure functions": functions that yield <em>different</em> output for <em>same</em> input. Therefore, let's mark those functions, making them to return a tagged/boxed value: <code class="codehilite">IO</code> monad.</li>
-</ul>
-</li>
-</ol>
-<p><a href="https://stackoverflow.com/a/28135478/1977778">https://stackoverflow.com/a/28135478/1977778</a></p>
-</div>
-<p><a href="https://medium.com/free-code-camp/demystifying-the-monad-in-scala-cc716bb6f534">About Monads</a></p>
                 
                   
                 
@@ -1438,7 +1221,7 @@ M[T]  -------------------------&gt;  M[M[R]]  -----------&gt; M[R]
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../category_theory/" title="Category Theory" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1447,7 +1230,7 @@ M[T]  -------------------------&gt;  M[M[R]]  -----------&gt; M[R]
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Category Theory
               </span>
             </div>
           </a>
