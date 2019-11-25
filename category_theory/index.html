@@ -267,8 +267,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#monoid" title="Monoid" class="md-nav__link">
-    Monoid
+  <a href="#summoner" title="Summoner" class="md-nav__link">
+    Summoner
   </a>
   
 </li>
@@ -281,9 +281,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#monoid" title="Monoid" class="md-nav__link">
+    Monoid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#monad" title="Monad" class="md-nav__link">
     Monad
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#review-for-comprehensions" title="Review For-Comprehensions" class="md-nav__link">
+    Review For-Comprehensions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defining-monads" title="Defining Monads" class="md-nav__link">
+    Defining Monads
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -368,8 +395,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#monoid" title="Monoid" class="md-nav__link">
-    Monoid
+  <a href="#summoner" title="Summoner" class="md-nav__link">
+    Summoner
   </a>
   
 </li>
@@ -382,9 +409,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#monoid" title="Monoid" class="md-nav__link">
+    Monoid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#monad" title="Monad" class="md-nav__link">
     Monad
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#review-for-comprehensions" title="Review For-Comprehensions" class="md-nav__link">
+    Review For-Comprehensions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defining-monads" title="Defining Monads" class="md-nav__link">
+    Defining Monads
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -422,8 +476,90 @@
                 
                 <h1 id="category-theory">Category Theory</h1>
 <p><img alt="Category diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Commutative_diagram_for_morphism.svg/200px-Commutative_diagram_for_morphism.svg.png" /></p>
-<p>A <a href="http://en.wikipedia.org/wiki/Category_(mathematics)">category</a> is a purely algebraic structure consisting of "objects" and "arrows" between them, much like a directed graph with nodes and edges between them. A category will have objects like <code class="codehilite">X</code>, <code class="codehilite">Y</code>, <code class="codehilite">Z</code>,etc. and arrows between objects. Importantly, arrows <strong>compose</strong>. Given an arrow <em>f</em> from <code class="codehilite">X</code> to <code class="codehilite">Y</code>, and another arrow <em>g</em> from <code class="codehilite">Y</code> to <code class="codehilite">Z</code>, their composition is an arrow from <code class="codehilite">X</code> to <code class="codehilite">Z</code>. There is also an identity arrow from every object to itself.</p>
-<h3 id="monoid">Monoid</h3>
+<p><strong>A <a href="http://en.wikipedia.org/wiki/Category_(mathematics)">category</a> is a purely algebraic structure consisting of "objects" and "arrows" (morphisms) that connect those objects</strong>, much like a directed graph with nodes and edges between them. A category will have objects like <code class="codehilite">X</code>, <code class="codehilite">Y</code>, <code class="codehilite">Z</code>,etc. and arrows between objects. Importantly, arrows <strong>compose</strong>. Given an arrow <em>f</em> &nbsp;from <code class="codehilite">X</code> to <code class="codehilite">Y</code>, and another arrow <em>g</em> from <code class="codehilite">Y</code> to <code class="codehilite">Z</code>, their composition is an arrow from <code class="codehilite">X</code> to <code class="codehilite">Z</code>. There is also an identity arrow from every object to itself.</p>
+<h2 id="summoner">Summoner</h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">trait</span> <span class="nc">Summoner</span><span class="o">[</span><span class="kt">D</span><span class="o">[</span><span class="k">_</span><span class="o">[</span><span class="k">_</span><span class="o">]]]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">C</span><span class="o">[</span><span class="k">_</span><span class="o">]</span><span class="kt">:</span> <span class="kt">D</span><span class="o">]</span><span class="k">:</span> <span class="kt">D</span><span class="o">[</span><span class="kt">C</span><span class="o">]</span> <span class="k">=</span> <span class="n">implicitly</span><span class="o">[</span><span class="kt">D</span><span class="o">[</span><span class="kt">C</span><span class="o">]]</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<div class="admonition info">
+<p class="admonition-title">Implicitly</p>
+<p>The scala Standard library provides a generic type class interface called <code class="codehilite">implicitly</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">implicitly</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="k">implicit</span> <span class="n">value</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</td></tr></table>
+
+<p>Thus, we can simply use implicitly to summon any value from implicit scope. We have to just provide the right type to implicitly. What is more, we can take advantage of implicitly to test implicit calls that we can't tell for sure if in the current scope or not.  </p>
+</div>
+<h2 id="functor">Functor</h2>
+<p>The real objective of a Functor is <strong>to <em>lift</em> a regular function</strong>. Therefore, we can think of a Functor as a trait which has the ability to "lift" an <em>arrow</em> that goes from <code class="codehilite">A</code> to <code class="codehilite">B</code> to another <em>arrow</em> that goes from <code class="codehilite">C[A]</code> to <code class="codehilite">C[B]</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/** Bro, Do You Even Lift? */</span>
+<span class="k">trait</span> <span class="nc">SortOfFunctor</span><span class="o">[</span><span class="kt">C</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">lift1</span><span class="o">[</span><span class="kt">A</span>, <span class="kt">B</span><span class="o">](</span><span class="n">ab</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">B</span><span class="o">)</span><span class="k">:</span> <span class="o">(</span><span class="kt">C</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">C</span><span class="o">[</span><span class="kt">B</span><span class="o">])</span>
+    <span class="c1">// If we uncurry lift() we can rewrite it as:</span>
+    <span class="k">def</span> <span class="n">lift2</span><span class="o">[</span><span class="kt">A</span>, <span class="kt">B</span><span class="o">](</span><span class="n">ab</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">B</span><span class="o">)(</span><span class="n">ca</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>And now looking at <code class="codehilite">lift2()</code> we can transform it into something that we already know quite well: <code class="codehilite">map()</code>. And, most importantly, Functor is just a type constructor for which <code class="codehilite">map</code> can be implemented:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">trait</span> <span class="nc">Functor</span><span class="o">[</span><span class="kt">C</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">map</span><span class="o">[</span><span class="kt">A</span>, <span class="kt">B</span><span class="o">](</span><span class="n">ca</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">A</span><span class="o">])(</span><span class="n">ab</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">B</span><span class="o">)</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span>
+<span class="o">}</span>
+
+<span class="k">object</span> <span class="nc">Functor</span> <span class="k">extends</span> <span class="nc">Summoner</span><span class="o">[</span><span class="kt">Functor</span><span class="o">]</span>
+<span class="c1">// Without using a Summoner we would have had:</span>
+<span class="c1">// object Functor {</span>
+<span class="c1">//   def apply[C[_]: Functor]: Functor[C] = implicitly[Functor[C]]</span>
+<span class="c1">// }</span>
+</pre></div>
+</td></tr></table>
+
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>Any type <code class="codehilite">F</code> with a function like <code class="codehilite">map()</code> is a Functor, with one additional restriction: <strong>the map function has to preserve the "structure" of the value it's mapping over</strong>. Thus <code class="codehilite">map(x)</code> preserves the structure of <code class="codehilite">x</code>, mofifying only the elements contained within, while the shape of the structure itself is left intact.</p>
+</div>
+<p>And now we can simply rewrite our initial <em>lifting function</em> using <code class="codehilite">map()</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">lift</span><span class="o">(</span><span class="n">f</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">B</span><span class="o">)</span><span class="k">:</span> <span class="o">(</span><span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">F</span><span class="o">[</span><span class="kt">B</span><span class="o">])</span> <span class="k">=</span> <span class="k">_</span> <span class="n">map</span> <span class="n">f</span>
+</pre></div>
+</td></tr></table>
+
+<p>Visually, the previous operation could be represented by the following diagram (<a href="https://mostly-adequate.gitbooks.io/mostly-adequate-guide/ch08.html#a-spot-of-theory">source</a>):</p>
+<p><img alt="Functor diagram" src="../assets/img/functormap.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Category Theory - Laws</p>
+<p>In category theory, functors take the objects and morphisms of a category and map them to a different category. By definition, this new category must have an identity and the ability to compose morphisms, but we don't have to check that because the following laws must hold.</p>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// identity</span>
+<span class="n">map</span><span class="o">(</span><span class="n">id</span><span class="o">)</span> <span class="o">===</span> <span class="n">id</span>
+
+<span class="c1">// composition</span>
+<span class="n">compose</span><span class="o">(</span><span class="n">map</span><span class="o">(</span><span class="n">f</span><span class="o">),</span> <span class="n">map</span><span class="o">(</span><span class="n">g</span><span class="o">))</span> <span class="o">===</span> <span class="n">map</span><span class="o">(</span><span class="n">compose</span><span class="o">(</span><span class="n">f</span><span class="o">,</span> <span class="n">g</span><span class="o">))</span>
+</pre></div>
+</td></tr></table>
+As stated befone, we can think of a category as a network of objects with morphisms that connect them. So <strong>a functor would map one category to the other without breaking the network</strong>. </p>
+</div>
+<h2 id="monoid">Monoid</h2>
 <p><strong>In <a href="http://en.wikipedia.org/wiki/Category_theory">category theory</a>, a <a href="http://en.wikipedia.org/wiki/Monoid_(category_theory)">monoid</a> is a <a href="http://en.wikipedia.org/wiki/Category_(mathematics)">category</a> with one object.</strong></p>
 <p>The Monoid is essentially the first purely <em>algebraic</em> data structure. This kind of algebraic data structures are the corner stone of the technique that gives us a ability to write <strong>polymorphic functions</strong>. A Monoid is made of:</p>
 <ul>
@@ -463,50 +599,79 @@
 </pre></div>
 </td></tr></table>
 
-<h3 id="functor">Functor</h3>
-<p>A Functor is just a type constructor for which <code class="codehilite">map</code> can be implemented:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">trait</span> <span class="nc">Functor</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="o">{</span>
-    <span class="k">def</span> <span class="n">map</span><span class="o">[</span><span class="kt">T</span>, <span class="kt">R</span><span class="o">](</span><span class="n">fa</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">T</span><span class="o">])(</span><span class="n">f</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=&gt;</span> <span class="n">R</span><span class="o">)</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">R</span><span class="o">]</span>
-<span class="o">}</span>
-</pre></div>
-</td></tr></table>
-
-<h3 id="monad">Monad</h3>
-<p>Monads are like <em>wrappers</em> that provide us with two fundamental operations:</p>
+<h2 id="monad">Monad</h2>
+<p><strong>The primary purpose of Monads is to let you compose code in <em>for expressions</em> (binding - i.e. to glue code together)</strong>.
+Monads are like <em>wrappers</em> that provide us with two fundamental operations:</p>
 <ul>
 <li><strong>identity</strong> (that we refer as <em>unit</em> in Scala - or <em>pure</em>)</li>
 <li><strong>bind</strong> (<strong>flatMap</strong> in Scala)</li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Monads in Category Theory</p>
-<p>In Category Theory, a Monad is a <a href="#functor">Functor</a> equipped with a pair of <em>"natural transformations"</em> satisfying the laws of associativity and identity.</p>
+<div class="admonition question">
+<p class="admonition-title"><strong>Why do we need monads?</strong></p>
+<ul>
+<li>We want to have the ability to use a <strong>boxing type</strong> (<code class="codehilite">F[_]</code> - <code class="codehilite">Option[String]</code>), mainly because a function should return just one type and, for example, we have to attach a log message to the output value of a function</li>
+<li>At the same time we'd like to consume our new <strong>boxing types</strong> without changing our preexistent code. <strong>Solution:</strong> let's <strong>have a special function to "connect"/"compose"/"link" functions</strong>. That way, we can, behind the scenes, adapt the output of one function to feed the following one.</li>
+<li><code class="codehilite">g.flatMap(f)</code> (connect/compose <code class="codehilite">g</code> to <code class="codehilite">f</code> ). We want <code class="codehilite">flatMap</code> to get <code class="codehilite">g</code> 's output, inspect it and, in case it is <code class="codehilite">None</code> just don't call <code class="codehilite">f</code> and return <code class="codehilite">None</code>; or on the contrary, extract the boxed value and feed <code class="codehilite">f</code> with it.</li>
+<li>Many other problems arise which can be solved using this same pattern: 1. Use a "box" to codify/store different meanings/values, and have functions like <code class="codehilite">g</code> that return those "boxed values".</li>
+<li>Remarkable problems that can be solved using this technique are: <ul>
+<li>having a global state that every function in the sequence of functions ("the program") can share: solution <code class="codehilite">State</code> Monad.</li>
+<li>We don't like "impure functions": functions that yield <em>different</em> output for <em>same</em> input. Therefore, let's mark those functions, making them to return a tagged/boxed value: <code class="codehilite">IO</code> monad.</li>
+<li>let the log of an operation be attached to the value that comes out from a computation: solution <code class="codehilite">Writer</code> Monad.</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://stackoverflow.com/a/28135478/1977778">https://stackoverflow.com/a/28135478/1977778</a></p>
 </div>
-<p>And then a question arises spontaneously: how should I describe a Monad in Scala?</p>
+<h3 id="review-for-comprehensions">Review For-Comprehensions</h3>
+<p>As we stated while introducing Monads <em>for expressions</em> have a very deep correllation with this category. That's mainly because a for-comprehension is syntactic sugar for <code class="codehilite">map</code>, <code class="codehilite">flatMap</code> and <code class="codehilite">filter</code> operations on collections.</p>
+<p>The general form is <code class="codehilite">for (s) yield e</code></p>
+<ul>
+<li><code class="codehilite">s</code> is a sequence of generators and filters</li>
+<li><code class="codehilite">p <span class="o">&lt;-</span> e</code> is a generator</li>
+<li><code class="codehilite">if f</code> is a filter</li>
+<li>If there are several generators (equivalent of a nested loop), the last generator varies faster than the first</li>
+<li>You can use <code class="codehilite">{ s }</code> instead of <code class="codehilite">( s )</code> if you want to use multiple lines without requiring semicolons</li>
+<li><code class="codehilite">e</code> is an element of the resulting collection</li>
+</ul>
+<p><strong>Example 1</strong>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="c1">// list all combinations of numbers x and y where x is drawn from</span>
+    <span class="c1">// 1 to M and y is drawn from 1 to N</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">M</span><span class="o">;</span> <span class="n">y</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">N</span><span class="o">)</span>
+      <span class="k">yield</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">)</span>
+</pre></div>
+</td></tr></table></p>
+<p>is equivalent to
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="n">M</span><span class="o">)</span> <span class="n">flatMap</span> <span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="n">N</span><span class="o">)</span> <span class="n">map</span> <span class="o">(</span><span class="n">y</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)))</span>
+</pre></div>
+</td></tr></table></p>
+<p><strong>Translation Rules</strong></p>
+<p>A for-expression looks like a traditional for loop but works differently internally</p>
+<p><code class="codehilite"><span class="kr">for</span> <span class="p">(</span>x <span class="o">&lt;-</span> e1<span class="p">)</span> yield e2</code> is translated to <code class="codehilite">e1.map(x =&gt; e2)</code></p>
+<p><code class="codehilite"><span class="kr">for</span> <span class="p">(</span>x <span class="o">&lt;-</span> e1 <span class="kr">if</span> f<span class="p">)</span> yield e2</code> is translated to <code class="codehilite"><span class="kr">for</span> <span class="p">(</span>x <span class="o">&lt;-</span> e1.filter<span class="p">(</span>x <span class="o">=&gt;</span> f<span class="p">))</span> yield e2</code></p>
+<p><code class="codehilite"><span class="kr">for</span> <span class="p">(</span>x <span class="o">&lt;-</span> e1<span class="p">;</span> y <span class="o">&lt;-</span> e2<span class="p">)</span> yield e3</code> is translated to <code class="codehilite">e1.flatMap<span class="p">(</span>x <span class="o">=&gt;</span> <span class="kr">for</span> <span class="p">(</span>y <span class="o">&lt;-</span> e2<span class="p">)</span> yield e3<span class="p">)</span></code></p>
+<p>This means you can use a for-comprehension for your own type, as long
+as you define <code class="codehilite">map</code>, <code class="codehilite">flatMap</code> and <code class="codehilite">filter</code>.</p>
+<p><strong>Example 2</strong>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">trait</span> <span class="nc">M</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">flatMap</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">f</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=&gt;</span> <span class="n">M</span><span class="o">[</span><span class="kt">R</span><span class="o">])</span><span class="k">:</span> <span class="kt">M</span><span class="o">[</span><span class="kt">R</span><span class="o">]</span>
-<span class="o">}</span>
-
-<span class="k">def</span> <span class="n">unit</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">x</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">M</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">for</span> <span class="o">{</span>  
+      <span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">until</span> <span class="n">n</span>  
+      <span class="n">j</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">until</span> <span class="n">i</span>  
+      <span class="k">if</span> <span class="n">isPrime</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="o">)</span>  
+    <span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span>  
 </pre></div>
-</td></tr></table>
-
-<p>As you might have supposed <code class="codehilite">unit[MyType](x)</code> performs the wrapping into a <code class="codehilite">Monad[MyType]</code> . It's pretty clear that we defined the method <code class="codehilite">unit()</code> outside the trait body because we don’t want to invoke it upon the existing monadic object.</p>
-<div class="admonition important">
-<p class="admonition-title">Monad laws</p>
-<p>If we have some basic value <code class="codehilite">x</code> , a monad instance <code class="codehilite">m</code> (holding some value) and functions <code class="codehilite">f</code> and <code class="codehilite">g</code> of type 
-<code class="codehilite">Int → M[Int]</code> , we can write the laws as follows:</p>
-<ul>
-<li><strong>left-identity law</strong>: <code class="codehilite">unit(x).flatMap(f) == f(x)</code></li>
-<li><strong>right-identity law</strong>: <code class="codehilite">m.flatMap(unit) == m</code></li>
-<li><strong>associativity law</strong>: <code class="codehilite">m.flatMap(f).flatMap(g) == m.flatMap(x ⇒ f(x).flatMap(g))</code></li>
-</ul>
-</div>
+</td></tr></table></p>
+<p>is equivalent to
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">until</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">until</span> <span class="n">i</span> <span class="k">if</span> <span class="n">isPrime</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="o">))</span>
+        <span class="k">yield</span> <span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span>  
+</pre></div>
+</td></tr></table></p>
 <div class="admonition note">
 <p class="admonition-title">On flatMap</p>
 <p><img alt="flatMap that shit" src="../assets/img/flatmap_that_shit.jpg" />
@@ -516,27 +681,119 @@ M[T]  -------------------------&gt;  M[M[R]]  -----------&gt; M[R]
 </pre></div>
 </td></tr></table></p>
 </div>
-<div class="admonition question">
-<p class="admonition-title"><strong>Why do we need monads?</strong></p>
-<ol>
-<li>Functions should (to be simpler) return only <strong>one thing</strong>. <ul>
-<li><strong>Solution:</strong> let's create a new type of data to be returned, a "<strong>boxing type</strong>" that encloses maybe a real or be simply nothing. Hence, we can have <code class="codehilite">g: (x: Real, y: Real) =&gt; Option[Real]</code> . OK, but…</li>
+<h3 id="defining-monads">Defining Monads</h3>
+<p>In order to define a Monad in Scala we need <code class="codehilite">map()</code>, <code class="codehilite">flatMap()</code> and a lifting method called <code class="codehilite">unit</code>. As we've already seen in the definition of Functors we could lift a value just using <code class="codehilite">map()</code>. But if we have to simply wrap an object into a new <em>boxing type</em> or wrapper <code class="codehilite">F[_]</code> we can define a new function that we call <code class="codehilite">unit()</code>, which is defined as follows:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">unit</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">a</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+</pre></div>
+</td></tr></table>
+
+<p>Now, while observing very carefully that function we can compare it to what the <code class="codehilite">apply</code> method does already in the definition of a new object:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// We define a generic Wrapper class</span>
+<span class="k">class</span> <span class="nc">Wrapper</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">private</span> <span class="o">(</span><span class="n">value</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+<span class="c1">// Then we create a companion object which will also be shipped with a factory method that will create a new Wrapper for us</span>
+<span class="k">object</span> <span class="nc">Wrapper</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">value</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Wrapper</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Wrapper</span><span class="o">(</span><span class="n">value</span><span class="o">)</span>
+    <span class="c1">// Using apply() we&#39;re actually lifting A to Wrapper[A]</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Basically, we created a new type Wrapper and then we attached to it a companion object that will give us the ability to create new wrappers using <code class="codehilite">val w = Wrapper(value1)</code> using a factory method. Now let's define the body of the <code class="codehilite">Wrapper</code> class, keeping in mind that in order to use for expressions over this class we need <code class="codehilite">map()</code> and <code class="codehilite">flatMap()</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Wrapper</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="nc">private</span> <span class="o">(</span><span class="n">value</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">map</span><span class="o">[</span><span class="kt">B</span><span class="o">](</span><span class="n">f</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">B</span><span class="o">)</span><span class="k">:</span> <span class="kt">Wrapper</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Wrapper</span><span class="o">(</span><span class="n">f</span><span class="o">(</span><span class="n">value</span><span class="o">))</span>
+
+    <span class="k">def</span> <span class="n">flatMap</span><span class="o">[</span><span class="kt">B</span><span class="o">](</span><span class="n">f</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="nc">Wrapper</span><span class="o">[</span><span class="kt">B</span><span class="o">])</span><span class="k">:</span> <span class="kt">Wrapper</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span> <span class="k">=</span> <span class="n">f</span><span class="o">(</span><span class="n">value</span><span class="o">)</span> 
+<span class="o">}</span>
+<span class="c1">// The Companion</span>
+<span class="k">object</span> <span class="nc">Wrapper</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">value</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Wrapper</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Wrapper</span><span class="o">(</span><span class="n">value</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<div class="admonition tip">
+<p class="admonition-title">Monads in Category Theory</p>
+<p>In Category Theory, a Monad is a <a href="#functor">Functor</a> equipped with a pair of <em>"natural transformations"</em> satisfying the laws of associativity and identity.</p>
+</div>
+<p>OK, now we have all the lego blocks that we actually need to define a Monad in Scala. Note that we define a Monad as a trait and that we extends Functor. Moreover, we add <code class="codehilite">unit()</code> defining it as <code class="codehilite">pure()</code> and then we override <code class="codehilite">map()</code>, which is already defined in Functor, but in this case we take advantage of <code class="codehilite">unit()</code> to lift a value to the boxing type. Also, we redefine <code class="codehilite">map()</code> using <code class="codehilite">flatMap()</code>. </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">trait</span> <span class="nc">Monad</span><span class="o">[</span><span class="kt">C</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="nc">extends</span> <span class="nc">Functor</span><span class="o">[</span><span class="kt">C</span><span class="o">]</span> <span class="o">{</span>
+
+  <span class="k">def</span> <span class="n">pure</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">a</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+  <span class="nd">@inline</span> <span class="k">def</span> <span class="n">unit</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">a</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">pure</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+  <span class="nd">@inline</span> <span class="k">def</span> <span class="n">point</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">a</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span> <span class="n">pure</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+
+  <span class="k">override</span> <span class="k">def</span> <span class="n">map</span><span class="o">[</span><span class="kt">A</span>, <span class="kt">B</span><span class="o">](</span><span class="n">ca</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">A</span><span class="o">])(</span><span class="n">ab</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">B</span><span class="o">)</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span> <span class="k">=</span> 
+    <span class="n">flatMap</span><span class="o">(</span><span class="n">ca</span><span class="o">)(</span><span class="n">a</span> <span class="k">=&gt;</span> <span class="n">pure</span><span class="o">(</span><span class="n">ab</span><span class="o">(</span><span class="n">a</span><span class="o">)))</span>
+
+  <span class="c1">// We needed this helper method to compose functions</span>
+  <span class="c1">// def helper[A, B](ca: C[A], acb: A =&gt; C[B]): C[B] // From Helper to FlatMap</span>
+  <span class="k">def</span> <span class="n">flatMap</span><span class="o">[</span><span class="kt">A</span>, <span class="kt">B</span><span class="o">](</span><span class="n">ca</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">A</span><span class="o">])(</span><span class="n">acb</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">C</span><span class="o">[</span><span class="kt">B</span><span class="o">])</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span> <span class="c1">// Curried version of helper method</span>
+  <span class="c1">// haskell bind</span>
+  <span class="nd">@inline</span> <span class="k">def</span> <span class="n">bind</span><span class="o">[</span><span class="kt">A</span>, <span class="kt">B</span><span class="o">](</span><span class="n">ca</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">A</span><span class="o">])(</span><span class="n">acb</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">C</span><span class="o">[</span><span class="kt">B</span><span class="o">])</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span> <span class="k">=</span> <span class="n">flatMap</span><span class="o">(</span><span class="n">ca</span><span class="o">)(</span><span class="n">acb</span><span class="o">)</span>
+  <span class="nd">@inline</span> <span class="k">def</span> <span class="o">&gt;&gt;=[</span><span class="kt">A</span>, <span class="kt">B</span><span class="o">](</span><span class="n">ca</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">A</span><span class="o">])(</span><span class="n">acb</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">C</span><span class="o">[</span><span class="kt">B</span><span class="o">])</span><span class="k">:</span> <span class="kt">C</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span>  <span class="k">=</span> <span class="n">flatMap</span><span class="o">(</span><span class="n">ca</span><span class="o">)(</span><span class="n">acb</span><span class="o">)</span> <span class="c1">// &gt;&gt;= Haskell Logo</span>
+<span class="o">}</span>
+
+<span class="c1">// Monad Type class - remember that Summoner defines an apply method</span>
+<span class="c1">// that corresponds to unit.</span>
+<span class="k">object</span> <span class="nc">Monad</span> <span class="k">extends</span> <span class="nc">Summoner</span><span class="o">[</span><span class="kt">Monad</span><span class="o">]</span>
+
+<span class="c1">// extending Summoner is the same as </span>
+<span class="c1">// object Monad { def apply[C[_]: Monad]: Monad[C] = implicitly[Monad[C]] }</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>As you might have supposed <code class="codehilite">unit[MyType](x)</code> performs the wrapping into a <code class="codehilite">Monad[MyType]</code> . It's pretty clear that we defined the method <code class="codehilite">unit()</code> outside the trait body because we don’t want to invoke it upon the existing monadic object.</p>
+<div class="admonition danger">
+<p class="admonition-title">Monad laws</p>
+<p>If we have some basic value <code class="codehilite">x</code> , a monad instance <code class="codehilite">m</code> (holding some value) and functions <code class="codehilite">f</code> and <code class="codehilite">g</code> of type 
+<code class="codehilite">Int → M[Int]</code> , we can write the laws as follows:</p>
+<ul>
+<li><strong>left-identity law</strong>: <code class="codehilite">unit(x).flatMap(f) == f(x)</code></li>
+<li><strong>right-identity law</strong>: <code class="codehilite">m.flatMap(unit) == m</code></li>
+<li><strong>associativity law</strong>: <code class="codehilite">m.flatMap(f).flatMap(g) == m.flatMap(x ⇒ f(x).flatMap(g))</code></li>
 </ul>
-</li>
-<li>What happens now to <code class="codehilite">f(g(x,y))</code> ? <code class="codehilite">f</code> is not ready to consume an <code class="codehilite">Option[Real]</code> . And, we don't want to change every function we could connect with <code class="codehilite">g</code> to consume an <code class="codehilite">Option[Real]</code> .<ul>
-<li><strong>Solution:</strong> let's <strong>have a special function to "connect"/"compose"/"link" functions</strong>. That way, we can, behind the scenes, adapt the output of one function to feed the following one. </li>
-<li>In our case: <code class="codehilite">g.flatMap(f)</code> (connect/compose <code class="codehilite">g</code> to <code class="codehilite">f</code> ). We want <code class="codehilite">flatMap</code> to get <code class="codehilite">g</code> 's output, inspect it and, in case it is <code class="codehilite">None</code> just don't call <code class="codehilite">f</code> and return <code class="codehilite">None</code> ; or on the contrary, extract the boxed <code class="codehilite">Real</code> and feed <code class="codehilite">f</code> with it.</li>
-</ul>
-</li>
-<li>Many other problems arise which can be solved using this same pattern: 1. Use a "box" to codify/store different meanings/values, and have functions like <code class="codehilite">g</code> that return those "boxed values".</li>
-<li>Have composers/linkers <code class="codehilite">g flatMap f</code> to help connecting <code class="codehilite">g</code> 's output to <code class="codehilite">f</code> 's input, so we don't have to change <code class="codehilite">f</code> at all.</li>
-<li>Remarkable problems that can be solved using this technique are: <ul>
-<li>having a global state that every function in the sequence of functions ("the program") can share: solution <code class="codehilite">StateMonad</code> .</li>
-<li>We don't like "impure functions": functions that yield <em>different</em> output for <em>same</em> input. Therefore, let's mark those functions, making them to return a tagged/boxed value: <code class="codehilite">IO</code> monad.</li>
-</ul>
-</li>
-</ol>
-<p><a href="https://stackoverflow.com/a/28135478/1977778">https://stackoverflow.com/a/28135478/1977778</a></p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">The only correct definition of Monad</p>
+<p>A monad is an implementation of one of the minimal sets of monadic combinators, satisfying the laws of associativity and identity.</p>
 </div>
 <h2 id="links">Links</h2>
 <ul>
