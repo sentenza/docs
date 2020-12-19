@@ -4,6 +4,12 @@ After a lot of thinking, following the example of [@niqdev][niqdev], I've decide
 
 [niqdev]: https://github.com/niqdev/devops
 
+# Install mkdocs locally
+
+```sh
+python -m pip install -r requirements.txt
+```
+
 ### How to serve, build and deploy
 
 To start the dev server:

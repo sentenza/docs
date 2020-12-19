@@ -1,6 +1,7 @@
 site_name: Sentenza's notes
 site_author: sentenza
-site_url: 'http://torre.me.uk/docs'
+site_url: 'https://torre.me.uk/docs'
+base_url: "https://torre.me.uk"
 repo_name: 'sentenza/docs'
 repo_url: https://github.com/sentenza/docs
 nav:
@@ -10,7 +11,7 @@ nav:
     - Kubernetes: kubernetes.md
     - Links: links.md
 theme: 
-  name: 'material'
+  name: material
   custom_dir: 'material-theme'
   palette:
     primary: 'grey'
@@ -18,8 +19,10 @@ theme:
   font:
     text: 'Ubuntu'
     code: 'Fira Mono'
-  logo:
-    icon: 'library_books'
+  # logo:
+  #    icon: 'material/library_books'
+  icon:
+    logo: material/book
   # feature:
   #   tabs: true 
 markdown_extensions:
@@ -45,5 +48,5 @@ markdown_extensions:
 extra:
   disqus: 'alfredotorre'
   social:
-    - type: 'github'
+    - icon: fontawesome/brands/github-alt
       link: 'https://github.com/sentenza'
