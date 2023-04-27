@@ -7,7 +7,8 @@ After a lot of thinking, following the example of [@niqdev][niqdev], I've decide
 # Install mkdocs locally
 
 ```sh
-python -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
+python3.11 -m pip install mkdocs-material
 ```
 
 ### How to serve, build and deploy

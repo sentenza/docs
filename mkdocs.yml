@@ -1,18 +1,19 @@
 site_name: Sentenza's notes
 site_author: sentenza
 site_url: 'https://torre.me.uk/docs'
-base_url: "https://torre.me.uk"
+#base_url: https://torre.me.uk
 repo_name: 'sentenza/docs'
 repo_url: https://github.com/sentenza/docs
 nav:
     - Home: index.md
     - Category Theory: category_theory.md
     - Scala: scala.md
+    - gRPC: grpc.md
     - Kubernetes: kubernetes.md
     - Links: links.md
 theme: 
   name: material
-  custom_dir: 'material-theme'
+#  custom_dir: 'material-theme'
   palette:
     primary: 'grey'
     accent: 'deep purple'
@@ -50,3 +51,4 @@ extra:
   social:
     - icon: fontawesome/brands/github-alt
       link: 'https://github.com/sentenza'
+  homepage: https://torre.me.uk
