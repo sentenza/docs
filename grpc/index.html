@@ -1,0 +1,785 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="sentenza">
+      
+      
+        <link rel="canonical" href="https://torre.me.uk/docs/grpc/">
+      
+      
+        <link rel="prev" href="../scala/">
+      
+      
+        <link rel="next" href="../kubernetes/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+    
+    
+      
+        <title>gRPC - Sentenza's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="deep-purple">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-step-back-httprest" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://torre.me.uk" title="Sentenza&#39;s notes" class="md-header__button md-logo" aria-label="Sentenza's notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sentenza's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              gRPC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sentenza/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sentenza/docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://torre.me.uk" title="Sentenza&#39;s notes" class="md-nav__button md-logo" aria-label="Sentenza's notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12Z"/></svg>
+
+    </a>
+    Sentenza's notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sentenza/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sentenza/docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../category_theory/" class="md-nav__link">
+        Category Theory
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scala/" class="md-nav__link">
+        Scala
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          gRPC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        gRPC
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-step-back-httprest" class="md-nav__link">
+    A step back: HTTP/REST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rpc" class="md-nav__link">
+    RPC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-grpc" class="md-nav__link">
+    What is gRPC?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#please-go-faster" class="md-nav__link">
+    Please, go faster!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-grpc" class="md-nav__link">
+    When to use gRPC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-buffers" class="md-nav__link">
+    Protocol buffers
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocol buffers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-fields" class="md-nav__link">
+    Optional fields
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-fields" class="md-nav__link">
+    Required fields
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-and-errors" class="md-nav__link">
+    Types and errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scala-play-and-grpc" class="md-nav__link">
+    Scala Play and gRPC
+  </a>
+  
+    <nav class="md-nav" aria-label="Scala Play and gRPC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#play-grpc-sample-project" class="md-nav__link">
+    Play gRPC sample project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+    <nav class="md-nav" aria-label="Links">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        Links
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-step-back-httprest" class="md-nav__link">
+    A step back: HTTP/REST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rpc" class="md-nav__link">
+    RPC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-grpc" class="md-nav__link">
+    What is gRPC?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#please-go-faster" class="md-nav__link">
+    Please, go faster!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-grpc" class="md-nav__link">
+    When to use gRPC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-buffers" class="md-nav__link">
+    Protocol buffers
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocol buffers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-fields" class="md-nav__link">
+    Optional fields
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-fields" class="md-nav__link">
+    Required fields
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-and-errors" class="md-nav__link">
+    Types and errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scala-play-and-grpc" class="md-nav__link">
+    Scala Play and gRPC
+  </a>
+  
+    <nav class="md-nav" aria-label="Scala Play and gRPC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#play-grpc-sample-project" class="md-nav__link">
+    Play gRPC sample project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+    <nav class="md-nav" aria-label="Links">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>gRPC</h1>
+
+<h3 id="a-step-back-httprest">A step back: HTTP/REST</h3>
+<p>REST is simple and very easy to use. REST is great for browser. Easy to test our APIs. Developers love this. So we always use REST style to expose our microservices to third-party actors. However it has following issues.</p>
+<ul>
+<li>HTTP/1.1 is textual &amp; Heavy. Microservices exchange information by using huge JSON payload.</li>
+<li>HTTP is stateless. So additional information is sent via headers which are not compressed.</li>
+<li>HTTP/1.1 is unary – that is – you send a request and get a response. You can not send another request until you receive the response.</li>
+<li>HTTP request requires a 3 way message exchange to set up a TCP connection first which is time consuming.</li>
+</ul>
+<p>This all can affect the overall performances of our Microservices. REST is good between browser and back-end. But we need something better than REST for inter microservices communication to avoid above mentioned issues.</p>
+<h3 id="rpc">RPC</h3>
+<p>RPC, Remote Procedure Call, is an old mechanism in distributed computing, to execute certain procedure in a remote machine without having to understand the network details. Processes in the same system/different systems which are not sharing the same address space can use RPC for their communication. The call will be made as we would normally invoke a local method call. It follows the client-server model. A client sends a request to the server by invoking a method on the remote server and exchanges messages. RPC provides a well defined interface and type safety.</p>
+<p><img alt="rpc_client_server" src="../assets/img/rpc_client_server.png" /></p>
+<h3 id="what-is-grpc">What is gRPC?</h3>
+<p>gRPC is a modern, high-performance framework that evolves the age-old <em>remote procedure call</em> (RPC) protocol. At the application level, gRPC streamlines messaging between clients and back-end services. Originating from Google, gRPC is open source and part of the <em>Cloud Native Computing Foundation</em> (CNCF) ecosystem of cloud-native offerings. CNCF considers gRPC an incubating project. Incubating means end users are using the technology in production applications, and the project has a healthy number of contributors.</p>
+<p>A typical gRPC client app will expose a local, in-process function that implements a business operation. Under the covers, that local function invokes another function on a remote machine. What appears to be a local call essentially becomes a transparent out-of-process call to a remote service. The RPC plumbing abstracts the point-to-point networking communication, serialization, and execution between computers.</p>
+<p>In cloud-native applications, developers often work across programming languages, frameworks, and technologies. This interoperability complicates message contracts and the plumbing required for cross-platform communication. gRPC provides a "uniform horizontal layer" that abstracts these concerns. Developers code in their native platform focused on business functionality, while gRPC handles communication plumbing.</p>
+<h3 id="please-go-faster">Please, go faster!</h3>
+<p>It is <strong>battle tested for more than a decade</strong>. Google site shows they have been processing <strong>10 BILLIONS requests / second</strong> using gRPC.</p>
+<p>gRPC is faster than REST (Checkout this <a href="https://www.vinsguru.com/grpc-vs-rest-performance-comparison/">gRPC vs REST Performance Comparison</a>). We achieve this performance gain by switching to gRPC because of these 2 important reasons along with other in-built tools.</p>
+<ul>
+<li><strong>HTTP/2</strong></li>
+<li>Protocol Buffers (Check this out – <a href="https://www.vinsguru.com/protobuf-a-simple-introduction/">Protobuf / Protocol Buffers – A Simple Introduction</a>)</li>
+</ul>
+<p>gRPC by default uses HTTP/2 for transport and Protocol Buffers for message exchange instead of JSON whereas most of the current microservices architectural style is REST with JSON on top of HTTP/1.1</p>
+<h3 id="when-to-use-grpc">When to use gRPC</h3>
+<p>Favor gRPC for the following scenarios:</p>
+<ul>
+<li><strong>Synchronous backend microservice-to-microservice communication where an immediate response is required</strong> to continue processing.</li>
+<li>Polyglot environments that need to support mixed programming platforms.</li>
+<li><strong>Low latency and high throughput communication where performance is critical</strong>.</li>
+<li>Point-to-point real-time communication - gRPC can push messages in real time without polling and has excellent support for bi-directional streaming.</li>
+<li>Network constrained environments – <strong>binary gRPC messages are always smaller than an equivalent text-based JSON message</strong>.</li>
+</ul>
+<h3 id="protocol-buffers">Protocol buffers</h3>
+<p>gRPC embraces an open-source technology called <strong>Protocol Buffers</strong>. They provide a highly efficient and platform-neutral serialization format for serializing structured messages that services send to each other. Using a cross-platform <strong>Interface Definition Language</strong> (IDL), developers define a service contract for each microservice. The contract, implemented as a text-based <code>.proto</code> file, describes the methods, inputs, and outputs for each service. The same contract file can be used for gRPC clients and services built on different development platforms.</p>
+<p>Using the proto file, the Protobuf compiler, <code>protoc</code>, generates both client and service code for your target platform. The code includes the following components:</p>
+<ul>
+<li><strong>Strongly typed</strong> objects, shared by the client and service, that represent the service operations and data elements for a message.</li>
+<li>A strongly typed base class with the required network plumbing that the remote gRPC service can inherit and extend.</li>
+<li>A client stub that contains the required plumbing to invoke the remote gRPC service.</li>
+</ul>
+<p>At run time, <strong>each message is serialized as a standard Protobuf representation and exchanged between the client and remote service</strong>. Unlike JSON or XML, Protobuf messages are <strong>serialized as compiled binary bytes</strong>.</p>
+<h4 id="optional-fields">Optional fields</h4>
+<p>For <code>string</code>, <code>bytes</code>, and <code>message</code> fields, <code>optional</code> is compatible with <code>repeated</code>. Given serialized data of a repeated field as input, clients that expect this field to be optional will take the last input value if it's a primitive type field or merge all input elements if it's a message type field. Note that this is <strong>not</strong> generally safe for numeric types, including bools and enums. Repeated fields of numeric types can be serialized in the packed format, which will not be parsed correctly when an optional field is expected.</p>
+<p>Since protobuf <a href="https://github.com/protocolbuffers/protobuf/releases/tag/v3.15.0">release 3.15</a>, proto3 supports using the <code>optional</code> keyword (just as in proto2) to give a scalar field presence information.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">syntax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;proto3&quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">message</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int32</span><span class="w"> </span><span class="na">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">optional</span><span class="w"> </span><span class="kt">int32</span><span class="w"> </span><span class="na">baz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<p>A <code>has_baz()</code>/<code>hasBaz()</code> method is generated for the <code>optional</code> field above, just as it was in proto2.</p>
+<p>Under the hood, protoc effectively treats an <code>optional</code> field as if it were declared using a <code>oneof</code> wrapper, as <a href="https://stackoverflow.com/a/46821842/140743">CyberSnoopy’s answer</a> suggested:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">message</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int32</span><span class="w"> </span><span class="na">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">oneof</span><span class="w"> </span><span class="n">optional_baz</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int32</span><span class="w"> </span><span class="na">baz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<p>If you’ve already used that approach, you can now simplify your message declarations (switch from <code>oneof</code> to <code>optional</code>) and code, since the wire format is the same.</p>
+<p>The nitty-gritty details about field presence and <code>optional</code> in proto3 can be found in the <a href="https://github.com/protocolbuffers/protobuf/blob/v3.12.0/docs/field_presence.md">Application note: Field presence</a> doc.</p>
+<p>Historical note: Experimental support for <code>optional</code> in proto3 was first announced on Apr 23, 2020 in <a href="https://github.com/protocolbuffers/protobuf/issues/1606#issuecomment-618687169">this comment</a>. Using it required passing protoc the <code>--experimental_allow_proto3_optional</code> flag in releases 3.12-3.14.</p>
+<h4 id="required-fields">Required fields</h4>
+<blockquote>
+<p>We dropped required fields in proto3 because required fields are generally considered harmful and violating protobuf's compatibility semantics. <strong>The whole idea of using protobuf is that it allows you to add/remove fields from your protocol definition while still being fully forward/backward compatible with newer/older binaries</strong>. Required fields break this though. You can never safely add a required field to a .proto definition, nor can you safely remove an existing required field because both of these actions break wire compatibility. For example, if you add a required field to a .proto definition, binaries built with the new definition won't be able to parse data serialized using the old definition because the required field is not present in old data. In a complex system where .proto definitions are shared widely across many different components of the system, adding/removing required fields could easily bring down multiple parts of the system. We have seen production issues caused by this multiple times and it's pretty much banned everywhere inside Google for anyone to add/remove required fields. For this reason we completely removed required fields in proto3.</p>
+</blockquote>
+<p>Proto3 overall seems to favor simplicity, and required removal is simpler. But maybe more convincing, removing required made sense for proto3 when combined with other features, like removal of field presence for primitives and removal of overriding default values.</p>
+<p><a href="https://stackoverflow.com/a/31814967/1977778">https://stackoverflow.com/a/31814967/1977778</a></p>
+<h2 id="types-and-errors">Types and errors</h2>
+<ul>
+<li>If you want to raise errors, the minimal bound you need is <code>ApplicativeError</code></li>
+<li>if you wanna <code>flatMap</code> around, you need to at least use <code>MonadError</code></li>
+<li>If you need to suspend actions you need to raise this to <code>Sync</code></li>
+<li>
+<p>if you need to work with callback-based APIs, you'll need <code>Async</code></p>
+</li>
+<li>
+<p><a href="https://typelevel.org/cats-effect/docs/typeclasses">https://typelevel.org/cats-effect/docs/typeclasses</a></p>
+</li>
+<li><a href="http://typelevel.org/cats/typeclasses/applicativemonaderror.html">http://typelevel.org/cats/typeclasses/applicativemonaderror.html</a></li>
+</ul>
+<p>If we stick to <code>Async</code>to handle errors properly we have to do something like:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">uid</span><span class="p">.</span><span class="n">isBlank</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="n">uid</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nc">Async</span><span class="p">[</span><span class="nc">F</span><span class="p">].</span><span class="n">raiseError</span><span class="p">(</span>
+<span class="w">        </span><span class="nc">Status</span><span class="p">.</span><span class="nc">INVALID_ARGUMENT</span>
+<span class="w">          </span><span class="p">.</span><span class="n">augmentDescription</span><span class="p">(</span><span class="s">&quot;You have to provide a valid `uid`. It cannot be blank or empty&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="p">.</span><span class="n">asRuntimeException</span><span class="p">()</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+<ul>
+<li><a href="https://avi.im/grpc-errors/#scala">https://avi.im/grpc-errors/#scala</a></li>
+<li><a href="https://github.com/avinassh/grpc-errors/blob/master/scala/src/main/scala/hello/client/HelloClient.scala">https://github.com/avinassh/grpc-errors/blob/master/scala/src/main/scala/hello/client/HelloClient.scala</a></li>
+</ul>
+<h2 id="scala-play-and-grpc">Scala Play and gRPC</h2>
+<p>Alternative to <code>fs2-grpc</code> for Scala Play is based on <strong>Akka gRPC</strong>:</p>
+<ol>
+<li><a href="https://doc.akka.io/docs/akka-grpc/current/client/walkthrough.html">https://doc.akka.io/docs/akka-grpc/current/client/walkthrough.html</a></li>
+<li><a href="https://developer.lightbend.com/docs/play-grpc/0.5.0/consuming-grpc.html">https://developer.lightbend.com/docs/play-grpc/0.5.0/consuming-grpc.html</a></li>
+</ol>
+<h3 id="play-grpc-sample-project">Play gRPC sample project</h3>
+<ul>
+<li><img alt="👉" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f449.svg" title=":point_right:" /> <a href="https://github.com/playframework/play-samples/tree/2.8.x/play-scala-grpc-example">https://github.com/playframework/play-samples/tree/2.8.x/play-scala-grpc-example</a></li>
+<li><a href="https://developer.lightbend.com/guides/play-scala-grpc-example/code-details.html">https://developer.lightbend.com/guides/play-scala-grpc-example/code-details.html</a></li>
+<li><a href="https://github.com/akka/akka-grpc">https://github.com/akka/akka-grpc</a> (<a href="https://doc.akka.io/docs/akka-grpc/current/client/walkthrough.html">https://doc.akka.io/docs/akka-grpc/current/client/walkthrough.html</a>)</li>
+<li><a href="https://developer.lightbend.com/docs/play-grpc/current/">https://developer.lightbend.com/docs/play-grpc/current/</a> (<a href="https://github.com/playframework/play-grpc">https://github.com/playframework/play-grpc</a>)</li>
+<li><a href="https://github.com/alexromanov/client-grpc-sample">https://github.com/alexromanov/client-grpc-sample</a></li>
+</ul>
+<p><a href="https://developer.lightbend.com/docs/play-grpc/0.5.0/index.html">https://developer.lightbend.com/docs/play-grpc/0.5.0/index.html</a></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://grpc.io/docs/what-is-grpc/introduction/">https://grpc.io/docs/what-is-grpc/introduction/</a></li>
+<li><a href="https://developers.google.com/protocol-buffers/docs/proto3#json">https://developers.google.com/protocol-buffers/docs/proto3#json</a></li>
+<li><a href="https://developers.google.com/protocol-buffers/docs/style">https://developers.google.com/protocol-buffers/docs/style</a></li>
+<li><a href="https://grpc.io/docs/what-is-grpc/core-concepts/">https://grpc.io/docs/what-is-grpc/core-concepts/</a></li>
+<li><a href="https://medium.com/expedia-group-tech/introducing-grpc-to-our-hotels-com-platform-part-1-61716af50b13">https://medium.com/expedia-group-tech/introducing-grpc-to-our-hotels-com-platform-part-1-61716af50b13</a></li>
+<li><a href="https://medium.com/expedia-group-tech/introducing-grpc-to-our-hotels-com-platform-part-2-8024a1dda0aa">https://medium.com/expedia-group-tech/introducing-grpc-to-our-hotels-com-platform-part-2-8024a1dda0aa</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/grpc">https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/grpc</a></li>
+<li><a href="https://www.vinsguru.com/grpc-introduction-guide/">https://www.vinsguru.com/grpc-introduction-guide/</a></li>
+<li>ScalaPB <a href="https://medium.com/teads-engineering/bring-grpc-payloads-and-domain-models-closer-with-scalapb-transformations-b23a7115d427">https://medium.com/teads-engineering/bring-grpc-payloads-and-domain-models-closer-with-scalapb-transformations-b23a7115d427</a></li>
+<li>ScalaPB docs: <a href="https://scalapb.github.io/docs/grpc">https://scalapb.github.io/docs/grpc</a></li>
+<li>Status codes: <a href="https://grpc.github.io/grpc/core/md_doc_statuscodes.html">https://grpc.github.io/grpc/core/md_doc_statuscodes.html</a></li>
+<li>Error handling: <a href="https://www.baeldung.com/grpcs-error-handling">https://www.baeldung.com/grpcs-error-handling</a></li>
+</ul>
+<h3 id="tools">Tools</h3>
+<ul>
+<li><a href="https://github.com/ktr0731/evans">https://github.com/ktr0731/evans</a></li>
+<li>GUI =&gt; <a href="https://github.com/bloomrpc/bloomrpc">https://github.com/bloomrpc/bloomrpc</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sentenza" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>

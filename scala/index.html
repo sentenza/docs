@@ -7,14 +7,19 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="sentenza">
+      
       
         <link rel="canonical" href="https://torre.me.uk/docs/scala/">
       
       
-        <meta name="author" content="sentenza">
+        <link rel="prev" href="../category_theory/">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.7">
+      
+        <link rel="next" href="../grpc/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -22,30 +27,30 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.19753c6b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.196e0c26.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#757575">
-        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
+      
+
     
     
     
       
         
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CFira+Mono&display=fallback">
-        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Fira Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
+    
     
     
   </head>
@@ -56,9 +61,10 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="deep-purple">
-      
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="deep-purple">
   
+    
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -74,80 +80,62 @@
       
     </div>
     
-      <!-- Application header -->
-<header class="md-header" data-md-component="header">
-
-    <!-- Top-level navigation -->
-    <nav class="md-header-nav md-grid" aria-label="Header">
-  
-      <!-- Link to home -->
-      <a
-        href="https://torre.me.uk"
-        title="Home"
-        class="md-header-nav__button md-logo"
-        aria-label="Sentenza's notes"
-      >
-        <!-- Home Logo -->
-
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
-      </a>
-      <!-- Link to docs -->
-      <a
-        href=""
-        title="Sentenza&#39;s notes"
-        class="md-header-nav__button md-logo"
-        aria-label="Sentenza's notes"
-      >
-        <!-- Logo -->
-
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 002-2V4a2 2 0 00-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 00-2 2v16a2 2 0 002 2h12z"/></svg>
-
-      </a>
-
-
-  
-      <!-- Button to open drawer -->
-      <label class="md-header-nav__button md-icon" for="__drawer">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
-      </label>
-  
-      <!-- Header title -->
-      <div class="md-header-nav__title" data-md-component="header-title">
-        
-          <div class="md-header-nav__ellipsis">
-            <span class="md-header-nav__topic md-ellipsis">
-              Sentenza's notes
-            </span>
-            <span class="md-header-nav__topic md-ellipsis">
-              
-                Scala
-              
-            </span>
-          </div>
-        
-      </div>
-  
-      <!-- Button to open search dialogue -->
+    
       
-        <label class="md-header-nav__button md-icon" for="__search">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        </label>
+
   
-        <!-- Search interface -->
-        
-<div class="md-search" data-md-component="search" role="dialog">
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://torre.me.uk" title="Sentenza&#39;s notes" class="md-header__button md-logo" aria-label="Sentenza's notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sentenza's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Scala
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -155,64 +143,64 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
   </div>
 </div>
-      
-  
-      <!-- Repository containing source -->
-      
-        <div class="md-header-nav__source">
-          
-<a href="https://github.com/sentenza/docs/" title="Go to repository" class="md-source">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sentenza/docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     sentenza/docs
   </div>
 </a>
-        </div>
-      
-    </nav>
-  </header>
+      </div>
+    
+  </nav>
+  
+</header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
+
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://torre.me.uk/docs" title="Sentenza&#39;s notes" class="md-nav__button md-logo" aria-label="Sentenza's notes">
-      <!-- Logo -->
-
+    <a href="https://torre.me.uk" title="Sentenza&#39;s notes" class="md-nav__button md-logo" aria-label="Sentenza's notes" data-md-component="logo">
+      
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 002-2V4a2 2 0 00-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 00-2 2v16a2 2 0 002 2h12z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12Z"/></svg>
 
     </a>
     Sentenza's notes
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/sentenza/docs/" title="Go to repository" class="md-source">
+      <a href="https://github.com/sentenza/docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     sentenza/docs
@@ -226,24 +214,15 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href=".." class="md-nav__link">
-      Home
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../category_theory/" class="md-nav__link">
-      Category Theory
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
 
     
       
@@ -251,26 +230,46 @@
       
 
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../category_theory/" class="md-nav__link">
+        Category Theory
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
+      
+      
+
+  
+  
     
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Scala
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Scala
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
-      Scala
-    </a>
-    
+      </a>
       
+        
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -280,7 +279,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#evaluation-rules" class="md-nav__link">
@@ -408,32 +407,54 @@
     </ul>
   
 </nav>
-    
-  </li>
+      
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../kubernetes/" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grpc/" class="md-nav__link">
+        gRPC
+      </a>
+    </li>
+  
 
     
       
       
       
 
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item">
-    <a href="../links/" class="md-nav__link">
-      Links
-    </a>
-  </li>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        Links
+      </a>
+    </li>
+  
 
     
   </ul>
@@ -443,11 +464,14 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -457,7 +481,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#evaluation-rules" class="md-nav__link">
@@ -590,16 +614,17 @@
               </div>
             
           
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                  <a href="https://github.com/sentenza/docs/edit/master/docs/scala.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="scala">Scala</h1>
+                  
+
+  
+  
+
+
+<h1 id="scala">Scala</h1>
 <h2 id="evaluation-rules">Evaluation rules</h2>
 <ul>
 <li><code>def</code> defines a method</li>
@@ -607,14 +632,14 @@
 <li><code>var</code> defines a variable reference, it is mutable and it should be avoided</li>
 <li><code>lazy</code> only initialised when required and as late as possible (deferred evaluation), default is strict and is not recomputed like by-name parameters</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="n">myFunction</span> <span class="k">=</span> <span class="mi">2</span>         <span class="c1">// evaluated when called</span>
-<span class="k">val</span> <span class="n">myImmutableValue</span> <span class="k">=</span> <span class="mi">2</span>   <span class="c1">// evaluated immediately</span>
-<span class="k">lazy</span> <span class="k">val</span> <span class="n">iMLazy</span> <span class="k">=</span> <span class="mi">2</span>        <span class="c1">// evaluated once when needed</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">myFunction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">         </span><span class="c1">// evaluated when called</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">myImmutableValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">   </span><span class="c1">// evaluated immediately</span>
+<span class="k">lazy</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">iMLazy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">        </span><span class="c1">// evaluated once when needed</span>
 
-<span class="k">def</span> <span class="n">sort</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Double</span><span class="o">])</span>       <span class="c1">// call by value</span>
-<span class="k">def</span> <span class="n">sort</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="o">=&gt;</span> <span class="nc">List</span><span class="o">[</span><span class="kt">Double</span><span class="o">])</span>    <span class="c1">// call by name</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">Double</span><span class="p">])</span><span class="w">       </span><span class="c1">// call by value</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">Double</span><span class="p">])</span><span class="w">    </span><span class="c1">// call by name</span>
 <span class="c1">// ds is a sequence of Double, containing a varying number of arguments</span>
-<span class="k">def</span> <span class="n">varargsFunction</span><span class="o">(</span><span class="n">ds</span><span class="k">:</span> <span class="kt">Double*</span><span class="o">)</span> <span class="k">=</span> <span class="o">???</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">varargsFunction</span><span class="p">(</span><span class="n">ds</span><span class="p">:</span><span class="w"> </span><span class="nc">Double</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">???</span>
 </code></pre></div>
 <ul>
 <li><strong>Call by-value</strong>: evaluates the function arguments before calling the function</li>
@@ -622,14 +647,14 @@
 </ul>
 <h2 id="type-parameters">Type Parameters</h2>
 <p>Conceptually similar to C++ templates or Java generics. These can apply to classes, traits or functions.</p>
-<p><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TypedClass</span><span class="o">[</span><span class="kt">F</span><span class="o">](</span><span class="n">arg1</span><span class="k">:</span> <span class="kt">F</span><span class="o">)</span> <span class="o">{</span> <span class="o">???</span> <span class="o">}</span>  
-<span class="k">new</span> <span class="nc">TypedClass</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">1</span><span class="o">)</span>  
-<span class="k">new</span> <span class="nc">TypedClass</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>   <span class="c1">// the type is being inferred, i.e. determined based on the value arguments  </span>
+<p><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TypedClass</span><span class="p">[</span><span class="nc">F</span><span class="p">](</span><span class="n">arg1</span><span class="p">:</span><span class="w"> </span><span class="nc">F</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">???</span><span class="w"> </span><span class="p">}</span><span class="w">  </span>
+<span class="k">new</span><span class="w"> </span><span class="nc">TypedClass</span><span class="p">[</span><span class="nc">Int</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span>
+<span class="k">new</span><span class="w"> </span><span class="nc">TypedClass</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">   </span><span class="c1">// the type is being inferred, i.e. determined based on the value arguments  </span>
 </code></pre></div>
 Conventionally, the type parameters are expressed using uppercase letters (e.g. <em>A, B, T, F</em>). It's also possible to restrict the type being used, e.g.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="n">func</span><span class="o">[</span><span class="kt">T</span> <span class="k">&lt;:</span> <span class="kt">TopLevel</span><span class="o">](</span><span class="n">arg</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span> <span class="c1">// T must derive from TopLevel or be TopLevel</span>
-<span class="k">def</span> <span class="n">func</span><span class="o">[</span><span class="kt">T</span> <span class="k">&gt;:</span> <span class="kt">Level1</span><span class="o">](</span><span class="n">arg</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>   <span class="c1">// T must be a supertype of Level1</span>
-<span class="k">def</span> <span class="n">func</span><span class="o">[</span><span class="kt">T</span> <span class="k">&gt;:</span> <span class="kt">Level1</span> <span class="k">&lt;:</span> <span class="kt">Top</span> <span class="kt">Level</span><span class="o">](</span><span class="n">arg</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span><span class="k">:</span> <span class="kt">T</span> <span class="o">=</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">[</span><span class="nc">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="nc">TopLevel</span><span class="p">](</span><span class="n">arg</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">):</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// T must derive from TopLevel or be TopLevel</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">[</span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;:</span><span class="w"> </span><span class="nc">Level1</span><span class="p">](</span><span class="n">arg</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">):</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">   </span><span class="c1">// T must be a supertype of Level1</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">[</span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;:</span><span class="w"> </span><span class="nc">Level1</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="nc">Top</span><span class="w"> </span><span class="nc">Level</span><span class="p">](</span><span class="n">arg</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">):</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <h3 id="variance">Variance</h3>
 <div class="admonition quote">
@@ -668,46 +693,46 @@ value of type <code>T</code> wherever a value of type U is required. This is cal
 <li>Neither <code>C[A]</code> or <code>C[B]</code> is a subtype of the other, then C is <strong>invariant</strong> (or <em>"nonvariant"</em>). </li>
 </ul>
 <p>Scala lets you declare the variance of a type by annotating the type parameter:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">C</span><span class="o">[</span><span class="kt">+A</span><span class="o">]</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span> <span class="c1">// C is covariant</span>
-<span class="k">class</span> <span class="nc">C</span><span class="o">[</span><span class="kt">-A</span><span class="o">]</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span> <span class="c1">// C is contravariant</span>
-<span class="k">class</span> <span class="nc">C</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>  <span class="o">{</span> <span class="o">...</span> <span class="o">}</span> <span class="c1">// C is invariant</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">[</span><span class="o">+</span><span class="nc">A</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// C is covariant</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">[</span><span class="o">-</span><span class="nc">A</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// C is contravariant</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">[</span><span class="nc">A</span><span class="p">]</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// C is invariant</span>
 </code></pre></div>
 <p>So, given that <code>Any</code> &gt; <code>AnyRef</code> &gt; <code>IntSet</code> &gt; <code>Empty</code> and <code>NonEmpty</code>, if 
-<div class="highlight"><pre><span></span><code><span class="k">type</span> <span class="kt">A</span> <span class="o">=</span> <span class="nc">IntSet</span> <span class="k">=&gt;</span> <span class="nc">NonEmpty</span>
-<span class="k">type</span> <span class="kt">B</span> <span class="o">=</span> <span class="nc">NonEmpty</span> <span class="k">=&gt;</span> <span class="nc">IntSet</span>
+<div class="highlight"><pre><span></span><code><span class="k">type</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">IntSet</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">NonEmpty</span>
+<span class="k">type</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">NonEmpty</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">IntSet</span>
 </code></pre></div>
 According to the <a href="https://stackoverflow.com/a/584732/1977778">Liskov Principle</a> =&gt; <code>A &lt;: B</code>, since B can return an Empty or NonEmpty, but A can return only NonEmpty.</p>
 <p>For a function, if <code>A2 &lt;: A1</code> and <code>B1 &lt;: B2</code>, then <code>A1 =&gt; B1 &lt;: A2 =&gt; B2</code>. The consequence is that functions must be <strong>contravariant in their argument types and covariant in their result types</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/** The Scala Function1 S =&gt; T */</span>
-<span class="k">trait</span> <span class="nc">Function1</span><span class="o">[</span><span class="kt">-S</span><span class="p">,</span> <span class="kt">+T</span><span class="o">]</span> <span class="o">{</span>
-    <span class="c1">// S is contravariant, while T is covariant</span>
-    <span class="k">def</span> <span class="n">apply</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">S</span><span class="o">)</span><span class="k">:</span> <span class="kt">T</span>
-<span class="o">}</span>
+<span class="k">trait</span><span class="w"> </span><span class="nc">Function1</span><span class="p">[</span><span class="o">-</span><span class="nc">S</span><span class="p">,</span><span class="w"> </span><span class="o">+</span><span class="nc">T</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// S is contravariant, while T is covariant</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">S</span><span class="p">):</span><span class="w"> </span><span class="nc">T</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>This example shows that functions are <em>contravariant</em> in argument types and <em>covariant</em> in return types.</p>
-<div class="highlight"><pre><span></span><code><span class="k">package</span> <span class="nn">io.github.sentenza.cars</span>
+<div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">io</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">sentenza</span><span class="p">.</span><span class="n">cars</span>
 
-<span class="k">class</span> <span class="nc">Car</span> <span class="o">{}</span>
-<span class="k">class</span> <span class="nc">SportsCar</span> <span class="k">extends</span> <span class="nc">Car</span> <span class="o">{}</span>
-<span class="k">class</span> <span class="nc">Ferrari</span> <span class="k">extends</span> <span class="nc">SportsCar</span> <span class="o">{}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="p">{}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SportsCar</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="p">{}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Ferrari</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">SportsCar</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="k">object</span> <span class="nc">morecovariance</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+<span class="k">object</span><span class="w"> </span><span class="nc">morecovariance</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">App</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="c1">// Test 1: Works as expected</span>
+<span class="w">    </span><span class="c1">// Test 1: Works as expected</span>
 
-    <span class="k">def</span> <span class="n">test1</span><span class="o">(</span> <span class="n">arg</span><span class="k">:</span> <span class="kt">SportsCar</span> <span class="o">=&gt;</span> <span class="nc">SportsCar</span> <span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
-        <span class="k">new</span> <span class="nc">SportsCar</span>
-    <span class="o">}</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test1</span><span class="p">(</span><span class="w"> </span><span class="n">arg</span><span class="p">:</span><span class="w"> </span><span class="nc">SportsCar</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">SportsCar</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nc">SportsCar</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="n">foo1</span><span class="o">(</span><span class="n">arg</span><span class="k">:</span> <span class="kt">Car</span><span class="o">)</span><span class="k">:</span> <span class="kt">Ferrari</span> <span class="o">=</span> <span class="o">{</span> <span class="k">new</span> <span class="nc">Ferrari</span> <span class="o">}</span>
-    <span class="k">def</span> <span class="n">foo2</span><span class="o">(</span><span class="n">arg</span><span class="k">:</span> <span class="kt">SportsCar</span><span class="o">)</span><span class="k">:</span> <span class="kt">Car</span> <span class="o">=</span> <span class="o">{</span> <span class="k">new</span> <span class="nc">Ferrari</span> <span class="o">}</span>
-    <span class="k">def</span> <span class="n">foo3</span><span class="o">(</span><span class="n">arg</span><span class="k">:</span> <span class="kt">Ferrari</span><span class="o">)</span><span class="k">:</span> <span class="kt">Ferrari</span> <span class="o">=</span> <span class="o">{</span> <span class="k">new</span> <span class="nc">Ferrari</span> <span class="o">}</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">foo1</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span><span class="w"> </span><span class="nc">Car</span><span class="p">):</span><span class="w"> </span><span class="nc">Ferrari</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Ferrari</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">foo2</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span><span class="w"> </span><span class="nc">SportsCar</span><span class="p">):</span><span class="w"> </span><span class="nc">Car</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Ferrari</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">foo3</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span><span class="w"> </span><span class="nc">Ferrari</span><span class="p">):</span><span class="w"> </span><span class="nc">Ferrari</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Ferrari</span><span class="w"> </span><span class="p">}</span>
 
-    <span class="n">test1</span><span class="o">(</span><span class="n">foo1</span><span class="o">)</span> <span class="c1">// compiles</span>
-    <span class="n">test1</span><span class="o">(</span><span class="n">foo2</span><span class="o">)</span> <span class="c1">// Fails due to wrong return type. </span>
-    <span class="n">test1</span><span class="o">(</span><span class="n">foo3</span><span class="o">)</span> <span class="c1">// Fails due to wrong parameter type</span>
+<span class="w">    </span><span class="n">test1</span><span class="p">(</span><span class="n">foo1</span><span class="p">)</span><span class="w"> </span><span class="c1">// compiles</span>
+<span class="w">    </span><span class="n">test1</span><span class="p">(</span><span class="n">foo2</span><span class="p">)</span><span class="w"> </span><span class="c1">// Fails due to wrong return type. </span>
+<span class="w">    </span><span class="n">test1</span><span class="p">(</span><span class="n">foo3</span><span class="p">)</span><span class="w"> </span><span class="c1">// Fails due to wrong parameter type</span>
 
-<span class="o">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Find out more about variance in <a href="http://blog.kamkor.me/Covariance-And-Contravariance-In-Scala/">Covariance And Contravariance in Scala</a></p>
 <p><strong>Type constructor and Variance</strong></p>
@@ -750,28 +775,28 @@ According to the <a href="https://stackoverflow.com/a/584732/1977778">Liskov Pri
 </ul>
 <h3 id="factory-object">Factory Object</h3>
 <p>The following example has been taken from <a href="https://www.artima.com/shop/programming_in_scala">Programming in Scala</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">abstract</span> <span class="k">class</span> <span class="nc">Element</span> <span class="o">{</span>
-    <span class="k">def</span> <span class="n">contents</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
-    <span class="k">def</span> <span class="n">height</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">length</span>
-    <span class="k">def</span> <span class="n">width</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">height</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">contents</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="n">length</span>
-<span class="o">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">contents</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">height</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contents</span><span class="p">.</span><span class="n">length</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">width</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">height</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">contents</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">length</span>
+<span class="p">}</span>
 
-<span class="k">class</span> <span class="nc">ArrayElements</span><span class="o">(</span><span class="k">val</span> <span class="n">contents</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span> <span class="k">extends</span> <span class="nc">Element</span> 
+<span class="k">class</span><span class="w"> </span><span class="nc">ArrayElements</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="n">contents</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">])</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span>
 
 <span class="c1">// Invoking superclass constructor while extending the class itself</span>
-<span class="k">class</span> <span class="nc">LineElement</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">ArrayElement</span><span class="o">(</span><span class="nc">Array</span><span class="o">(</span><span class="n">s</span><span class="o">))</span> <span class="o">{</span>
-    <span class="k">override</span> <span class="k">def</span> <span class="n">width</span> <span class="k">=</span> <span class="n">s</span><span class="o">.</span><span class="n">length</span> <span class="c1">// Int is inferred</span>
-    <span class="k">override</span> <span class="k">def</span> <span class="n">width</span> <span class="k">=</span> <span class="mi">1</span>
-<span class="o">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LineElement</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">ArrayElement</span><span class="p">(</span><span class="nc">Array</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="c1">// Int is inferred</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
 
-<span class="k">class</span> <span class="nc">UniformElement</span><span class="o">(</span>
-    <span class="n">ch</span><span class="k">:</span> <span class="kt">Char</span><span class="o">,</span>
-    <span class="k">override</span> <span class="k">val</span> <span class="n">width</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span>
-    <span class="k">override</span> <span class="k">val</span> <span class="n">heigth</span><span class="k">:</span> <span class="kt">Int</span>
-<span class="o">)</span> <span class="k">extends</span> <span class="nc">Element</span> <span class="o">{</span>
-    <span class="k">private</span> <span class="k">val</span> <span class="n">line</span> <span class="k">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">toString</span> <span class="o">*</span> <span class="n">width</span>
-    <span class="k">def</span> <span class="n">contents</span> <span class="k">=</span> <span class="nc">Array</span><span class="o">.</span><span class="n">fill</span><span class="o">(</span><span class="n">height</span><span class="o">)(</span><span class="n">line</span><span class="o">)</span>
-<span class="o">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UniformElement</span><span class="p">(</span>
+<span class="w">    </span><span class="n">ch</span><span class="p">:</span><span class="w"> </span><span class="nc">Char</span><span class="p">,</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">width</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">,</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">heigth</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span>
+<span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ch</span><span class="p">.</span><span class="n">toString</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Array</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="n">height</span><span class="p">)(</span><span class="n">line</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Now, what we can do is defining a <em>Factory Object</em> which contains methods that construct other objects, without exposing each class implementation. Basically, we can hide each class inside a Singleton Object, which will represent just a tag for the overloaded methods that will give us the ability to instantiate each subclass dinamically, and using polymorphism at the same time.</p>
 <div class="admonition important">
@@ -779,37 +804,37 @@ According to the <a href="https://stackoverflow.com/a/584732/1977778">Liskov Pri
 <p>Note that <strong>OOP is not a paradigm, but it's just a way to define our code structure in a logic manner</strong> that is similar to playing with LEGOs. OOP can be seen like an <strong>orthogonal dimension</strong> compared to functional, declarative or imperative paradigms.</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="c1">// We start defining a Singleton Object</span>
-<span class="k">object</span> <span class="nc">Element</span> <span class="o">{</span>
-    <span class="c1">// we can now hide classes as private fields of this object</span>
-    <span class="k">private</span> <span class="k">class</span> <span class="nc">ArrayElements</span><span class="o">(</span>
-        <span class="k">val</span> <span class="n">contents</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
-    <span class="o">)</span> <span class="k">extends</span> <span class="nc">Element</span>
+<span class="k">object</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// we can now hide classes as private fields of this object</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ArrayElements</span><span class="p">(</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="n">contents</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Element</span>
 
-    <span class="k">private</span> <span class="k">class</span> <span class="nc">LineElement</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Element</span> <span class="o">{</span>
-        <span class="k">val</span> <span class="n">contents</span> <span class="k">=</span> <span class="nc">Array</span><span class="o">(</span><span class="n">s</span><span class="o">)</span>
-        <span class="k">override</span> <span class="k">def</span> <span class="n">width</span> <span class="k">=</span> <span class="n">s</span><span class="o">.</span><span class="n">length</span>
-        <span class="k">override</span> <span class="k">def</span> <span class="n">width</span> <span class="k">=</span> <span class="mi">1</span>
-    <span class="o">}</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">LineElement</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Array</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="w">        </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">length</span>
+<span class="w">        </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">private</span> <span class="k">class</span> <span class="nc">UniformElement</span><span class="o">(</span>
-        <span class="n">ch</span><span class="k">:</span> <span class="kt">Char</span><span class="o">,</span>
-        <span class="k">override</span> <span class="k">val</span> <span class="n">width</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span>
-        <span class="k">override</span> <span class="k">val</span> <span class="n">heigth</span><span class="k">:</span> <span class="kt">Int</span>
-    <span class="o">)</span> <span class="k">extends</span> <span class="nc">Element</span> <span class="o">{</span>
-        <span class="k">private</span> <span class="k">val</span> <span class="n">line</span> <span class="k">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">toString</span> <span class="o">*</span> <span class="n">width</span>
-        <span class="k">def</span> <span class="n">contents</span> <span class="k">=</span> <span class="nc">Array</span><span class="o">.</span><span class="n">fill</span><span class="o">(</span><span class="n">height</span><span class="o">)(</span><span class="n">line</span><span class="o">)</span>
-    <span class="o">}</span> 
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UniformElement</span><span class="p">(</span>
+<span class="w">        </span><span class="n">ch</span><span class="p">:</span><span class="w"> </span><span class="nc">Char</span><span class="p">,</span>
+<span class="w">        </span><span class="k">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">width</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">,</span>
+<span class="w">        </span><span class="k">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">heigth</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ch</span><span class="p">.</span><span class="n">toString</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span>
+<span class="w">        </span><span class="k">def</span><span class="w"> </span><span class="nf">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Array</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="n">height</span><span class="p">)(</span><span class="n">line</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
 
-    <span class="c1">// FACTORY</span>
-    <span class="k">def</span> <span class="n">elem</span><span class="o">(</span><span class="n">contents</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Element</span> <span class="o">=</span>
-        <span class="k">new</span> <span class="nc">ArrayElement</span><span class="o">(</span><span class="n">contents</span><span class="o">)</span>
+<span class="w">    </span><span class="c1">// FACTORY</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">elem</span><span class="p">(</span><span class="n">contents</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nc">ArrayElement</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="n">elem</span><span class="o">(</span><span class="n">chr</span><span class="k">:</span> <span class="kt">Char</span><span class="o">,</span> <span class="n">width</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">heigth</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Element</span> <span class="o">=</span> 
-        <span class="k">new</span> <span class="nc">UniformElement</span><span class="o">(</span><span class="n">chr</span><span class="o">,</span> <span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">)</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">elem</span><span class="p">(</span><span class="n">chr</span><span class="p">:</span><span class="w"> </span><span class="nc">Char</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">,</span><span class="w"> </span><span class="n">heigth</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">):</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nc">UniformElement</span><span class="p">(</span><span class="n">chr</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="n">elem</span><span class="o">(</span><span class="n">line</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Elem</span> <span class="o">=</span>
-        <span class="k">new</span> <span class="nc">LineElement</span><span class="o">(</span><span class="n">line</span><span class="o">)</span>
-<span class="o">}</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">elem</span><span class="p">(</span><span class="n">line</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">):</span><span class="w"> </span><span class="nc">Elem</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nc">LineElement</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Objects creation are centralized and the details now are hidden. </p>
 <div class="admonition tip">
@@ -822,29 +847,29 @@ According to the <a href="https://stackoverflow.com/a/584732/1977778">Liskov Pri
 </div>
 <h3 id="factory-method">Factory method</h3>
 <p>In Java you can create a private constructor by making it <code>private</code>. In Scala one can achieve the same behaviour prepending the <code>private</code> modifier to the default constructor. </p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Point</span> <span class="k">private</span><span class="o">(</span><span class="n">coordX</span><span class="k">:</span> <span class="kt">Float</span><span class="o">,</span> <span class="n">coordY</span><span class="k">:</span> <span class="kt">Float</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">val</span> <span class="n">x</span> <span class="k">=</span> <span class="n">coordX</span>
-    <span class="k">val</span> <span class="n">y</span> <span class="k">=</span> <span class="n">coordY</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="k">private</span><span class="p">(</span><span class="n">coordX</span><span class="p">:</span><span class="w"> </span><span class="nc">Float</span><span class="p">,</span><span class="w"> </span><span class="n">coordY</span><span class="p">:</span><span class="w"> </span><span class="nc">Float</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coordX</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coordY</span>
 
-    <span class="cm">/** Public auxiliary constructor</span>
+<span class="w">    </span><span class="cm">/** Public auxiliary constructor</span>
 <span class="cm">      * Setting the point at the origin of the Cartesian axes</span>
 <span class="cm">      * calling the default private constructor using the </span>
-<span class="cm">      */</span> 
-    <span class="k">def</span> <span class="k">this</span><span class="o">()</span> <span class="k">=</span> <span class="k">this</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">)</span>
+<span class="cm">      */</span><span class="w"> </span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">this</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">this</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="n">getPoint</span> <span class="k">=</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span>
-<span class="o">}</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">getPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>You cannot instantiate a new point using the default constructor:</p>
-<div class="highlight"><pre><span></span><code><span class="k">val</span> <span class="n">errorPoint</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">45.9</span><span class="o">,</span> <span class="mf">21.08</span><span class="o">)</span> <span class="c1">// ERROR</span>
-<span class="k">val</span> <span class="n">correctPoint</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">()</span> <span class="c1">// (0.0, 0.0)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">errorPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Point</span><span class="p">(</span><span class="mf">45.9</span><span class="p">,</span><span class="w"> </span><span class="mf">21.08</span><span class="p">)</span><span class="w"> </span><span class="c1">// ERROR</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">correctPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Point</span><span class="p">()</span><span class="w"> </span><span class="c1">// (0.0, 0.0)</span>
 </code></pre></div>
 <p>A possible solution to define a new <code>Point</code> is given by the usage of a <em>companion object</em> and a <strong>factory method</strong> that will give us a convenient way to define a new object, without actually call the <code>new</code> operator. To do so one can add the <code>apply()</code> method to the newly created object, which will have the same acess rights to the <code>Point</code> class if placed in the same file.</p>
 <p>Therefore, the <code>apply()</code> method will be able to use the private construction of the <code>Point</code> class and then it will become a <strong>factory method</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Point</span><span class="o">[</span><span class="kt">T</span> <span class="k">&lt;:</span> <span class="kt">Double</span><span class="o">]</span> <span class="k">private</span><span class="o">(</span><span class="n">coordX</span><span class="k">:</span> <span class="kt">T</span><span class="o">,</span> <span class="n">coordY</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
-<span class="k">object</span> <span class="nc">Point</span> <span class="o">{</span>
-    <span class="k">def</span> <span class="n">apply</span><span class="o">[</span><span class="kt">T</span> <span class="k">&lt;:</span> <span class="kt">Double</span><span class="o">](</span><span class="n">x</span><span class="k">:</span> <span class="kt">T</span><span class="o">,</span> <span class="n">y</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span>
-<span class="o">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">[</span><span class="nc">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="nc">Double</span><span class="p">]</span><span class="w"> </span><span class="k">private</span><span class="p">(</span><span class="n">coordX</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">coordY</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<span class="k">object</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">[</span><span class="nc">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="nc">Double</span><span class="p">](</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Point</span><span class="p">[</span><span class="nc">T</span><span class="p">](</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 <h2 id="collections">Collections</h2>
 <p>Scala defines several collection classes:</p>
@@ -873,196 +898,157 @@ According to the <a href="https://stackoverflow.com/a/584732/1977778">Liskov Pri
 <h4 id="collections-snippet">Collections snippet</h4>
 <div class="admonition snippet">
 <p class="admonition-title">Snippet</p>
-<div class="highlight"><pre><span></span><code><span class="k">val</span> <span class="n">r</span><span class="k">:</span> <span class="kt">Range</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">until</span> <span class="mi">5</span> <span class="c1">// 1, 2, 3, 4</span>
-<span class="k">val</span> <span class="n">s</span><span class="k">:</span> <span class="kt">Range</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">5</span>    <span class="c1">// 1, 2, 3, 4, 5</span>
-<span class="mi">1</span> <span class="n">to</span> <span class="mi">10</span> <span class="n">by</span> <span class="mi">3</span>  <span class="c1">// 1, 4, 7, 10</span>
-<span class="mi">6</span> <span class="n">to</span> <span class="mi">1</span> <span class="n">by</span> <span class="o">-</span><span class="mi">2</span>  <span class="c1">// 6, 4, 2</span>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">r</span><span class="p">:</span><span class="w"> </span><span class="nc">Range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="c1">// 1, 2, 3, 4</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nc">Range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">5</span><span class="w">    </span><span class="c1">// 1, 2, 3, 4, 5</span>
+<span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span><span class="c1">// 1, 4, 7, 10</span>
+<span class="mi">6</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w">  </span><span class="c1">// 6, 4, 2</span>
 
 <span class="c1">// Operations on sequences</span>
-<span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(...)</span>
-<span class="n">xs</span><span class="o">.</span><span class="n">length</span>   <span class="c1">// number of elements, complexity O(n)</span>
-<span class="n">xs</span><span class="o">.</span><span class="n">last</span>     <span class="c1">// last element (exception if xs is empty), complexity O(n)</span>
-<span class="n">xs</span><span class="o">.</span><span class="n">init</span>     <span class="c1">// all elements of xs but the last (exception if xs is empty), complexity O(n)</span>
-<span class="n">xs</span> <span class="n">take</span> <span class="n">n</span>   <span class="c1">// first n elements of xs</span>
-<span class="n">xs</span> <span class="n">drop</span> <span class="n">n</span>   <span class="c1">// the rest of the collection after taking n elements</span>
-<span class="n">xs</span><span class="o">(</span><span class="n">n</span><span class="o">)</span>       <span class="c1">// the nth element of xs, complexity O(n)</span>
-<span class="n">xs</span> <span class="o">++</span> <span class="n">ys</span>    <span class="c1">// concatenation, complexity O(n)</span>
-<span class="n">xs</span><span class="o">.</span><span class="n">reverse</span>  <span class="c1">// reverse the order, complexity O(n)</span>
-<span class="n">xs</span> <span class="n">updated</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">x</span><span class="o">)</span>  <span class="c1">// same list than xs, except at index n where it contains x, complexity O(n)</span>
-<span class="n">xs</span> <span class="n">indexOf</span> <span class="n">x</span>      <span class="c1">// the index of the first element equal to x (-1 otherwise)</span>
-<span class="n">xs</span> <span class="n">contains</span> <span class="n">x</span>     <span class="c1">// same as xs indexOf x &gt;= 0</span>
-<span class="n">xs</span> <span class="n">filter</span> <span class="n">p</span>       <span class="c1">// returns a list of the elements that satisfy the predicate p</span>
-<span class="n">xs</span> <span class="n">filterNot</span> <span class="n">p</span>    <span class="c1">// filter with negated p </span>
-<span class="n">xs</span> <span class="n">partition</span> <span class="n">p</span>    <span class="c1">// same as (xs filter p, xs filterNot p)</span>
-<span class="n">xs</span> <span class="n">takeWhile</span> <span class="n">p</span>    <span class="c1">// the longest prefix consisting of elements that satisfy p</span>
-<span class="n">xs</span> <span class="n">dropWhile</span> <span class="n">p</span>    <span class="c1">// the remainder of the list after any leading element satisfying p have been removed</span>
-<span class="n">xs</span> <span class="n">span</span> <span class="n">p</span>         <span class="c1">// same as (xs takeWhile p, xs dropWhile p)</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">List</span><span class="p">(...)</span>
+<span class="n">xs</span><span class="p">.</span><span class="n">length</span><span class="w">   </span><span class="c1">// number of elements, complexity O(n)</span>
+<span class="n">xs</span><span class="p">.</span><span class="n">last</span><span class="w">     </span><span class="c1">// last element (exception if xs is empty), complexity O(n)</span>
+<span class="n">xs</span><span class="p">.</span><span class="n">init</span><span class="w">     </span><span class="c1">// all elements of xs but the last (exception if xs is empty), complexity O(n)</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">n</span><span class="w">   </span><span class="c1">// first n elements of xs</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">drop</span><span class="w"> </span><span class="n">n</span><span class="w">   </span><span class="c1">// the rest of the collection after taking n elements</span>
+<span class="n">xs</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">       </span><span class="c1">// the nth element of xs, complexity O(n)</span>
+<span class="n">xs</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">ys</span><span class="w">    </span><span class="c1">// concatenation, complexity O(n)</span>
+<span class="n">xs</span><span class="p">.</span><span class="n">reverse</span><span class="w">  </span><span class="c1">// reverse the order, complexity O(n)</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">updated</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w">  </span><span class="c1">// same list than xs, except at index n where it contains x, complexity O(n)</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">indexOf</span><span class="w"> </span><span class="n">x</span><span class="w">      </span><span class="c1">// the index of the first element equal to x (-1 otherwise)</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">x</span><span class="w">     </span><span class="c1">// same as xs indexOf x &gt;= 0</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">p</span><span class="w">       </span><span class="c1">// returns a list of the elements that satisfy the predicate p</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">filterNot</span><span class="w"> </span><span class="n">p</span><span class="w">    </span><span class="c1">// filter with negated p </span>
+<span class="n">xs</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">p</span><span class="w">    </span><span class="c1">// same as (xs filter p, xs filterNot p)</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">takeWhile</span><span class="w"> </span><span class="n">p</span><span class="w">    </span><span class="c1">// the longest prefix consisting of elements that satisfy p</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">dropWhile</span><span class="w"> </span><span class="n">p</span><span class="w">    </span><span class="c1">// the remainder of the list after any leading element satisfying p have been removed</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">span</span><span class="w"> </span><span class="n">p</span><span class="w">         </span><span class="c1">// same as (xs takeWhile p, xs dropWhile p)</span>
 
-<span class="nc">List</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="o">...,</span> <span class="n">xn</span><span class="o">)</span> <span class="n">reduceLeft</span> <span class="n">op</span>    <span class="c1">// (...(x1 op x2) op x3) op ...) op xn</span>
-<span class="nc">List</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="o">...,</span> <span class="n">xn</span><span class="o">).</span><span class="n">foldLeft</span><span class="o">(</span><span class="n">z</span><span class="o">)(</span><span class="n">op</span><span class="o">)</span>  <span class="c1">// (...( z op x1) op x2) op ...) op xn</span>
-<span class="nc">List</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="o">...,</span> <span class="n">xn</span><span class="o">)</span> <span class="n">reduceRight</span> <span class="n">op</span>   <span class="c1">// x1 op (... (x{n-1} op xn) ...)</span>
-<span class="nc">List</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="o">...,</span> <span class="n">xn</span><span class="o">).</span><span class="n">foldRight</span><span class="o">(</span><span class="n">z</span><span class="o">)(</span><span class="n">op</span><span class="o">)</span> <span class="c1">// x1 op (... (    xn op  z) ...)</span>
+<span class="nc">List</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">xn</span><span class="p">)</span><span class="w"> </span><span class="n">reduceLeft</span><span class="w"> </span><span class="n">op</span><span class="w">    </span><span class="c1">// (...(x1 op x2) op x3) op ...) op xn</span>
+<span class="nc">List</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">xn</span><span class="p">).</span><span class="n">foldLeft</span><span class="p">(</span><span class="n">z</span><span class="p">)(</span><span class="n">op</span><span class="p">)</span><span class="w">  </span><span class="c1">// (...( z op x1) op x2) op ...) op xn</span>
+<span class="nc">List</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">xn</span><span class="p">)</span><span class="w"> </span><span class="n">reduceRight</span><span class="w"> </span><span class="n">op</span><span class="w">   </span><span class="c1">// x1 op (... (x{n-1} op xn) ...)</span>
+<span class="nc">List</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">xn</span><span class="p">).</span><span class="n">foldRight</span><span class="p">(</span><span class="n">z</span><span class="p">)(</span><span class="n">op</span><span class="p">)</span><span class="w"> </span><span class="c1">// x1 op (... (    xn op  z) ...)</span>
 
-<span class="n">xs</span> <span class="n">exists</span> <span class="n">p</span>    <span class="c1">// true if there is at least one element for which predicate p is true</span>
-<span class="n">xs</span> <span class="n">forall</span> <span class="n">p</span>    <span class="c1">// true if p(x) is true for all elements</span>
-<span class="n">xs</span> <span class="n">zip</span> <span class="n">ys</span>      <span class="c1">// returns a list of pairs which groups elements with same index together</span>
-<span class="n">xs</span> <span class="n">unzip</span>       <span class="c1">// opposite of zip: returns a pair of two lists</span>
-<span class="n">xs</span><span class="o">.</span><span class="n">flatMap</span> <span class="n">f</span>   <span class="c1">// applies the function to all elements and concatenates the result</span>
-<span class="n">xs</span><span class="o">.</span><span class="n">sum</span>         <span class="c1">// sum of elements of the numeric collection</span>
-<span class="n">xs</span><span class="o">.</span><span class="n">product</span>     <span class="c1">// product of elements of the numeric collection</span>
-<span class="n">xs</span><span class="o">.</span><span class="n">max</span>         <span class="c1">// maximum of collection</span>
-<span class="n">xs</span><span class="o">.</span><span class="n">min</span>         <span class="c1">// minimum of collection</span>
-<span class="n">xs</span><span class="o">.</span><span class="n">flatten</span>     <span class="c1">// flattens a collection of collection into a single-level collection</span>
-<span class="n">xs</span> <span class="n">groupBy</span> <span class="n">f</span>   <span class="c1">// returns a map which points to a list of elements</span>
-<span class="n">xs</span> <span class="n">distinct</span>    <span class="c1">// sequence of distinct entries (removes duplicates)</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="n">p</span><span class="w">    </span><span class="c1">// true if there is at least one element for which predicate p is true</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">forall</span><span class="w"> </span><span class="n">p</span><span class="w">    </span><span class="c1">// true if p(x) is true for all elements</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">zip</span><span class="w"> </span><span class="n">ys</span><span class="w">      </span><span class="c1">// returns a list of pairs which groups elements with same index together</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">unzip</span><span class="w">       </span><span class="c1">// opposite of zip: returns a pair of two lists</span>
+<span class="n">xs</span><span class="p">.</span><span class="n">flatMap</span><span class="w"> </span><span class="n">f</span><span class="w">   </span><span class="c1">// applies the function to all elements and concatenates the result</span>
+<span class="n">xs</span><span class="p">.</span><span class="n">sum</span><span class="w">         </span><span class="c1">// sum of elements of the numeric collection</span>
+<span class="n">xs</span><span class="p">.</span><span class="n">product</span><span class="w">     </span><span class="c1">// product of elements of the numeric collection</span>
+<span class="n">xs</span><span class="p">.</span><span class="n">max</span><span class="w">         </span><span class="c1">// maximum of collection</span>
+<span class="n">xs</span><span class="p">.</span><span class="n">min</span><span class="w">         </span><span class="c1">// minimum of collection</span>
+<span class="n">xs</span><span class="p">.</span><span class="n">flatten</span><span class="w">     </span><span class="c1">// flattens a collection of collection into a single-level collection</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">groupBy</span><span class="w"> </span><span class="n">f</span><span class="w">   </span><span class="c1">// returns a map which points to a list of elements</span>
+<span class="n">xs</span><span class="w"> </span><span class="n">distinct</span><span class="w">    </span><span class="c1">// sequence of distinct entries (removes duplicates)</span>
 
-<span class="n">x</span> <span class="o">+:</span> <span class="n">xs</span>  <span class="c1">// creates a new collection with leading element x</span>
-<span class="n">xs</span> <span class="o">:+</span> <span class="n">x</span>  <span class="c1">// creates a new collection with trailing element x</span>
+<span class="n">x</span><span class="w"> </span><span class="o">+:</span><span class="w"> </span><span class="n">xs</span><span class="w">  </span><span class="c1">// creates a new collection with leading element x</span>
+<span class="n">xs</span><span class="w"> </span><span class="o">:+</span><span class="w"> </span><span class="n">x</span><span class="w">  </span><span class="c1">// creates a new collection with trailing element x</span>
 
 <span class="c1">// Operations on maps</span>
-<span class="k">val</span> <span class="n">myMap</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span><span class="s">&quot;I&quot;</span> <span class="o">-&gt;</span> <span class="mi">1</span><span class="o">,</span> <span class="s">&quot;V&quot;</span> <span class="o">-&gt;</span> <span class="mi">5</span><span class="o">,</span> <span class="s">&quot;X&quot;</span> <span class="o">-&gt;</span> <span class="mi">10</span><span class="o">)</span>  <span class="c1">// create a map</span>
-<span class="n">myMap</span><span class="o">(</span><span class="s">&quot;I&quot;</span><span class="o">)</span>      <span class="c1">// =&gt; 1  </span>
-<span class="n">myMap</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">)</span>      <span class="c1">// =&gt; java.util.NoSuchElementException  </span>
-<span class="n">myMap</span> <span class="n">get</span> <span class="s">&quot;A&quot;</span>   <span class="c1">// =&gt; None </span>
-<span class="n">myMap</span> <span class="n">get</span> <span class="s">&quot;I&quot;</span>   <span class="c1">// =&gt; Some(1)</span>
-<span class="n">myMap</span><span class="o">.</span><span class="n">updated</span><span class="o">(</span><span class="s">&quot;V&quot;</span><span class="o">,</span> <span class="mi">15</span><span class="o">)</span>  <span class="c1">// returns a new map where &quot;V&quot; maps to 15 (entry is updated)</span>
-                        <span class="c1">// if the key (&quot;V&quot; here) does not exist, a new entry is added</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">myMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;I&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;V&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;X&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w">  </span><span class="c1">// create a map</span>
+<span class="n">myMap</span><span class="p">(</span><span class="s">&quot;I&quot;</span><span class="p">)</span><span class="w">      </span><span class="c1">// =&gt; 1  </span>
+<span class="n">myMap</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span><span class="w">      </span><span class="c1">// =&gt; java.util.NoSuchElementException  </span>
+<span class="n">myMap</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="w">   </span><span class="c1">// =&gt; None </span>
+<span class="n">myMap</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="s">&quot;I&quot;</span><span class="w">   </span><span class="c1">// =&gt; Some(1)</span>
+<span class="n">myMap</span><span class="p">.</span><span class="n">updated</span><span class="p">(</span><span class="s">&quot;V&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w">  </span><span class="c1">// returns a new map where &quot;V&quot; maps to 15 (entry is updated)</span>
+<span class="w">                        </span><span class="c1">// if the key (&quot;V&quot; here) does not exist, a new entry is added</span>
 
 <span class="c1">// Operations on Streams</span>
-<span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
-<span class="k">val</span> <span class="n">xs</span> <span class="k">=</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">cons</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">cons</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">cons</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">empty</span><span class="o">)))</span> <span class="c1">// same as above</span>
-<span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">1000</span><span class="o">).</span><span class="n">toStream</span> <span class="c1">// =&gt; Stream(1, ?)</span>
-<span class="n">x</span> <span class="o">#::</span> <span class="n">xs</span> <span class="c1">// Same as Stream.cons(x, xs)</span>
-            <span class="c1">// In the Stream&#39;s cons operator, the second parameter (the tail)</span>
-            <span class="c1">// is defined as a &quot;call by name&quot; parameter.</span>
-            <span class="c1">// Note that x::xs always produces a List</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Stream</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Stream</span><span class="p">.</span><span class="n">cons</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nc">Stream</span><span class="p">.</span><span class="n">cons</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nc">Stream</span><span class="p">.</span><span class="n">cons</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nc">Stream</span><span class="p">.</span><span class="n">empty</span><span class="p">)))</span><span class="w"> </span><span class="c1">// same as above</span>
+<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">1000</span><span class="p">).</span><span class="n">toStream</span><span class="w"> </span><span class="c1">// =&gt; Stream(1, ?)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">#::</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="c1">// Same as Stream.cons(x, xs)</span>
+<span class="w">            </span><span class="c1">// In the Stream&#39;s cons operator, the second parameter (the tail)</span>
+<span class="w">            </span><span class="c1">// is defined as a &quot;call by name&quot; parameter.</span>
+<span class="w">            </span><span class="c1">// Note that x::xs always produces a List</span>
 </code></pre></div>
 </div>
 <h4 id="pairs-similar-for-larger-tuples">Pairs (similar for larger Tuples)</h4>
-<div class="highlight"><pre><span></span><code>    <span class="k">val</span> <span class="n">pair</span> <span class="k">=</span> <span class="o">(</span><span class="s">&quot;answer&quot;</span><span class="o">,</span> <span class="mi">42</span><span class="o">)</span>   <span class="c1">// type: (String, Int)</span>
-    <span class="k">val</span> <span class="n">x</span> <span class="k">=</span> <span class="o">(</span><span class="s">&quot;x&quot;</span> <span class="o">-&gt;</span> <span class="mi">90</span><span class="o">)</span>         <span class="c1">// type: (String, Int)</span>
-    <span class="k">val</span> <span class="n">y</span> <span class="k">=</span> <span class="o">(</span><span class="s">&quot;y&quot;</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="mi">5</span><span class="o">)</span>         <span class="c1">// type: (String, Int)</span>
-    <span class="k">val</span> <span class="n">z</span> <span class="k">=</span> <span class="o">(</span><span class="s">&quot;z&quot;</span> <span class="o">-&gt;</span> <span class="mi">0</span><span class="o">)</span>          <span class="c1">// type: (String, Int)</span>
-    <span class="k">val</span> <span class="o">(</span><span class="n">label</span><span class="o">,</span> <span class="n">value</span><span class="o">)</span> <span class="k">=</span> <span class="n">pair</span>   <span class="c1">// label = &quot;answer&quot;, value = 42  </span>
-    <span class="n">pair</span><span class="o">.</span><span class="n">_1</span> <span class="c1">// &quot;answer&quot;  </span>
-    <span class="n">pair</span><span class="o">.</span><span class="n">_2</span> <span class="c1">// 42  </span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;answer&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span><span class="w">   </span><span class="c1">// type: (String, Int)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">90</span><span class="p">)</span><span class="w">         </span><span class="c1">// type: (String, Int)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="w">         </span><span class="c1">// type: (String, Int)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">          </span><span class="c1">// type: (String, Int)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="p">(</span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="w">   </span><span class="c1">// label = &quot;answer&quot;, value = 42  </span>
+<span class="w">    </span><span class="n">pair</span><span class="p">.</span><span class="n">_1</span><span class="w"> </span><span class="c1">// &quot;answer&quot;  </span>
+<span class="w">    </span><span class="n">pair</span><span class="p">.</span><span class="n">_2</span><span class="w"> </span><span class="c1">// 42  </span>
 </code></pre></div>
 <h4 id="ordering">Ordering</h4>
 <p>There is already a class in the standard library that represents orderings: <code>scala.math.Ordering[T]</code> which contains
 comparison functions such as <code>lt()</code> and <code>gt()</code> for standard types. Types with a single natural ordering should inherit from 
 the trait <code>scala.math.Ordered[T]</code>.
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nn">math.Ordering</span>  
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">math</span><span class="p">.</span><span class="nc">Ordering</span><span class="w">  </span>
 
-<span class="k">def</span> <span class="n">msort</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">T</span><span class="o">])(</span><span class="k">implicit</span> <span class="n">ord</span><span class="k">:</span> <span class="kt">Ordering</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span> <span class="o">...}</span>  
-<span class="n">msort</span><span class="o">(</span><span class="n">fruits</span><span class="o">)(</span><span class="nc">Ordering</span><span class="o">.</span><span class="nc">String</span><span class="o">)</span>  
-<span class="n">msort</span><span class="o">(</span><span class="n">fruits</span><span class="o">)</span>   <span class="c1">// the compiler figures out the right ordering  </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">msort</span><span class="p">[</span><span class="nc">T</span><span class="p">](</span><span class="n">xs</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">T</span><span class="p">])(</span><span class="k">implicit</span><span class="w"> </span><span class="n">ord</span><span class="p">:</span><span class="w"> </span><span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...}</span><span class="w">  </span>
+<span class="n">msort</span><span class="p">(</span><span class="n">fruits</span><span class="p">)(</span><span class="nc">Ordering</span><span class="p">.</span><span class="nc">String</span><span class="p">)</span><span class="w">  </span>
+<span class="n">msort</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span><span class="w">   </span><span class="c1">// the compiler figures out the right ordering  </span>
 </code></pre></div></p>
 <h3 id="typeclass">Typeclass</h3>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
 <p><em>[...] Type class is a class (group) of types, which satisfy some contract defined in a trait with addition that such functionality (trait and implementation) can be added without any changes to the original code. One could say that the same could be achieved by extending a simple trait, but with type classes it is not necessary to predict such a need beforehand.</em></p>
-<p><em>There is no special syntax in Scala to express a type class, but the same functionality can be achieved using constructs that already exist in the language. **That’s what makes it a little difficult for newcomers to spot a type class in code. A typical implementation of a type class uses some syntactic sugar as well, which also doesn’t make it clear right away what we are dealing with*</em>.*</p>
+<p><em>There is no special syntax in Scala to express a type class, but the same functionality can be achieved using constructs that already exist in the language. <strong>That’s what makes it a little difficult for newcomers to spot a type class in code. A typical implementation of a type class uses some syntactic sugar as well, which also doesn’t make it clear right away what we are dealing with</strong>.</em></p>
 <p><a href="https://blog.scalac.io/2017/04/19/typeclasses-in-scala.html">https://blog.scalac.io/2017/04/19/typeclasses-in-scala.html</a></p>
 </div>
 <h1 id="sbt">SBT</h1>
 <ul>
 <li><a href="https://kubuszok.com/2018/relearn-your-sbt/#project">Defining dependencies and Settins in /project</a></li>
 </ul>
+
+
+
+
+
                 
-              
-              
-                
-
-
-  <h2 id="__comments">Comments</h2>
-  <div id="disqus_thread"></div>
-  <script>var disqus_config=function(){this.page.url="https://torre.me.uk/docs/scala/",this.page.identifier="/scala/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//alfredotorre.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
-
-              
-            </article>
-          </div>
+              </article>
+            </div>
+          
+          
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../category_theory/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Category Theory
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../kubernetes/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Kubernetes
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://github.com/sentenza" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://github.com/sentenza" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
-      <script src="../assets/javascripts/vendor.0ac82a11.min.js"></script>
-      <script src="../assets/javascripts/bundle.f81dfb4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "..",
-          features: [],
-          search: Object.assign({
-            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
       
     
   </body>
