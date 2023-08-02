@@ -131,6 +131,9 @@ If we stick to `Async`to handle errors properly we have to do something like:
 * https://avi.im/grpc-errors/#scala
 * https://github.com/avinassh/grpc-errors/blob/master/scala/src/main/scala/hello/client/HelloClient.scala
 
+### Handle Date and Time using Protobuf
+* [Date and time type for use with Protobuf](https://stackoverflow.com/a/42922721/1977778)
+
 ## Scala Play and gRPC
 
 Alternative to `fs2-grpc` for Scala Play is based on **Akka gRPC**:
@@ -152,6 +155,8 @@ https://developer.lightbend.com/docs/play-grpc/0.5.0/index.html
 ## Links
 
 * https://grpc.io/docs/what-is-grpc/introduction/
+* [API documentation for the `google.protobuf` package](https://protobuf.dev/reference/protobuf/google.protobuf/)
+* [Java reference for Protobuf](https://protobuf.dev/reference/java/)
 * https://developers.google.com/protocol-buffers/docs/proto3#json
 * https://developers.google.com/protocol-buffers/docs/style
 * https://grpc.io/docs/what-is-grpc/core-concepts/
@@ -159,10 +164,10 @@ https://developer.lightbend.com/docs/play-grpc/0.5.0/index.html
 * https://medium.com/expedia-group-tech/introducing-grpc-to-our-hotels-com-platform-part-2-8024a1dda0aa
 * https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/grpc
 * https://www.vinsguru.com/grpc-introduction-guide/
-* ScalaPB https://medium.com/teads-engineering/bring-grpc-payloads-and-domain-models-closer-with-scalapb-transformations-b23a7115d427
-* ScalaPB docs: https://scalapb.github.io/docs/grpc
-* Status codes: https://grpc.github.io/grpc/core/md_doc_statuscodes.html
-* Error handling: https://www.baeldung.com/grpcs-error-handling
+* [ScalaPB](https://medium.com/teads-engineering/bring-grpc-payloads-and-domain-models-closer-with-scalapb-transformations-b23a7115d427)
+* [ScalaPB docs](https://scalapb.github.io/docs/grpc)
+* [Status codes](https://grpc.github.io/grpc/core/md_doc_statuscodes.html)
+* [Error handling](https://www.baeldung.com/grpcs-error-handling)
 
 ### Tools
 
